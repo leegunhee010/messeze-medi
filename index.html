@@ -334,7 +334,7 @@
 .md-rg-result{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 24px;border-top:1px solid #E5E8EB;font-size:16px;background:#F9FAFB;color:#333D4B}
 .md-rg-result p{margin:0}.md-rg-result b{color:#191F28}
 .md-rg-result.ok b{color:#1B64DA}
-.md-rg-result.no{display:block}.md-rg-result.no b{color:#F04452}
+.md-rg-result.no b{color:#F04452}.md-rg-result.no .md-rg-go{background:#191F28}
 .md-rg-result span{display:block;font-size:14px;color:#8B95A1;margin-top:4px}
 .md-rg-go{background:#3182F6;color:#fff;text-decoration:none;font-weight:700;font-size:15px;border-radius:10px;padding:11px 16px}
 @media(max-width:640px){.md-rg{border-radius:20px}.md-rg-bar{padding:16px}.md-rg-tabs{padding:10px 12px}.md-rg-grp{grid-template-columns:1fr;gap:6px;padding:16px}.md-rg-grp h4{margin:0}.md-rg-grp h4 small{display:inline;margin-left:4px}.md-rg-chips{grid-template-columns:repeat(3,1fr)}.md-rg-chip{font-size:14px;padding:9px 8px}.md-rg-list{max-height:420px}.md-rg-result{padding:14px 16px}}
@@ -875,9 +875,9 @@ list.addEventListener('click',function(e){
   var b=e.target.closest('.md-rg-chip');if(!b)return;
   [].forEach.call(list.querySelectorAll('.md-rg-chip.sel'),function(x){x.classList.remove('sel')});b.classList.add('sel');
   var name=b.dataset.s+' '+b.dataset.g;res.hidden=false;
-  if(b.dataset.c==='1'){res.className='md-rg-result no';res.innerHTML='<b>'+name+'</b>에는 이미 진행 중인 병원이 있어 마감되었습니다.<span>가까운 다른 지역을 확인해 보세요.</span>'}
-  else{res.className='md-rg-result ok';res.innerHTML='<p><b>'+name+'</b> 지역은 지금 진행할 수 있습니다.</p><a href="#final" class="md-rg-go">이 지역으로 상담 신청</a>';
-    res.querySelector('a').onclick=function(){var c=document.getElementById('dfCompany');if(c&&!c.value)c.value='['+name+'] '}}
+  if(b.dataset.c==='1'){res.className='md-rg-result no';res.innerHTML='<p><b>'+name+'</b>에는 이미 진행 중인 병원이 있어 마감되었습니다.<span>대기 예약을 남기시면 상담으로 안내해 드립니다.</span></p><a href="#final" class="md-rg-go">대기 예약하기</a>';res.querySelector('a').onclick=function(){var c=document.getElementById('dfCompany');if(c&&!c.value)c.value='['+name+' 대기 예약] '}}
+  else{res.className='md-rg-result ok';res.innerHTML='<p><b>'+name+'</b> 지역은 지금 진행할 수 있습니다.</p><a href="#final" class="md-rg-go">이 지역 예약하기</a>';
+    res.querySelector('a').onclick=function(){var c=document.getElementById('dfCompany');if(c&&!c.value)c.value='['+name+' 예약] '}}
 });
 inp.addEventListener('input',function(){q=inp.value.trim();if(q&&cur!=='전체')setTab('전체');draw()});
 draw();
