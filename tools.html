@@ -19,8 +19,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.min.css">
 <style>
-:root{--ink:#0A1930;--navy:#0B2B29;--body:#4A5568;--mut:#8B95A7;--cobalt:#0A8A7C;--cobalt-dk:#086B5E;
---sky:#E6F6F3;--sky-2:#F3FAF8;--mint:#0BBF8C;--amber:#F59F1E;--red:#E2574C;--line:#E5EAF2;--line-2:#D8E0EC;
+:root{--ink:#0A1930;--navy:#101F3F;--body:#4A5568;--mut:#8B95A7;--cobalt:#2B5CFF;--cobalt-dk:#1E46D9;
+--sky:#EAF1FF;--sky-2:#F5F8FD;--mint:#0BBF8C;--amber:#F59F1E;--red:#E2574C;--line:#E5EAF2;--line-2:#D8E0EC;
 --sans:'Pretendard',system-ui,-apple-system,sans-serif;--disp:var(--sans);--maxw:1140px;
 --sh-sm:0 1px 2px rgba(10,25,48,.05),0 4px 14px rgba(10,25,48,.05);--sh:0 12px 34px rgba(16,31,63,.10);--sh-lg:0 30px 70px rgba(16,31,63,.16)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -31,7 +31,7 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:kee
 .co{color:var(--cobalt)}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--cobalt)}
 .btn{font-family:var(--sans);font-weight:700;font-size:15.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;padding:15px 26px;border:1.5px solid transparent;transition:.18s}
-.btn-co{background:var(--cobalt);color:#fff;box-shadow:0 8px 22px rgba(10,138,124,.28)}
+.btn-co{background:var(--cobalt);color:#fff;box-shadow:0 8px 22px rgba(43,92,255,.28)}
 .btn-co:hover{background:var(--cobalt-dk);transform:translateY(-2px)}
 .btn-gh{background:#fff;color:var(--ink);border-color:var(--line-2)}
 .btn-gh:hover{border-color:var(--ink)}
@@ -58,10 +58,10 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:kee
 .mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 30px 60px rgba(16,31,63,.14);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.22s;padding:32px 0 36px;z-index:80}
 .mega.on{opacity:1;visibility:visible;transform:none}
 .mega-in{display:grid;grid-template-columns:225px 1fr 1fr 1fr;gap:36px;align-items:stretch}
-.mega-brand{background:linear-gradient(160deg,#0B2B29,#0A8A7C);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:225px;color:#fff;transition:.2s}
+.mega-brand{background:linear-gradient(160deg,#101F3F,#2B5CFF);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:225px;color:#fff;transition:.2s}
 .mega-brand:hover{transform:translateY(-3px)}
 .mega-brand .bw2{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:-.03em}
-.mega-brand p{font-size:12.5px;color:#BFEDE6;margin-top:8px;line-height:1.55;font-weight:600}
+.mega-brand p{font-size:12.5px;color:#C7D6FF;margin-top:8px;line-height:1.55;font-weight:600}
 .mega-col .h5x{font-size:11.5px;color:var(--mut);font-weight:800;letter-spacing:.05em;margin:0 0 8px 12px}
 .mega-col .gap{height:20px}
 .mega-col a{display:block;padding:9px 12px;border-radius:12px;transition:.15s}
@@ -90,7 +90,7 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:kee
 .tcard .badge{position:absolute;top:20px;right:20px;font-size:10.5px;font-weight:800;color:#fff;background:var(--cobalt);border-radius:999px;padding:4px 11px;letter-spacing:.03em}
 @media(max-width:720px){.tools-grid{grid-template-columns:1fr}}
 /* quiz */
-.qsec{padding:56px 0 90px;background:#F3FAF8}
+.qsec{padding:56px 0 90px;background:#F5F8FD}
 .tool-block{scroll-margin-top:88px}
 .tool-block + .tool-block{margin-top:64px;padding-top:60px;border-top:1px solid var(--line)}
 .qhead{text-align:center;max-width:980px;margin:0 auto 30px}
@@ -137,16 +137,16 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:kee
 .qretry{display:block;margin:16px auto 0;background:none;border:0;color:var(--mut);font-weight:700;font-size:13.5px;cursor:pointer}
 .qretry:hover{color:var(--ink)}
 /* cta band */
-.cta-band{max-width:var(--maxw);margin:0 auto 70px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(120deg,#0B2B29,#0A8A7C);color:#fff;border-radius:24px;padding:34px 40px;flex-wrap:wrap}
+.cta-band{max-width:var(--maxw);margin:0 auto 70px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(120deg,#101F3F,#2B5CFF);color:#fff;border-radius:24px;padding:34px 40px;flex-wrap:wrap}
 .cta-band h2{font-size:22px}
-.cta-band p{font-size:14.5px;color:#BFEDE6;margin-top:6px}
+.cta-band p{font-size:14.5px;color:#C7D6FF;margin-top:6px}
 .cta-band .btn{background:#fff;color:var(--ink)}
 /* foot */
-.foot{background:#061614;color:#7C879D;padding:52px 0 38px}
+.foot{background:#070D1C;color:#7C879D;padding:52px 0 38px}
 .foot-in{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
 .foot .brand{color:#fff;margin-bottom:14px}
 .foot p{font-size:13.5px;line-height:1.7;max-width:320px}
-.foot-b{margin-top:38px;padding-top:22px;border-top:1px solid #122A27;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#4E5A73}
+.foot-b{margin-top:38px;padding-top:22px;border-top:1px solid #141C30;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#4E5A73}
 @media(max-width:820px){.nav-menu{display:none}.cta-band{text-align:center;justify-content:center}}
 </style>
 <!-- auto-meta:start -->
@@ -166,7 +166,7 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:kee
 <meta name="twitter:image" content="https://messeze.com/assets/og.png?v=20260819">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#0A8A7C">
+<meta name="theme-color" content="#2B5CFF">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -315,7 +315,7 @@ gtag('config','G-Q0MY05XMLC');
 gtag('config','AW-18400024238');
 </script>
 <!-- google-tag:end -->
-<style>.brand{display:inline-flex!important;align-items:center;gap:8px}.medi-tag{flex:0 0 auto;white-space:nowrap;font-size:13px;font-weight:800;letter-spacing:-.01em;color:#fff;background:#0A8A7C;border-radius:6px;padding:3px 7px;line-height:1.2}.medi-tag.w{background:#fff;color:#0A2A27}</style>
+<style>.brand{display:inline-flex!important;align-items:center;gap:8px}.medi-tag{flex:0 0 auto;white-space:nowrap;font-size:13px;font-weight:800;letter-spacing:-.01em;color:#fff;background:#3182F6;border-radius:6px;padding:3px 7px;line-height:1.2}.medi-tag.w{background:#fff;color:#0E1A33}</style>
 </head>
 <body id="top">
 
@@ -354,7 +354,6 @@ gtag('config','AW-18400024238');
     <div class="mega-col">
       <div class="h5x">리소스</div>
       <a href="index.html#region"><b>우리 지역 확인</b><span>우리 병원 지역 진행 가능 여부</span></a>
-      <a href="blog/index.html"><b>블로그</b><span>AI 검색 시대의 홍보 인사이트</span></a>
     </div>
   </div></div>
 </header>
@@ -417,13 +416,13 @@ gtag('config','AW-18400024238');
   <a class="btn" href="index.html#final" data-copy="final.cta">무료 상담 신청하기</a>
 </div>
 
-<footer class="foot"><style>.foot{background:#061614;color:#7C879D;padding:60px 0 42px;font-size:13.5px}.foot a{color:inherit;text-decoration:none}.foot .wrap{max-width:1140px;margin:0 auto;padding:0 24px}.foot-in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}.foot .brand{color:#fff;margin-bottom:16px;display:inline-block}.foot p{font-size:13.5px;line-height:1.7;max-width:320px;margin:0}.foot-info{font-size:12.5px;line-height:1.7;color:#7C879D;margin-top:14px}.foot-cols{display:flex;gap:56px}.foot-col .h5x{color:#C3CBDC;font-size:13.5px;margin:0 0 15px;font-weight:800}.foot-col a{display:block;font-size:14px;margin-bottom:10px}.foot-col a:hover{color:#fff}.foot-b{margin-top:46px;padding-top:24px;border-top:1px solid #122A27;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#4E5A73}@media(max-width:720px){.foot-cols{gap:32px;flex-wrap:wrap}}</style><div class="wrap"><div class="foot-in">
+<footer class="foot"><style>.foot{background:#070D1C;color:#7C879D;padding:60px 0 42px;font-size:13.5px}.foot a{color:inherit;text-decoration:none}.foot .wrap{max-width:1140px;margin:0 auto;padding:0 24px}.foot-in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}.foot .brand{color:#fff;margin-bottom:16px;display:inline-block}.foot p{font-size:13.5px;line-height:1.7;max-width:320px;margin:0}.foot-info{font-size:12.5px;line-height:1.7;color:#7C879D;margin-top:14px}.foot-cols{display:flex;gap:56px}.foot-col .h5x{color:#C3CBDC;font-size:13.5px;margin:0 0 15px;font-weight:800}.foot-col a{display:block;font-size:14px;margin-bottom:10px}.foot-col a:hover{color:#fff}.foot-b{margin-top:46px;padding-top:24px;border-top:1px solid #141C30;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#4E5A73}@media(max-width:720px){.foot-cols{gap:32px;flex-wrap:wrap}}</style><div class="wrap"><div class="foot-in">
 <div><a class="brand" href="index.html"><img src="assets/logo-white.png" alt="메세지AI 메디 (messeze medi)" style="height:24px;width:auto;display:block"><span class="medi-tag w">메디</span></a>
 <p>메세지AI 메디는 병원 홈페이지와 플레이스를 AI가 읽는 구조로 정비해 네이버 웹사이트 영역과 ChatGPT·구글 AI 답변에 병원이 나오게 하는 병원 전용 서비스입니다.</p>
 <div class="foot-info">메세지AI · 상호 주식회사 퍼스트마케팅컴퍼니 · 대표 김우석<br>사업자등록번호 884-88-01123 · 통신판매업 신고 2021-대구동구-0697<br>대구 본사: 대구광역시 중구 국채보상로 488 (동산동) 섬유회관 3층<br>서울 사무소: 서울시 광진구 능동로49길 9, 2F<br>대표번호 1600-9487 · sales@firstmkt.co.kr<br>개인정보관리책임자 김우석 (work@firstmkt.co.kr)</div></div>
 <div class="foot-cols">
 <div class="foot-col"><div class="h5x">서비스</div><a href="services/visibility.html">서비스 상세</a><a href="pricing.html">요금</a><a href="check.html">AI 노출 진단</a></div>
-<div class="foot-col"><div class="h5x">리소스</div><a href="blog/index.html">블로그</a><a href="faq.html">FAQ</a></div>
+<div class="foot-col"><div class="h5x">리소스</div><a href="faq.html">FAQ</a></div>
 <div class="foot-col"><div class="h5x">회사</div><a href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener">카카오톡 상담</a><a href="index.html#final">상담 신청</a><a href="index.html#final">무료 진단</a></div>
 </div>
 </div><div class="foot-b"><span>© 2026 메세지AI 메디</span><span>사람에게만 보이는 홍보에서, AI가 읽는 홍보로</span></div></div></footer>
