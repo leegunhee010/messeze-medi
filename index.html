@@ -351,17 +351,17 @@
 .md-rg-go{background:#3182F6;color:#fff;text-decoration:none;font-weight:700;font-size:15px;border-radius:10px;padding:11px 16px}
 @media(max-width:640px){.md-rg{border-radius:20px}.md-rg-bar{padding:16px}.md-rg-tabs{padding:10px 12px}.md-rg-grp{grid-template-columns:1fr;gap:6px;padding:16px}.md-rg-grp h4{margin:0}.md-rg-grp h4 small{display:inline;margin-left:4px}.md-rg-chips{grid-template-columns:repeat(3,1fr)}.md-rg-chip{font-size:14px;padding:9px 8px}.md-rg-list{max-height:420px}.md-rg-result{padding:14px 16px}}
 .md-talk{position:relative;height:calc(100vh + var(--steps) * 38vh);background:#0B0D12}
-.md-tk-stick{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:84px 20px 40px;box-sizing:border-box}
+.md-tk-stick{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:96px 20px 28px;box-sizing:border-box}
 .md-tk-panel{width:100%;max-width:720px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
 .md-tk-head{display:flex;align-items:center;gap:10px;padding:16px 22px;border-bottom:1px solid rgba(255,255,255,.06);font-size:14px;font-weight:600;color:#8B95A1}
 .md-tk-dot{width:8px;height:8px;border-radius:50%;background:#FF5A5F;box-shadow:0 0 0 4px rgba(255,90,95,.18)}
-.md-tk-body{display:flex;flex-direction:column;gap:16px;padding:28px 24px 30px;min-height:380px}
+.md-tk-body{display:flex;flex-direction:column;gap:12px;padding:22px 24px 24px;min-height:0}
 .md-tk-msg{display:flex;align-items:flex-end;gap:10px;max-width:82%;opacity:0;transform:translateX(-36px) scale(.96);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
 .md-tk-msg.r{align-self:flex-end;flex-direction:row-reverse;transform:translateX(36px) scale(.96)}
 .md-tk-msg.on{opacity:1;transform:none}
-.md-tk-msg b{display:block;font-size:12px;font-weight:700;color:#6B7684;margin:0 4px 6px}
+.md-tk-msg b{display:block;font-size:11.5px;font-weight:700;color:#6B7684;margin:0 4px 4px}
 .md-tk-msg.r b{text-align:right}
-.md-tk-msg p{margin:0;padding:14px 18px;border-radius:20px;font-size:clamp(16px,1.6vw,19px);line-height:1.5;font-weight:500;word-break:keep-all}
+.md-tk-msg p{margin:0;padding:12px 16px;border-radius:18px;font-size:clamp(15px,1.4vw,17px);line-height:1.5;font-weight:500;word-break:keep-all}
 .md-tk-msg.l p{background:#23262E;color:#ECEEF1;border-bottom-left-radius:6px}
 .md-tk-msg.r p{background:#3182F6;color:#fff;border-bottom-right-radius:6px}
 .md-tk-av{flex:0 0 auto;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center}
@@ -374,10 +374,10 @@
 .md-tk-typing.r i{background:#CFE0FF}
 .md-tk-typing i:nth-child(2){animation-delay:.15s}.md-tk-typing i:nth-child(3){animation-delay:.3s}
 @keyframes mdtype{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
-.md-tk-hint{margin:22px 0 0;font-size:13px;color:#5C6573;transition:opacity .3s}
+.md-tk-title{margin:0 0 22px;text-align:center;color:#fff;font-size:clamp(26px,3.2vw,42px);line-height:1.25;font-weight:800;letter-spacing:-.025em;word-break:keep-all}.md-tk-after{margin:22px 0 0;text-align:center;color:#AEB9CC;font-size:clamp(15px,1.5vw,18px);line-height:1.6;opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s;word-break:keep-all}.md-tk-after.on{opacity:1;transform:none}
 .md-talk.done .md-tk-hint{opacity:0}
-@media(max-width:640px){.md-tk-body{padding:22px 16px;gap:12px;min-height:340px}.md-tk-msg{max-width:90%}.md-tk-av{width:30px;height:30px}.md-tk-typing{margin-left:40px}}
-@media (prefers-reduced-motion:reduce){.md-talk{height:auto}.md-tk-stick{position:static;height:auto}.md-tk-msg{opacity:1;transform:none}.md-tk-typing,.md-tk-hint{display:none}}
+@media(max-width:640px){.md-tk-title{font-size:24px;margin-bottom:14px}.md-tk-after{font-size:14px;margin-top:14px}.md-tk-head{padding:12px 16px}.md-tk-body{padding:16px 12px;gap:8px;min-height:0}.md-tk-msg p{font-size:14px;padding:10px 13px}.md-tk-msg b{display:none}.md-tk-msg{max-width:90%}.md-tk-av{width:30px;height:30px}.md-tk-typing{margin-left:40px}}
+@media (prefers-reduced-motion:reduce){.md-talk{height:auto}.md-tk-stick{position:static;height:auto;padding:96px 20px}.md-tk-msg,.md-tk-after{opacity:1;transform:none}.md-tk-typing{display:none}}
 .md-call .md-bub{opacity:0;transform:translateX(-28px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
 .md-call .md-bub.us{transform:translateX(28px)}
 .md-call.in .md-bub{opacity:1;transform:none}
@@ -448,23 +448,7 @@
     <!-- 배경: 고개 숙인 원장님 (Unsplash, 무료 라이선스) -->
   </section>
 
-  <!-- 01-2 상담실 대화: 스크롤 따라 말풍선 -->
-  <section class="md-talk" id="talk" style="--steps:5">
-    <div class="md-tk-stick">
-      <div class="md-tk-panel">
-        <div class="md-tk-head"><span class="md-tk-dot"></span>상담실 · 그날의 대화</div>
-        <div class="md-tk-body">
-          <div class="md-tk-msg l" data-at="0.08"><span class="md-tk-av doc" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M12 15v2a4 4 0 0 0 8 0v-3"/><circle cx="20" cy="12" r="2"/></svg></span><div><b>원장님</b><p>키워드가 전부 내려갔어요.</p></div></div>
-          <div class="md-tk-msg l" data-at="0.24"><span class="md-tk-av doc" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M12 15v2a4 4 0 0 0 8 0v-3"/><circle cx="20" cy="12" r="2"/></svg></span><div><b>원장님</b><p>손님이 반으로 줄었습니다.</p></div></div>
-          <div class="md-tk-msg l" data-at="0.4"><span class="md-tk-av doc" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M12 15v2a4 4 0 0 0 8 0v-3"/><circle cx="20" cy="12" r="2"/></svg></span><div><b>원장님</b><p>직원이 200명입니다. 이대로는 버틸 수가 없어요.</p></div></div>
-          <div class="md-tk-msg r" data-at="0.56"><span class="md-tk-av us" aria-hidden="true"><img src="assets/favicon.png" alt=""/></span><div><b>메세지</b><p>원장님, 블로그 영역 자체가 줄었습니다.</p></div></div>
-          <div class="md-tk-msg r" data-at="0.72"><span class="md-tk-av us" aria-hidden="true"><img src="assets/favicon.png" alt=""/></span><div><b>메세지</b><p>솔직히 블로그만으로는 지금 방법이 없습니다.</p></div></div>
-          <div class="md-tk-typing" aria-hidden="true"><i></i><i></i><i></i></div>
-        </div>
-      </div>
-      <p class="md-tk-hint" aria-hidden="true">스크롤해서 대화 이어 보기</p>
-    </div>
-  </section>
+
 
   <!-- 02 과거: 3년 블로그 운영대행 -->
   <section class="ts-sec" id="past">
@@ -522,28 +506,25 @@
     </div>
   </section>
 
-  <!-- 03-2 매일 걸려온 전화 -->
-  <section class="ts-sec" id="calls">
-    <div class="ts-wrap">
-      <div class="ts-head rv" style="margin-bottom:0">
-        <h2 class="ts-h2">그 뒤로 원장님께<br/>매일 전화가 왔습니다</h2>
-      </div>
-      <div class="md-call rv">
-        <div class="md-call-top">
-          <span class="md-call-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></span>
-          <div><b>원장님</b><span>오늘도 통화 중</span></div>
+
+
+  <!-- 04 상담실: 매일 걸려 온 전화 (스크롤 대화) -->
+  <section class="md-talk" id="talk" style="--steps:7">
+    <div class="md-tk-stick">
+      <h2 class="md-tk-title">그 뒤로 원장님께<br/>매일 전화가 왔습니다</h2>
+      <div class="md-tk-panel">
+        <div class="md-tk-head"><span class="md-tk-dot"></span>원장님 · 매일 걸려 온 전화</div>
+        <div class="md-tk-body">
+          <div class="md-tk-msg l" data-at="0.06"><span class="md-tk-av doc" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M12 15v2a4 4 0 0 0 8 0v-3"/><circle cx="20" cy="12" r="2"/></svg></span><div><b>원장님</b><p>키워드가 전부 내려갔어요.</p></div></div>
+          <div class="md-tk-msg l" data-at="0.183"><span class="md-tk-av doc" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M12 15v2a4 4 0 0 0 8 0v-3"/><circle cx="20" cy="12" r="2"/></svg></span><div><b>원장님</b><p>손님이 반으로 줄었습니다.</p></div></div>
+          <div class="md-tk-msg l" data-at="0.307"><span class="md-tk-av doc" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M12 15v2a4 4 0 0 0 8 0v-3"/><circle cx="20" cy="12" r="2"/></svg></span><div><b>원장님</b><p>직원이 200명입니다. 이대로는 버틸 수가 없어요.</p></div></div>
+          <div class="md-tk-msg l" data-at="0.43"><span class="md-tk-av doc" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M12 15v2a4 4 0 0 0 8 0v-3"/><circle cx="20" cy="12" r="2"/></svg></span><div><b>원장님</b><p>왜 노출이 안 되는 건가요?</p></div></div>
+          <div class="md-tk-msg r" data-at="0.553"><span class="md-tk-av us" aria-hidden="true"><img src="assets/favicon.png" alt=""/></span><div><b>메세지</b><p>저희도 지금 대응하고 있습니다.</p></div></div>
+          <div class="md-tk-msg r" data-at="0.677"><span class="md-tk-av us" aria-hidden="true"><img src="assets/favicon.png" alt=""/></span><div><b>메세지</b><p>솔직히 블로그만으로는 지금 방법이 없습니다.</p></div></div>
+          <div class="md-tk-typing" aria-hidden="true"><i></i><i></i><i></i></div>
         </div>
-        <div class="md-call-body">
-          <p class="md-bub them">왜 노출이 안 되나요?</p>
-          <p class="md-bub us">저희도 지금 대응하고 있습니다.</p>
-          <p class="md-bub them">언제쯤 돌아올까요?</p>
-          <p class="md-bub us">지금은 해결책이 없습니다.</p>
-          <p class="md-bub them">어제도 똑같은 말씀이셨잖아요.</p>
-        </div>
       </div>
-      <div class="ts-head rv" style="margin:40px auto 0">
-        <p class="ts-lead">저희도 머리가 아프고 힘들었습니다.<br/>블로그로는 방법이 없었고,<br/>다른 방법은 기존 비용으로 진행할 수 없었습니다.</p>
-      </div>
+      <p class="md-tk-after" data-at="0.9">저희도 머리가 아프고 힘들었습니다.<br/>블로그로는 방법이 없었고, 다른 방법은 기존 비용으로 진행할 수 없었습니다.</p>
     </div>
   </section>
 
@@ -551,8 +532,8 @@
   <section class="ts-sec md-prop" id="research">
     <div class="ts-wrap">
       <div class="ts-head rv">
-        <p class="ts-but">그래서 원장님께 제안드렸습니다.</p>
-        <h2 class="ts-h2">우리 회사로 먼저 테스트한<br/>메세지 서비스</h2>
+        <p class="ts-but">자사 브랜드로 먼저 검증을 마쳤습니다.</p>
+        <h2 class="ts-h2">메세지 서비스를 만들고<br/>가장 먼저 원장님께 연락드렸습니다</h2>
       </div>
       <div class="md-proof rv">
         <div class="md-proof-a"><span>먼저</span><b>자사 10개 브랜드</b><em>직접 적용하고 검증</em></div>
@@ -673,19 +654,19 @@
   <div class="wrap">
     <div class="shead center rv">
       <span class="eyebrow" data-copy="price.eyebrow">구독 요금</span>
-      <h2 class="h2" data-copy="price.title">처음 시작하는 기업도<br>쉽게 준비할 수 있습니다</h2>
-      <p class="lead" data-copy="price.lead">복잡한 AI 검색 전략부터 기업 콘텐츠 구축까지 MESSEZE가 단계별로 함께합니다.<br></p>
+      <h2 class="h2" data-copy="price.title">처음 시작하는 병원도<br>쉽게 준비할 수 있습니다</h2>
+      <p class="lead" data-copy="price.lead">병원 홈페이지 정비부터 진료 정보 콘텐츠까지 메세지가 단계별로 함께합니다.<br></p>
     </div>
     <div class="price-grid rv stagger">
       <div class="tier">
         <div class="tn" data-copy="price.t1name">베이직</div>
         <div class="tp">월 <span class="num" data-to="60">0</span><small>만원</small></div>
         <div class="tp3" data-copy="price.t1p3">3개월 150만원<b>17% 할인</b></div>
-        <div class="td" data-copy="price.t1desc">AI 검색에서 브랜드가 발견될 수 있도록 콘텐츠 노출 기반을 구축합니다. 소상공인·자영업자·스타트업에 적합합니다.</div>
+        <div class="td" data-copy="price.t1desc">검색과 AI 답변에서 병원이 발견될 수 있도록 콘텐츠 노출 기반을 만듭니다.</div>
         <ul>
-          <li data-copy="price.t1f1"><span class="c">✓</span>AI 가시성 평가 <b>월 1회</b></li>
-          <li data-copy="price.t1f2"><span class="c">✓</span>AI 가시성 콘텐츠 <b>월 40회</b></li>
-          <li data-copy="price.t1f3"><span class="c">✓</span>월간 성과 보고서 <b>월 1회</b></li>
+          <li data-copy="price.t1f1"><span class="c">✓</span>병원 AI 노출 진단 <b>월 1회</b></li>
+          <li data-copy="price.t1f2"><span class="c">✓</span>환자 질문 콘텐츠 <b>월 40회</b></li>
+          <li data-copy="price.t1f3"><span class="c">✓</span>월간 노출 리포트 <b>월 1회</b></li>
         </ul>
         <a href="#final" class="btn btn-gh">상담 신청</a>
       </div>
@@ -694,13 +675,13 @@
         <div class="tn" data-copy="price.t2name">프리미엄</div>
         <div class="tp">월 <span class="num" data-to="100">0</span><small>만원</small></div>
         <div class="tp3" data-copy="price.t2p3">3개월 240만원<b>20% 할인</b></div>
-        <div class="td" data-copy="price.t2desc">AI 가시성을 강화하고 언론 홍보로 신뢰도를 높입니다. B2B 기업·신규 브랜드·병원에 적합합니다.</div>
+        <div class="td" data-copy="price.t2desc">병원 홈페이지까지 정비해 웹사이트 영역과 AI 답변 노출을 함께 키웁니다.</div>
         <ul>
-          <li data-copy="price.t2f1"><span class="c">✓</span>AI 가시성 평가 <b>월 1회</b></li>
-          <li data-copy="price.t2f2"><span class="c">✓</span>AI 가시성 콘텐츠 <b>월 80회</b> <small>홈페이지 포함</small></li>
-          <li data-copy="price.t2f3"><span class="c">✓</span>홈페이지 AI 최적화 · 콘텐츠 <b>주 3회</b></li>
+          <li data-copy="price.t2f1"><span class="c">✓</span>병원 AI 노출 진단 <b>월 1회</b></li>
+          <li data-copy="price.t2f2"><span class="c">✓</span>환자 질문 콘텐츠 <b>월 80회</b> <small>홈페이지 포함</small></li>
+          <li data-copy="price.t2f3"><span class="c">✓</span>홈페이지 최적화 · 진료 정보 <b>주 3회</b></li>
           <li data-copy="price.t2f4"><span class="c">✓</span>언론 보도 <b>월 1회</b> · 기자 3,000명</li>
-          <li data-copy="price.t2f5"><span class="c">✓</span>월간 성과 보고서&nbsp;</li>
+          <li data-copy="price.t2f5"><span class="c">✓</span>월간 노출 리포트&nbsp;</li>
         </ul>
         <a href="#final" class="btn">상담 신청</a>
       </div>
@@ -708,13 +689,13 @@
         <div class="tn" data-copy="price.t3name">엔터프라이즈</div>
         <div class="tp" data-copy="price.t3price">별도 문의</div>
         <div class="tp3" data-copy="price.t3p3">3개월 플랜 별도 문의</div>
-        <div class="td" data-copy="price.t3desc">전략적인 콘텐츠 확산으로 브랜드 영향력과 AI 검색 가시성을 극대화합니다. 해외 진출·전시회·대규모 캠페인 기업에 적합합니다.</div>
+        <div class="td" data-copy="price.t3desc">여러 지점·진료과를 운영하는 병원에 맞춰 범위를 따로 설계합니다.</div>
         <ul>
-          <li data-copy="price.t3f1"><span class="c">✓</span>AI 가시성 평가 <b>월 1회</b></li>
-          <li data-copy="price.t3f2"><span class="c">✓</span>AI 가시성 콘텐츠</li>
-          <li data-copy="price.t3f3"><span class="c">✓</span>월간 성과 보고서</li>
-          <li data-copy="price.t3f4"><span class="c">✓</span>홈페이지 AI 최적화</li>
-          <li data-copy="price.t3f5"><span class="c">✓</span>홈페이지 콘텐츠</li>
+          <li data-copy="price.t3f1"><span class="c">✓</span>병원 AI 노출 진단 <b>월 1회</b></li>
+          <li data-copy="price.t3f2"><span class="c">✓</span>환자 질문 콘텐츠</li>
+          <li data-copy="price.t3f3"><span class="c">✓</span>월간 노출 리포트</li>
+          <li data-copy="price.t3f4"><span class="c">✓</span>병원 홈페이지 최적화</li>
+          <li data-copy="price.t3f5"><span class="c">✓</span>진료 정보 페이지</li>
           <li data-copy="price.t3f6"><span class="c">✓</span>언론 보도</li>
           <li data-copy="price.t3f7"><span class="c">✓</span>보도자료 이메일 배포</li>
         </ul>
@@ -747,8 +728,8 @@
   <section class="final" id="final">
     <div class="wrap"><div class="final-in in">
       <div class="final-l">
-        <h2>우리 회사는 지금<br>네이버와 AI에 나오고 있을까요?</h2>
-        <p>홈페이지 주소만 남겨 주세요. 네이버·구글·AI 답변에서 우리 회사가 어떻게 나오는지 무료로 확인해 드립니다.</p>
+        <h2>우리 병원은 지금<br>네이버와 AI에 나오고 있을까요?</h2>
+        <p>병원 홈페이지 주소만 남겨 주세요. 네이버·구글·AI 답변에서 우리 병원이 어떻게 나오는지 무료로 확인해 드립니다.</p>
         <div class="free">
           <span><i>✓</i>비용 없음, 계약 없음</span>
           <span><i>✓</i>네이버·구글·AI 노출 현황 리포트</span>
@@ -756,9 +737,9 @@
         </div>
       </div>
       <form class="fform" id="diagForm" novalidate>
-        <h3>우리 회사 AI 노출 무료 진단</h3>
+        <h3>우리 병원 AI 노출 무료 진단</h3>
         <div class="fld"><label for="dfName">담당자 이름</label><input id="dfName" name="regusernm" type="text" placeholder="홍길동" required></div>
-        <div class="fld"><label for="dfCompany">회사명</label><input id="dfCompany" name="company" type="text" placeholder="○○정밀" required></div>
+        <div class="fld"><label for="dfCompany">병원명</label><input id="dfCompany" name="company" type="text" placeholder="○○내과의원" required></div>
         <div class="fld"><label for="dfPhone">연락처</label><input id="dfPhone" name="phone" type="tel" placeholder="010-0000-0000" required></div>
         <div class="fld"><label for="dfUrl">홈페이지 주소</label><input id="dfUrl" name="url" type="url" placeholder="https://"></div>
         <button type="submit" class="btn">무료 진단 신청하기</button>
@@ -947,7 +928,7 @@ draw();
 (function(){
 var sec=document.getElementById('talk');if(!sec)return;
 var msgs=[].slice.call(sec.querySelectorAll('.md-tk-msg')),ty=sec.querySelector('.md-tk-typing');
-if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){msgs.forEach(function(m){m.classList.add('on')});return}
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){msgs.forEach(function(m){m.classList.add('on')});var a0=sec.querySelector('.md-tk-after');if(a0)a0.classList.add('on');return}
 var tick=false;
 function upd(){tick=false;
   var r=sec.getBoundingClientRect(),tot=sec.offsetHeight-innerHeight,p=Math.min(1,Math.max(0,-r.top/Math.max(1,tot)));
@@ -955,6 +936,7 @@ function upd(){tick=false;
   var next=msgs[shown];
   if(next&&p>0.01&&p>=parseFloat(next.dataset.at)-0.09){ty.classList.add('on');ty.classList.toggle('r',next.classList.contains('r'));next.parentNode.insertBefore(ty,next)}
   else{ty.classList.remove('on')}
+  var af=sec.querySelector('.md-tk-after');if(af)af.classList.toggle('on',p>=parseFloat(af.dataset.at));
   sec.classList.toggle('done',shown===msgs.length);
 }
 addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
