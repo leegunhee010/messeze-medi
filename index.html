@@ -294,6 +294,15 @@
 .md-fall-h{margin:56px 0 0;font-size:clamp(30px,4.4vw,58px);line-height:1.22;font-weight:800;letter-spacing:-.03em;color:#fff;word-break:keep-all}
 .md-fall-h b{color:#FF5A5F;font-size:1.25em;display:inline-block;transform:translateY(.04em)}
 @media(max-width:760px){.md-fall{margin-top:48px}.md-fall-kw li{font-size:13px;padding:8px 12px}.md-fall-h{margin-top:40px}}
+.md-blog{max-width:880px;margin:8px auto 48px;text-align:center}
+.md-blog-tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#0B9B4B;background:#E6F8EE;border-radius:999px;padding:7px 14px 7px 8px;margin-bottom:20px}
+.md-blog-tag i{font-style:normal;font-size:11px;font-weight:800;color:#fff;background:#03C75A;border-radius:999px;padding:2px 7px;letter-spacing:.02em}
+.md-blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left;align-items:start}
+.md-blog-card{margin:0;background:#fff;border:1px solid #E5E8EB;border-radius:20px;overflow:hidden;box-shadow:0 16px 36px -26px rgba(51,61,75,.45)}
+.md-blog-card img{display:block;width:100%;height:auto}
+.md-blog-card:nth-child(odd){transform:rotate(-.6deg)}.md-blog-card:nth-child(even){transform:rotate(.6deg) translateY(10px)}
+.md-blog-cap{margin:22px 0 0;font-size:13px;color:#8B95A1}
+@media(max-width:640px){.md-blog-grid{grid-template-columns:1fr;gap:12px}.md-blog-card:nth-child(n){transform:none}}
 .md-kw{overflow:hidden;margin-top:48px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .md-kw-track{display:flex;gap:16px;width:max-content;animation:tsroll 70s linear infinite}
 .md-kw:hover .md-kw-track{animation-play-state:paused}
@@ -368,6 +377,13 @@
     <div class="ts-wrap">
       <div class="ts-head rv">
         <h2 class="ts-h2">저희는 한 신장내과의 블로그를<br/>3년 가까이 운영했습니다</h2>
+      </div>
+    </div>
+    <div class="ts-wrap">
+      <div class="md-blog rv">
+        <span class="md-blog-tag"><i>blog</i>블로그 영역</span>
+        <div class="md-blog-grid"><figure class="md-blog-card"><img src="assets/medi/blog/post-1.jpg" alt="원장님 병원 블로그 글 “구리 혈액투석 중 저혈압 증상” 네이버 검색 캡처" loading="lazy" width="390" height="200"/></figure><figure class="md-blog-card"><img src="assets/medi/blog/post-2.jpg" alt="원장님 병원 블로그 글 “구리 혈액투석 전후 주의사항” 네이버 검색 캡처" loading="lazy" width="390" height="200"/></figure><figure class="md-blog-card"><img src="assets/medi/blog/post-3.jpg" alt="원장님 병원 블로그 글 “구리시투석병원 맞춤형 진료를” 네이버 검색 캡처" loading="lazy" width="390" height="200"/></figure><figure class="md-blog-card"><img src="assets/medi/blog/post-4.jpg" alt="원장님 병원 블로그 글 “구리 혈액투석실이 알려주는 투석 혈관 관리법” 네이버 검색 캡처" loading="lazy" width="390" height="224"/></figure></div>
+        <p class="md-blog-cap">원장님 병원 블로그 글 · 네이버 모바일 검색 실제 캡처</p>
       </div>
     </div>
     <div class="ts-roll rv" aria-label="네이버 검색 노출 캡처" hidden>
