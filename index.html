@@ -40,14 +40,14 @@
  "@graph": [
   {
    "@type": "Organization",
-   "@id": "https://medi.messeze.com/#organization",
+   "@id": "https://messeze.com/#organization",
    "name": "메세지AI",
    "alternateName": [
     "messeze",
     "메세지AI (messeze)",
     "메세지"
    ],
-   "url": "https://medi.messeze.com/",
+   "url": "https://messeze.com/",
    "logo": {
     "@type": "ImageObject",
     "@id": "https://medi.messeze.com/#logo",
@@ -126,17 +126,30 @@
     "https://messeze03.blogspot.com/",
     "https://messeze04.blogspot.com/",
     "https://messeze05.blogspot.com/"
+   ],
+   "brand": [
+    {
+     "@type": "Brand",
+     "name": "메세지AI"
+    },
+    {
+     "@type": "Brand",
+     "name": "메세지AI 메디",
+     "url": "https://medi.messeze.com/"
+    }
    ]
   },
   {
    "@type": "WebSite",
    "@id": "https://medi.messeze.com/#website",
    "url": "https://medi.messeze.com/",
-   "name": "메세지AI",
+   "name": "메세지AI 메디",
    "publisher": {
-    "@id": "https://medi.messeze.com/#organization"
+    "@id": "https://messeze.com/#organization"
    },
-   "inLanguage": "ko"
+   "inLanguage": "ko",
+   "alternateName": "messeze medi",
+   "description": "병원 전용 AI 검색 노출 서비스 메세지AI 메디의 공식 사이트"
   },
   {
    "@type": "WebPage",
@@ -155,7 +168,7 @@
     "@id": "https://medi.messeze.com/#website"
    },
    "about": {
-    "@id": "https://medi.messeze.com/#organization"
+    "@id": "https://messeze.com/#organization"
    },
    "inLanguage": "ko",
    "dateModified": "2026-09-07"
@@ -163,13 +176,43 @@
   {
    "@type": "Service",
    "@id": "https://medi.messeze.com/#service",
-   "name": "메세지AI SEO·GEO·AEO 마케팅 솔루션",
-   "serviceType": "SEO·GEO·AEO 최적화 · 검색 노출 마케팅 솔루션",
-   "description": "진단부터 홈페이지 정비, 콘텐츠·언론 축적, 월간 리포트까지 전담팀이 대신 실행합니다.",
+   "name": "메세지AI 메디 병원 AI 검색 노출 서비스",
+   "serviceType": "병원 홈페이지 AI 검색 최적화(AEO·GEO)",
+   "description": "병원 홈페이지와 지도·의료 디렉토리 정보를 AI가 읽는 구조로 정비하고, 질문형 콘텐츠와 신뢰 출처를 쌓아 네이버 웹사이트 영역과 ChatGPT·구글 AI 답변에 병원이 나오게 하는 병원 전용 서비스입니다.",
    "provider": {
-    "@id": "https://medi.messeze.com/#organization"
+    "@id": "https://messeze.com/#organization"
    },
-   "areaServed": "KR",
+   "areaServed": {
+    "@type": "Country",
+    "name": "대한민국"
+   },
+   "audience": {
+    "@type": "Audience",
+    "audienceType": "병원·의원"
+   },
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "AI 인식 패키지",
+     "price": "2500000",
+     "priceCurrency": "KRW",
+     "description": "1회. AEO 홈페이지 20p+관리자, 플레이스 5곳 정비, 의료 디렉토리 3곳 통일, 홈페이지 점수표"
+    },
+    {
+     "@type": "Offer",
+     "name": "AI 인용 패키지",
+     "price": "1000000",
+     "priceCurrency": "KRW",
+     "description": "월 구독. AI 인식 패키지 진행 후 이용"
+    },
+    {
+     "@type": "Offer",
+     "name": "AI 신뢰 패키지",
+     "price": "2000000",
+     "priceCurrency": "KRW",
+     "description": "월 구독. AI 인식 패키지 진행 후 이용"
+    }
+   ],
    "url": "https://medi.messeze.com/"
   }
  ]
