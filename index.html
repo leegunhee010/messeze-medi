@@ -487,6 +487,24 @@
 @media (prefers-reduced-motion:reduce){.md-arrow .md-ar-shaft{stroke-dashoffset:0!important}.md-arrow *{animation:none!important;transition:none!important;opacity:1!important}.md-ar-deb{display:none}}
 #crisis .md-arrow{margin-top:-10px}
 @media(min-width:1024px){#crisis .md-ar-svg{max-height:40vh;width:auto;margin:0 auto}}
+.md-fun{position:relative;width:min(520px,90vw);height:220px;margin:18px auto 8px}
+.md-fun-main{position:absolute;left:50%;top:50%;width:170px;height:170px;margin:-85px 0 0 -85px;animation:mdFunMain 2.6s ease-in-out infinite;filter:drop-shadow(0 18px 24px rgba(0,0,0,.18))}
+.md-fun-s{position:absolute;width:64px;height:64px;filter:drop-shadow(0 8px 12px rgba(0,0,0,.12))}
+.md-fun-s.s1{left:6%;top:18%;animation:mdFunA 3.2s ease-in-out infinite}
+.md-fun-s.s2{right:6%;top:30%;width:72px;height:72px;animation:mdFunB 3.6s ease-in-out infinite}
+.md-fun-s.s3{right:24%;top:0;width:46px;height:46px;animation:mdFunS 1.8s ease-in-out infinite}
+.md-fun-tag{position:absolute;font-size:13.5px;font-weight:800;border-radius:999px;padding:7px 13px;white-space:nowrap;box-shadow:0 10px 24px -12px rgba(25,31,40,.4)}
+.md-fun-tag.t1{left:0;bottom:8%;background:#fff;color:#F04452;transform:rotate(-6deg)}
+.md-fun-tag.t2{right:2%;bottom:0;background:#191F28;color:#fff;transform:rotate(5deg)}
+@keyframes mdFunMain{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-12px) rotate(7deg)}}
+@keyframes mdFunA{0%,100%{transform:translateY(0) rotate(-12deg)}50%{transform:translateY(10px) rotate(8deg)}}
+@keyframes mdFunB{0%,100%{transform:translateY(0) rotate(8deg)}50%{transform:translateY(-12px) rotate(-6deg)}}
+@keyframes mdFunS{0%,100%{transform:scale(1) rotate(0);opacity:1}50%{transform:scale(.7) rotate(20deg);opacity:.6}}
+.md-fun.rv:not(.in) .md-fun-main{transform:scale(.3);opacity:0}
+.md-fun.in .md-fun-main{animation:mdFunPop .7s cubic-bezier(.2,1.6,.4,1) both,mdFunMain 2.6s .7s ease-in-out infinite}
+@keyframes mdFunPop{from{transform:scale(.3) rotate(-30deg);opacity:0}to{transform:scale(1) rotate(-6deg);opacity:1}}
+@media (prefers-reduced-motion:reduce){.md-fun *{animation:none!important}}
+@media(max-width:640px){.md-fun{height:180px}.md-fun-main{width:130px;height:130px;margin:-65px 0 0 -65px}.md-fun-s{width:48px;height:48px}.md-fun-s.s2{width:54px;height:54px}.md-fun-tag{font-size:12px}}
 .md-kw{overflow:hidden;margin-top:48px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .md-kw-track{display:flex;gap:16px;width:max-content;animation:tsroll 70s linear infinite}
 .md-kw:hover .md-kw-track{animation-play-state:paused}
@@ -668,7 +686,14 @@
     <div class="ts-wrap">
       <div class="ts-head rv" style="margin-bottom:0">
         <h2 class="ts-h2">요즘은 원장님께<br/>전화가 오지 않습니다</h2>
-        <img class="md-emoji" src="assets/medi/emoji-sunglasses.png" alt="" width="64" height="64"/>
+        <div class="md-fun rv" aria-hidden="true">
+          <img class="md-fun-main" src="assets/medi/emoji-sunglasses-lg.png" alt="" width="160" height="160"/>
+          <img class="md-fun-s s1" src="assets/medi/emoji-nophone-lg.png" alt="" width="160" height="160"/>
+          <img class="md-fun-s s2" src="assets/medi/emoji-hospital-lg.png" alt="" width="160" height="160"/>
+          <img class="md-fun-s s3" src="assets/medi/emoji-sparkles-lg.png" alt="" width="160" height="160"/>
+          <span class="md-fun-tag t1">부재중 0통</span>
+          <span class="md-fun-tag t2">대기 환자 많음</span>
+        </div>
         <p class="ts-lead">진료 볼 환자가 많아<br/>통화할 틈이 없으시다고 합니다.</p>
       </div>
     </div>
