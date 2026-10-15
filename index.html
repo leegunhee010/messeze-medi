@@ -286,12 +286,12 @@
 .md-step p{margin:10px 0 0;font-size:15px;line-height:1.6;color:#6B7684;word-break:keep-all}
 @media(max-width:960px){.md-steps{grid-template-columns:repeat(2,1fr)}.md-steps::before{display:none}}
 @media(max-width:560px){.md-proof{flex-direction:column;gap:10px}.md-proof-arrow{transform:rotate(90deg)}.md-steps{grid-template-columns:1fr;margin-top:36px}.md-step p br{display:none}}
-.md-fall{margin-top:72px;text-align:center}
+.md-fall{margin-top:40px;text-align:center}
 .md-fall-kw{list-style:none;margin:0 auto;padding:0;max-width:880px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px}
 .md-fall-kw li{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-size:16px;font-weight:600;color:rgba(255,255,255,.45);background:rgba(255,255,255,.04);border:1px solid rgba(255,90,95,.25);text-decoration:line-through;text-decoration-color:rgba(255,90,95,.8);transform:translateY(14px) rotate(var(--r));transition:transform .9s cubic-bezier(.5,0,.75,0) var(--d),opacity .9s var(--d),color .9s var(--d);opacity:.75}
 .md-fall-kw li i{font-style:normal;color:#FF5A5F;font-weight:800;text-decoration:none}
 .md-fall.rv:not(.in) .md-fall-kw li{transform:none;color:#fff;opacity:1;text-decoration-color:transparent}
-.md-fall-h{margin:56px 0 0;font-size:clamp(30px,4.4vw,58px);line-height:1.22;font-weight:800;letter-spacing:-.03em;color:#fff;word-break:keep-all}
+.md-fall-h{margin:0;font-size:clamp(30px,4.4vw,58px);line-height:1.22;font-weight:800;letter-spacing:-.03em;color:#fff;word-break:keep-all}
 .md-fall-h b{color:#FF5A5F;font-size:1.25em;display:inline-block;transform:translateY(.04em)}
 @media(max-width:760px){.md-fall{margin-top:48px}.md-fall-kw li{font-size:13px;padding:8px 12px}.md-fall-h{margin-top:40px}}
 .md-blog{max-width:1080px;margin:8px auto 48px;text-align:center}
@@ -456,7 +456,6 @@
             <linearGradient id="mdFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B8CFF" stop-opacity=".28"/><stop offset="1" stop-color="#5B8CFF" stop-opacity="0"/></linearGradient>
             <linearGradient id="mdRed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF5A5F" stop-opacity=".25"/><stop offset="1" stop-color="#FF5A5F" stop-opacity="0"/></linearGradient>
           </defs>
-          <g stroke="rgba(255,255,255,.07)" stroke-width="1"><line x1="0" y1="80" x2="1000" y2="80"/><line x1="0" y1="170" x2="1000" y2="170"/><line x1="0" y1="260" x2="1000" y2="260"/><line x1="0" y1="350" x2="1000" y2="350"/></g>
           <path d="M0,118 C60,104 110,96 170,100 S280,84 340,90 S460,76 520,82 S640,70 700,76 L740,74 L740,380 L0,380 Z" fill="url(#mdFill)"/>
           <path d="M740,74 C770,90 790,260 820,316 S900,338 1000,342 L1000,380 L740,380 Z" fill="url(#mdRed)"/>
           <path class="md-crash-up" d="M0,118 C60,104 110,96 170,100 S280,84 340,90 S460,76 520,82 S640,70 700,76 L740,74" fill="none" stroke="#7FA6FF" stroke-width="4" stroke-linecap="round"/>
@@ -465,11 +464,8 @@
           <circle cx="740" cy="74" r="8" fill="#fff"/><circle cx="1000" cy="342" r="8" fill="#FF5A5F"/>
         </svg>
         <span class="md-crash-tag">알고리즘 변경</span>
-        <div class="md-crash-ax"><span>블로그 운영 3년</span><span class="red">변경 이후</span></div>
-        <p class="md-crash-cap">‘지역명+인공신장실’ 등 주요 키워드 블로그 노출 · 흐름을 나타낸 그림</p>
       </div>
       <div class="md-fall rv">
-        <ul class="md-fall-kw" aria-label="내려간 키워드"><li style="--r:-4deg;--d:0.00s">구리시 인공신장실<i>↓</i></li><li style="--r:3deg;--d:0.06s">구리시 야간투석<i>↓</i></li><li style="--r:-2deg;--d:0.12s">구리시 혈액투석<i>↓</i></li><li style="--r:5deg;--d:0.18s">구리 신장내과<i>↓</i></li><li style="--r:-3deg;--d:0.24s">남양주 야간투석<i>↓</i></li><li style="--r:2deg;--d:0.30s">남양주 인공신장실<i>↓</i></li><li style="--r:-5deg;--d:0.36s">다산 야간투석<i>↓</i></li><li style="--r:4deg;--d:0.42s">다산 인공신장실<i>↓</i></li><li style="--r:-2deg;--d:0.48s">다산 혈액투석<i>↓</i></li><li style="--r:3deg;--d:0.54s">구리 고혈압<i>↓</i></li><li style="--r:-4deg;--d:0.60s">구리 고지혈증<i>↓</i></li><li style="--r:2deg;--d:0.66s">구리 통풍<i>↓</i></li></ul>
         <p class="md-fall-h">3년 동안 지켜 온 키워드가<br/><b>모두</b> 내려갔습니다.</p>
       </div>
     </div>
