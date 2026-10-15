@@ -294,13 +294,20 @@
 .md-fall-h{margin:56px 0 0;font-size:clamp(30px,4.4vw,58px);line-height:1.22;font-weight:800;letter-spacing:-.03em;color:#fff;word-break:keep-all}
 .md-fall-h b{color:#FF5A5F;font-size:1.25em;display:inline-block;transform:translateY(.04em)}
 @media(max-width:760px){.md-fall{margin-top:48px}.md-fall-kw li{font-size:13px;padding:8px 12px}.md-fall-h{margin-top:40px}}
-.md-blog{max-width:880px;margin:8px auto 48px;text-align:center}
+.md-blog{max-width:1080px;margin:8px auto 48px;text-align:center}
 .md-blog-tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#0B9B4B;background:#E6F8EE;border-radius:999px;padding:7px 14px 7px 8px;margin-bottom:20px}
 .md-blog-tag i{font-style:normal;font-size:11px;font-weight:800;color:#fff;background:#03C75A;border-radius:999px;padding:2px 7px;letter-spacing:.02em}
 .md-blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left;align-items:start}
 .md-blog-card{margin:0;background:#fff;border:1px solid #E5E8EB;border-radius:20px;overflow:hidden;box-shadow:0 16px 36px -26px rgba(51,61,75,.45)}
 .md-blog-card img{display:block;width:100%;height:auto}
 .md-blog-card:nth-child(odd){transform:rotate(-.6deg)}.md-blog-card:nth-child(even){transform:rotate(.6deg) translateY(10px)}
+.md-past-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:left}
+.md-past-card{margin:0;background:#fff;border:1px solid #E5E8EB;border-radius:16px;overflow:hidden;box-shadow:0 14px 30px -24px rgba(51,61,75,.5)}
+.md-past-card figcaption{display:flex;align-items:center;gap:8px;padding:11px 12px;font-size:14px;font-weight:700;color:#191F28;border-bottom:1px solid #F2F4F6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.md-past-card figcaption em{font-style:normal;font-size:12px;font-weight:800;color:#fff;background:#03C75A;border-radius:6px;padding:2px 7px;flex:0 0 auto}
+.md-past-card img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+@media(max-width:900px){.md-past-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.md-past-grid{grid-template-columns:repeat(2,1fr);gap:10px}.md-past-card figcaption{font-size:12.5px;padding:9px 10px}}
 .md-blog-cap{margin:22px 0 0;font-size:13px;color:#8B95A1}
 @media(max-width:640px){.md-blog-grid{grid-template-columns:1fr;gap:12px}.md-blog-card:nth-child(n){transform:none}}
 .md-region{background:#fff}
@@ -413,9 +420,9 @@
     </div>
     <div class="ts-wrap">
       <div class="md-blog rv">
-        <span class="md-blog-tag"><i>blog</i>블로그 영역</span>
-        <div class="md-blog-grid"><figure class="md-blog-card"><img src="assets/medi/blog/post-1.jpg" alt="원장님 병원 블로그 글 “구리 혈액투석 중 저혈압 증상” 네이버 검색 캡처" loading="lazy" width="390" height="200"/></figure><figure class="md-blog-card"><img src="assets/medi/blog/post-2.jpg" alt="원장님 병원 블로그 글 “구리 혈액투석 전후 주의사항” 네이버 검색 캡처" loading="lazy" width="390" height="200"/></figure><figure class="md-blog-card"><img src="assets/medi/blog/post-3.jpg" alt="원장님 병원 블로그 글 “구리시투석병원 맞춤형 진료를” 네이버 검색 캡처" loading="lazy" width="390" height="200"/></figure><figure class="md-blog-card"><img src="assets/medi/blog/post-4.jpg" alt="원장님 병원 블로그 글 “구리 혈액투석실이 알려주는 투석 혈관 관리법” 네이버 검색 캡처" loading="lazy" width="390" height="224"/></figure></div>
-        <p class="md-blog-cap">원장님 병원 블로그 글 · 네이버 모바일 검색 실제 캡처</p>
+        <span class="md-blog-tag"><i>blog</i>블로그 운영 당시 검색 결과</span>
+        <div class="md-past-grid"><figure class="md-past-card"><figcaption><em>1위</em>구리 인공신장실</figcaption><img src="assets/medi/past/past-01.jpg" alt="네이버 “구리 인공신장실” 검색 1위 블로그 캡처" loading="lazy" width="649" height="384"/></figure><figure class="md-past-card"><figcaption><em>1위</em>구리 혈액투석실</figcaption><img src="assets/medi/past/past-02.jpg" alt="네이버 “구리 혈액투석실” 검색 1위 블로그 캡처" loading="lazy" width="567" height="347"/></figure><figure class="md-past-card"><figcaption><em>1위</em>구리 야간투석병원</figcaption><img src="assets/medi/past/past-03.jpg" alt="네이버 “구리 야간투석병원” 검색 1위 블로그 캡처" loading="lazy" width="720" height="368"/></figure><figure class="md-past-card"><figcaption><em>1위</em>구리시 신장내과</figcaption><img src="assets/medi/past/past-04.jpg" alt="네이버 “구리시 신장내과” 검색 1위 블로그 캡처" loading="lazy" width="562" height="380"/></figure><figure class="md-past-card"><figcaption><em>1위</em>남양주 혈액투석실</figcaption><img src="assets/medi/past/past-05.jpg" alt="네이버 “남양주 혈액투석실” 검색 1위 블로그 캡처" loading="lazy" width="631" height="377"/></figure><figure class="md-past-card"><figcaption><em>1위</em>남양주시 야간투석</figcaption><img src="assets/medi/past/past-06.jpg" alt="네이버 “남양주시 야간투석” 검색 1위 블로그 캡처" loading="lazy" width="627" height="388"/></figure><figure class="md-past-card"><figcaption><em>1위</em>남양주시 인공신장실</figcaption><img src="assets/medi/past/past-07.jpg" alt="네이버 “남양주시 인공신장실” 검색 1위 블로그 캡처" loading="lazy" width="630" height="314"/></figure><figure class="md-past-card"><figcaption><em>1위</em>다산 인공신장실</figcaption><img src="assets/medi/past/past-08.jpg" alt="네이버 “다산 인공신장실” 검색 1위 블로그 캡처" loading="lazy" width="646" height="349"/></figure><figure class="md-past-card"><figcaption><em>1위</em>다산 혈액투석실</figcaption><img src="assets/medi/past/past-09.jpg" alt="네이버 “다산 혈액투석실” 검색 1위 블로그 캡처" loading="lazy" width="726" height="382"/></figure><figure class="md-past-card"><figcaption><em>1위</em>구리시 고혈압</figcaption><img src="assets/medi/past/past-10.jpg" alt="네이버 “구리시 고혈압” 검색 1위 블로그 캡처" loading="lazy" width="719" height="370"/></figure><figure class="md-past-card"><figcaption><em>1위</em>구리 고지혈증</figcaption><img src="assets/medi/past/past-11.jpg" alt="네이버 “구리 고지혈증” 검색 1위 블로그 캡처" loading="lazy" width="644" height="381"/></figure><figure class="md-past-card"><figcaption><em>1위</em>구리 통풍</figcaption><img src="assets/medi/past/past-12.jpg" alt="네이버 “구리 통풍” 검색 1위 블로그 캡처" loading="lazy" width="701" height="385"/></figure></div>
+        <p class="md-blog-cap">원장님 병원 블로그 · 네이버 검색 실제 캡처 (병원명 가림)</p>
       </div>
     </div>
     <div class="ts-roll rv" aria-label="네이버 검색 노출 캡처" hidden>
