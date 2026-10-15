@@ -1,0 +1,48 @@
+{
+  "siteName": "메세지AI",
+  "siteUrl": "https://medi.messeze.com",
+  "favicon": "assets/favicon.ico",
+  "appleIcon": "assets/apple-touch-icon.png",
+  "ogImage": "https://medi.messeze.com/assets/og.png?v=20260819",
+  "ogTitle": "메세지AIㅣSEO·GEO·AEO 최적화 검색 노출 마케팅 솔루션",
+  "ogDescription": "메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.",
+  "twitterCard": "summary_large_image",
+  "themeColor": "#2B5CFF",
+  "googleVerify": "",
+  "naverVerify": "",
+  "gaId": "",
+  "pages": {
+    "메인": {
+      "file": "index.html",
+      "title": "메세지AIㅣSEO·GEO·AEO 최적화 검색 노출 마케팅 솔루션",
+      "description": "메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.",
+      "keywords": "메세지AI, SEO, GEO, AEO, 검색 노출, AI 검색 최적화, 마케팅 솔루션, 기업 PR",
+      "noindex": false,
+      "headCode": ""
+    },
+    "서비스": {
+      "file": "pricing.html",
+      "title": "요금 안내ㅣ메세지AI SEO GEO AEO 마케팅 솔루션 플랜",
+      "description": "메세지AI 베이직·프리미엄·엔터프라이즈 플랜 비교. 우리 회사에 맞는 SEO·GEO·AEO 최적화 플랜을 30초 진단으로 추천받으세요.",
+      "keywords": "요금제, 구독, SEO GEO AEO 최적화 비용, 마케팅 솔루션 가격",
+      "noindex": false,
+      "headCode": ""
+    },
+    "블로그": {
+      "file": "blog/index.html",
+      "title": "블로그ㅣ메세지AI SEO GEO AEO 마케팅 인사이트",
+      "description": "AEO·GEO·SEO 최적화, 보도자료 작성법, 수출기업 PR 전략까지. AI 검색 시대의 브랜드 노출을 다루는 메세지AI 블로그.",
+      "keywords": "블로그, AEO, GEO, SEO 가이드, 검색 노출, 마케팅 인사이트",
+      "noindex": false,
+      "headCode": ""
+    },
+    "FAQ": {
+      "file": "faq.html",
+      "title": "자주 묻는 질문ㅣ메세지AI SEO GEO AEO 최적화 FAQ",
+      "description": "메세지AI SEO·GEO·AEO 최적화 서비스에 대해 자주 묻는 질문. 효과 기간·비용·구독·AI 노출 방식까지 한곳에 정리했습니다.",
+      "keywords": "FAQ, 자주 묻는 질문, SEO GEO AEO 최적화, 메세지AI",
+      "noindex": false,
+      "headCode": ""
+    }
+  }
+}

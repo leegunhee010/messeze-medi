@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 노출 무료 진단ㅣ메세지AI SEO AI 준비도 진단</title>
+<meta name="description" content="URL만 입력하면 SEO 기본기와 AI 준비도(구조화 데이터·엔티티)를 100점으로 진단합니다. 검색과 AI 노출 현황을 바로 확인하는 메세지AI 무료 도구.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://medi.messeze.com/"},
+    {"@type": "ListItem", "position": 2, "name": "AI Visibility Check", "item": "https://medi.messeze.com/check.html"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A1930;--navy:#101F3F;--body:#4A5568;--mut:#8B95A7;--cobalt:#2B5CFF;--cobalt-dk:#1E46D9;
+--sky:#EAF1FF;--sky-2:#F5F8FD;--mint:#0BBF8C;--amber:#F59F1E;--red:#E2574C;--line:#E5EAF2;--line-2:#D8E0EC;
+--sans:'Pretendard',system-ui,-apple-system,sans-serif;--disp:'Poppins',var(--sans);--maxw:1140px;
+--sh-sm:0 1px 2px rgba(10,25,48,.05),0 4px 14px rgba(10,25,48,.05);--sh:0 12px 34px rgba(16,31,63,.10);--sh-lg:0 30px 70px rgba(16,31,63,.16)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:keep-all}
+.co{color:var(--cobalt)}
+.btn{font-family:var(--sans);font-weight:700;font-size:15.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;padding:15px 26px;border:1.5px solid transparent;transition:.18s}
+.btn-co{background:var(--cobalt);color:#fff;box-shadow:0 8px 22px rgba(43,92,255,.28)}
+.btn-co:hover{background:var(--cobalt-dk);transform:translateY(-2px)}
+/* nav */
+.nav{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;height:72px;gap:40px}
+.nav .wrap{max-width:1480px;padding:0 clamp(16px,2.5vw,40px)}
+.brand{display:flex;align-items:center;gap:9px}
+.brand svg{width:25px;height:25px}
+.brand .bw{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.025em}
+.nav-menu{display:flex;gap:6px;font-size:15px;font-weight:600;color:var(--body)}
+.nav-menu a{padding:9px 13px;border-radius:10px}
+.nav-menu a:hover{background:var(--sky-2);color:var(--ink)}
+.nav-menu a.on{color:var(--cobalt)}
+.nav-r{margin-left:auto}
+.nav-cta{font-weight:700;font-size:14.5px;background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;transition:.18s}
+.nav-cta:hover{background:var(--cobalt)}
+.nav-burger{display:none;background:none;border:0;cursor:pointer;padding:10px 4px 10px 10px;flex:0 0 auto}
+.nav-burger span{display:block;width:22px;height:2.5px;background:var(--ink);border-radius:2px;margin:4.5px 0;transition:.22s}
+.nav-burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.on span:nth-child(2){opacity:0}
+.nav-burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* mega menu */
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 30px 60px rgba(16,31,63,.14);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.22s;padding:32px 0 36px;z-index:80}
+.mega.on{opacity:1;visibility:visible;transform:none}
+.mega-in{display:grid;grid-template-columns:225px 1fr 1fr 1fr;gap:36px;align-items:stretch}
+.mega-brand{background:linear-gradient(160deg,#101F3F,#2B5CFF);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:225px;color:#fff;transition:.2s}
+.mega-brand:hover{transform:translateY(-3px)}
+.mega-brand .bw2{font-family:var(--disp);font-weight:600;font-size:22px}
+.mega-brand p{font-size:12.5px;color:#C7D6FF;margin-top:8px;line-height:1.55;font-weight:600}
+.mega-col .h5x{font-size:11.5px;color:var(--mut);font-weight:800;letter-spacing:.05em;margin:0 0 8px 12px}
+.mega-col .gap{height:20px}
+.mega-col a{display:block;padding:9px 12px;border-radius:12px;transition:.15s}
+.mega-col a b{font-size:14.2px;display:block;letter-spacing:-.01em}
+.mega-col a span{font-size:12.2px;color:var(--mut);display:block;margin-top:1px}
+.mega-col a:hover{background:var(--sky-2)}
+.mega-col a:hover b{color:var(--cobalt)}
+@media(max-width:900px){.nav-burger{display:block}.mega{max-height:calc(100vh - 72px);overflow:auto}.mega-in{grid-template-columns:1fr;gap:18px}.mega-brand{min-height:auto;padding:18px 20px}}
+/* hero */
+.chero{padding:70px 0 54px;text-align:center;background:linear-gradient(180deg,#F4F9FF,#fff)}
+.chero .eyebrow{display:inline-flex;font-size:13.5px;font-weight:700;color:var(--cobalt);margin-bottom:16px}
+.chero h1{font-size:clamp(28px,4.2vw,46px);line-height:1.26}
+.chero p{font-size:16.5px;color:var(--body);margin:16px auto 0;max-width:560px}
+.chero .caveat{font-size:12.5px;color:var(--mut);margin-top:12px}
+/* input */
+.cbox{max-width:640px;margin:32px auto 0;display:flex;gap:10px}
+.cbox input{flex:1;background:#fff;border:1.5px solid var(--line-2);border-radius:14px;padding:16px 18px;font-family:var(--sans);font-size:15.5px;color:var(--ink);transition:.18s;box-shadow:var(--sh-sm)}
+.cbox input:focus{outline:none;border-color:var(--cobalt)}
+.cbox .btn{white-space:nowrap}
+.cerr{max-width:640px;margin:14px auto 0;font-size:13.5px;font-weight:600;color:var(--red);display:none}
+/* progress */
+.prog{max-width:640px;margin:40px auto;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);padding:28px;display:none}
+.prog .pt{font-size:15px;font-weight:800;margin-bottom:18px}
+.prog .steps{display:flex;flex-direction:column;gap:12px}
+.prog .st{display:flex;gap:11px;align-items:center;font-size:14px;font-weight:600;color:var(--mut)}
+.prog .st .dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2);display:grid;place-items:center;font-size:10px;flex:0 0 auto}
+.prog .st.run{color:var(--ink)}
+.prog .st.run .dot{border-color:var(--cobalt);animation:spin 1s linear infinite;border-top-color:transparent}
+.prog .st.ok{color:var(--ink)}
+.prog .st.ok .dot{border-color:var(--mint);background:var(--mint);color:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* result */
+.res{display:none;padding-bottom:20px}
+.res-top{max-width:920px;margin:44px auto 0;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--sh);padding:38px 40px}
+.gauge{position:relative;width:190px;height:190px}
+.gauge svg{transform:rotate(-90deg)}
+.gauge .gv{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.gauge .gv b{font-family:var(--disp);font-size:52px;font-weight:700;line-height:1;letter-spacing:-.03em;display:block}
+.gauge .gv span{font-size:12.5px;font-weight:700;color:var(--mut)}
+.res-info h2{font-size:24px;margin-bottom:6px;word-break:break-all}
+.res-info .grade{display:inline-flex;font-size:13.5px;font-weight:800;border-radius:999px;padding:7px 16px;margin:8px 0 16px}
+.res-info .gsum{font-size:14.5px;color:var(--body);line-height:1.65}
+.subbars{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.sb{display:grid;grid-template-columns:120px 1fr 52px;gap:12px;align-items:center;font-size:13.5px;font-weight:700}
+.sb .bt{height:9px;border-radius:5px;background:#EEF2F9;overflow:hidden}
+.sb .bt i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--cobalt),#6E93FF);width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.sb .num{text-align:right;font-family:var(--disp)}
+/* categories */
+.cats{max-width:920px;margin:26px auto 0;display:flex;flex-direction:column;gap:14px}
+.cat{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.cat-hd{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer}
+.cat-hd h3{font-size:16.5px;flex:1}
+.cat-hd .cs{font-family:var(--disp);font-size:15px;font-weight:700}
+.cat-hd .arrow{color:var(--mut);transition:.2s;font-size:13px}
+.cat.open .arrow{transform:rotate(180deg)}
+.cat-bd{display:none;border-top:1px solid var(--line)}
+.cat.open .cat-bd{display:block}
+.item{display:flex;gap:12px;align-items:flex-start;padding:15px 24px;border-top:1px solid var(--sky-2);font-size:14.5px}
+.item:first-child{border-top:0}
+.item .mk{flex:0 0 22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;margin-top:1px}
+.item.ok .mk{background:rgba(11,191,140,.12);color:var(--mint)}
+.item.no .mk{background:rgba(226,87,76,.1);color:var(--red)}
+.item.warn .mk{background:rgba(245,159,30,.12);color:var(--amber)}
+.item b{display:block;font-size:14.5px}
+.item span{display:block;font-size:12.8px;color:var(--mut);margin-top:2px;line-height:1.5}
+.item .pts{margin-left:auto;font-size:12px;font-weight:800;color:var(--mut);white-space:nowrap;padding-top:3px}
+.item.ok .pts{color:var(--mint)}
+/* todo */
+.todo{max-width:920px;margin:26px auto 0;background:var(--sky-2);border:1px solid var(--line);border-radius:18px;padding:26px 28px}
+.todo h3{font-size:17px;margin-bottom:16px}
+.todo ol{padding-left:22px;display:flex;flex-direction:column;gap:10px}
+.todo li{font-size:14.5px;color:var(--body);line-height:1.6}
+.todo li b{color:var(--ink)}
+/* cta */
+.res-cta{max-width:920px;margin:30px auto 60px;background:var(--ink);border-radius:22px;padding:40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;color:#fff;position:relative;overflow:hidden}
+.res-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(480px 260px at 90% 100%,rgba(43,92,255,.42),transparent 60%)}
+.res-cta h3{font-size:clamp(19px,2.4vw,25px);color:#fff;position:relative}
+.res-cta p{color:#AEB9D2;font-size:14px;margin-top:8px;position:relative}
+.res-cta .btn{position:relative}
+/* explainer */
+.explain{background:var(--sky-2);padding:80px 0}
+.explain .shead{max-width:980px;margin:0 auto 44px;text-align:center}
+.explain .h2{font-size:clamp(24px,3.2vw,34px)}
+.ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:920px;margin:0 auto}
+.ex{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px}
+.ex .tag{display:inline-flex;font-size:12px;font-weight:800;border-radius:999px;padding:6px 13px;margin-bottom:14px}
+.ex.seo .tag{background:var(--sky);color:var(--cobalt)}
+.ex.geo .tag{background:rgba(11,191,140,.12);color:var(--mint)}
+.ex h3{font-size:18px;margin-bottom:10px}
+.ex p{font-size:14px;color:var(--body);line-height:1.62}
+.ex ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.ex li{font-size:13.5px;color:var(--body);display:flex;gap:8px}
+.ex li::before{content:"✓";color:var(--mint);font-weight:800;font-size:11px;padding-top:2px}
+/* 분석 항목 카드 (next-t 스타일) */
+.ss{display:grid;grid-template-columns:118px 1fr 44px;gap:14px;align-items:center;margin-bottom:12px;font-size:13.5px;font-weight:700}
+.ss:last-child{margin-bottom:0}
+.ss .ssb{height:12px;border-radius:6px;background:#E4EAF3;overflow:hidden}
+.ss .ssb i{display:block;height:100%;border-radius:6px}
+.ss.seo .ssb i{background:linear-gradient(90deg,#2B5CFF,#6E93FF)}
+.ss.geo .ssb i{background:linear-gradient(90deg,#0BBF8C,#22E0AD)}
+.ss .num{text-align:right;font-family:var(--disp);color:var(--mut);font-weight:700}
+@media(prefers-reduced-motion:reduce){}
+.gt-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+@media(max-width:820px){.gt-grid{grid-template-columns:1fr 1fr 1fr}.ss{grid-template-columns:100px 1fr 40px}}
+/* foot */
+.foot{background:#070D1C;color:#7C879D;padding:52px 0 38px}
+.foot-in{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.foot .brand{color:#fff;margin-bottom:14px}
+.foot p{font-size:13.5px;line-height:1.7;max-width:320px}
+.foot-b{margin-top:38px;padding-top:22px;border-top:1px solid #141C30;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#4E5A73}
+@media(max-width:820px){
+  .nav-menu{display:none}
+  .res-top{grid-template-columns:1fr;text-align:center;padding:30px 24px}
+  .gauge{margin:0 auto}
+  .subbars .sb{grid-template-columns:96px 1fr 44px}
+  .ex-grid{grid-template-columns:1fr}
+  .cbox{flex-direction:column}
+}
+.acat-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:940px;margin:0 auto}
+@media(max-width:820px){.acat-grid{grid-template-columns:1fr}}
+.acat{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--sh-sm)}
+.acat-hd{display:flex;align-items:center;gap:11px;padding:15px 20px;background:var(--ink);color:#fff}
+.acat-hd .ico{width:24px;height:24px;flex:0 0 auto;color:#9DB3FF}
+.acat-hd .ico svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.acat-hd h3{font-size:15.5px;color:#fff;flex:1}
+.acat-hd .pt{font-size:12.5px;font-weight:800;border-radius:999px;padding:5px 12px;white-space:nowrap}
+.acat-hd .pt{background:#7FA0FF;color:#0a1a3d}
+.acat-hd .pt{background:var(--mint);color:#04241a}
+.ai-row{padding:13px 20px;border-top:1px solid var(--sky-2)}
+.ai-row b{font-size:14px;font-weight:700;color:var(--ink);display:block}
+.ai-row span{font-size:12.5px;color:var(--mut);display:block;margin-top:3px;line-height:1.5}
+</style>
+<!-- auto-meta:start -->
+<link rel="canonical" href="https://medi.messeze.com/check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="메세지AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="AI 노출 무료 진단ㅣ메세지AI SEO AI 준비도 진단">
+<meta property="og:description" content="URL만 입력하면 SEO 기본기와 AI 준비도(구조화 데이터·엔티티)를 100점으로 진단합니다. 검색과 AI 노출 현황을 바로 확인하는 메세지AI 무료 도구.">
+<meta property="og:url" content="https://medi.messeze.com/check.html">
+<meta property="og:image" content="https://medi.messeze.com/assets/og.png?v=20260819">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 노출 무료 진단ㅣ메세지AI SEO AI 준비도 진단">
+<meta name="twitter:description" content="URL만 입력하면 SEO 기본기와 AI 준비도(구조화 데이터·엔티티)를 100점으로 진단합니다. 검색과 AI 노출 현황을 바로 확인하는 메세지AI 무료 도구.">
+<meta name="twitter:image" content="https://medi.messeze.com/assets/og.png?v=20260819">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2B5CFF">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://medi.messeze.com/#organization",
+   "name": "메세지AI",
+   "alternateName": [
+    "messeze",
+    "메세지AI (messeze)",
+    "메세지"
+   ],
+   "url": "https://medi.messeze.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "@id": "https://medi.messeze.com/#logo",
+    "url": "https://medi.messeze.com/assets/logo.png"
+   },
+   "image": "https://medi.messeze.com/assets/og.png",
+   "description": "메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.",
+   "email": "sales@firstmkt.co.kr",
+   "telephone": "+82-1600-9487",
+   "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KR",
+    "addressRegion": "대구광역시",
+    "addressLocality": "중구",
+    "streetAddress": "국채보상로 488 (동산동) 섬유회관 3층"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "sales@firstmkt.co.kr",
+    "telephone": "+82-1600-9487",
+    "availableLanguage": "Korean"
+   },
+   "legalName": "주식회사 퍼스트마케팅컴퍼니",
+   "disambiguatingDescription": "주식회사 퍼스트마케팅컴퍼니(대구 본사·서울 사무소)가 운영하는 SEO·GEO·AEO 검색 노출 마케팅 솔루션 브랜드(메세지AI, 영문 messeze). 유라클의 메시징 SaaS 'Message.ai', 삼성 갤럭시의 메시지 AI 기능, 카카오톡 AI 요약과는 무관합니다.",
+   "slogan": "사람에게만 보이는 홍보에서, AI가 읽고 추천하는 홍보로",
+   "knowsAbout": [
+    "SEO",
+    "GEO (생성형엔진 최적화)",
+    "AEO (답변엔진 최적화)",
+    "AI 검색 노출",
+    "기업 PR",
+    "보도자료 배포",
+    "홈페이지 콘텐츠 제작",
+    "홈페이지 제작·리뉴얼"
+   ],
+   "areaServed": "KR",
+   "employee": {
+    "@type": "Person",
+    "name": "김우석",
+    "jobTitle": "대표"
+   },
+   "location": [
+    {
+     "@type": "Place",
+     "name": "메세지AI 대구 본사",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": "대구광역시",
+      "addressLocality": "중구",
+      "streetAddress": "국채보상로 488 (동산동) 섬유회관 3층"
+     }
+    },
+    {
+     "@type": "Place",
+     "name": "메세지AI 서울 사무소",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": "서울특별시",
+      "addressLocality": "광진구",
+      "streetAddress": "능동로49길 9, 2F"
+     }
+    }
+   ],
+   "taxID": "884-88-01123",
+   "sameAs": [
+    "https://www.instagram.com/messeze_/",
+    "https://journal94894.tistory.com/",
+    "https://messezehospitalmarketing.tistory.com/",
+    "https://messezeglobalmarketing.tistory.com/",
+    "https://messezestartupmarketing.tistory.com/",
+    "https://messeze01.blogspot.com/",
+    "https://messeze02.blogspot.com/",
+    "https://messeze03.blogspot.com/",
+    "https://messeze04.blogspot.com/",
+    "https://messeze05.blogspot.com/"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://medi.messeze.com/#website",
+   "url": "https://medi.messeze.com/",
+   "name": "메세지AI",
+   "publisher": {
+    "@id": "https://medi.messeze.com/#organization"
+   },
+   "inLanguage": "ko"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://medi.messeze.com/check.html#webpage",
+   "url": "https://medi.messeze.com/check.html",
+   "name": "AI 노출 무료 진단ㅣ메세지AI SEO AI 준비도 진단",
+   "description": "URL만 입력하면 SEO 기본기와 AI 준비도(구조화 데이터·엔티티)를 100점으로 진단합니다. 검색과 AI 노출 현황을 바로 확인하는 메세지AI 무료 도구.",
+   "isPartOf": {
+    "@id": "https://medi.messeze.com/#website"
+   },
+   "about": {
+    "@id": "https://medi.messeze.com/#organization"
+   },
+   "inLanguage": "ko"
+  }
+ ]
+}
+</script>
+<!-- auto-meta:end -->
+<!-- meta-pixel:start -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1053375334252637');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="Meta Pixel"
+src="https://www.facebook.com/tr?id=1053375334252637&ev=PageView&noscript=1"
+/></noscript>
+<!-- meta-pixel:end -->
+<!-- google-tag:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0MY05XMLC"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config','G-Q0MY05XMLC');
+gtag('config','AW-18400024238');
+</script>
+<!-- google-tag:end -->
+</head>
+<body id="top">
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="메세지AI (messeze)" style="height:26px;width:auto;display:block"></a>
+    <nav class="nav-menu">
+      <a href="services/visibility.html">서비스</a>
+      <a href="pricing.html">요금</a>
+      <a class="on" href="check.html">AI 노출 진단</a>
+      <a href="blog/index.html">블로그</a>
+      <a href="glossary/index.html">용어사전</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="nav-r"><a class="nav-cta" href="index.html#final">무료 진단 받기</a></div>
+    <button class="nav-burger" id="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mega" id="mega"><div class="wrap mega-in">
+    <a class="mega-brand" href="index.html"><span class="bw2">messeze</span><p>사람에게만 보이는 홍보에서,<br>AI가 읽는 홍보로</p></a>
+    <div class="mega-col">
+      <div class="h5x">서비스</div>
+      <a href="services/visibility.html"><b>AI 가시성 평가</b><span>AI가 우리 회사를 아는지부터</span></a>
+      <a href="services/website-renewal.html"><b>홈페이지 AI 최적화</b><span>AI가 읽는 구조로 정비</span></a>
+      <a href="services/own-blog.html"><b>홈페이지 콘텐츠</b><span>도메인에 쌓이는 전문 글</span></a>
+      <a href="services/contents.html"><b>AI 가시성 콘텐츠</b><span>구글·AI가 인용하는 글</span></a>
+      <a href="services/press.html"><b>언론 배포</b><span>보도자료 작성 · 기사화</span></a>
+      <a href="services/press-distribution.html"><b>보도자료 이메일 배포</b><span>담당 기자 3,000명 배포</span></a>
+      <a href="services/report.html"><b>월간 성과 보고서</b><span>발행 내역 · 노출 변화 보고</span></a>
+    </div>
+    <div class="mega-col">
+      <div class="h5x">무료 도구</div>
+      <a href="check.html"><b>AI 노출 무료 진단</b><span>URL만 넣으면 30초 진단</span></a>
+      <a href="tools.html#pr"><b>PR 플랜 추천</b><span>3가지 질문으로 플랜 찾기</span></a>
+      <div class="gap"></div>
+      <div class="h5x">요금</div>
+      <a href="pricing.html"><b>플랜 비교</b><span>베이직 · 프리미엄 · 엔터프라이즈</span></a>
+      <a href="pricing.html#faq"><b>요금 FAQ</b><span>약정 · 수량 · 바우처 연계</span></a>
+    </div>
+    <div class="mega-col">
+      <div class="h5x">리소스</div>
+      <a href="blog/index.html"><b>블로그</b><span>AI 검색 시대의 홍보 인사이트</span></a>
+      <a href="glossary/index.html"><b>용어사전</b><span>SEO·AEO·GEO·PR 용어 102개</span></a>
+    </div>
+  </div></div>
+</header>
+<script>
+(function(){const p=document.getElementById('mega'),t=document.querySelector('.nav-menu'),b=document.getElementById('burger');if(!p)return;let m;const o=()=>{clearTimeout(m);p.classList.add('on')},c=()=>{m=setTimeout(()=>p.classList.remove('on'),140)};if(t){t.addEventListener('mouseenter',o);t.addEventListener('mouseleave',c);t.querySelectorAll('a').forEach(a=>a.addEventListener('mouseenter',o));}if(window.matchMedia('(hover:hover)').matches){p.addEventListener('mouseenter',o);p.addEventListener('mouseleave',c);}if(b){b.addEventListener('click',()=>{const on=p.classList.toggle('on');b.classList.toggle('on',on);});p.addEventListener('click',e=>{if(e.target.closest('a')){p.classList.remove('on');b.classList.remove('on');}});}})();
+</script>
+
+<!-- HERO + INPUT -->
+<section class="chero">
+  <div class="wrap">
+    <span class="eyebrow" data-copy="hero.eyebrow">무료 도구</span>
+    <h1 data-copy="hero.title">우리 홈페이지, <span class="co">AI가 읽을 수 있는 상태</span>인가요?</h1>
+    <p data-copy="hero.lead">URL만 입력하면 SEO 기본기와 AI 인용 준비도를 30초 만에 진단해 100점 만점으로 알려드립니다.</p>
+    <div class="cbox">
+      <input id="urlIn" type="text" placeholder="도메인만 입력하세요 (예: example.co.kr)" autocomplete="off">
+      <button class="btn btn-co" id="goBtn">무료로 진단하기</button>
+    </div>
+    <div class="cerr" id="cerr"></div>
+    <div class="caveat" data-copy="hero.caveat">서버가 응답한 HTML 기준으로, AI 크롤러가 보는 조건과 동일하게 분석합니다.</div>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<div class="wrap"><div class="prog" id="prog">
+  <div class="pt" id="progTitle">분석 중…</div>
+  <div class="steps">
+    <div class="st" id="st1"><span class="dot">✓</span>페이지 HTML 가져오기</div>
+    <div class="st" id="st2"><span class="dot">✓</span>SEO 기본기 · 속도 항목 점검</div>
+    <div class="st" id="st3"><span class="dot">✓</span>robots.txt · sitemap.xml 확인</div>
+    <div class="st" id="st4"><span class="dot">✓</span>구조화 데이터(JSON-LD) · 엔티티 분석</div>
+  </div>
+</div></div>
+
+<!-- RESULT -->
+<section class="res" id="res">
+  <div class="wrap">
+    <div class="res-top">
+      <div class="gauge">
+        <svg width="190" height="190" viewBox="0 0 190 190">
+          <circle cx="95" cy="95" r="82" fill="none" stroke="#EEF2F9" stroke-width="16"/>
+          <circle id="gArc" cx="95" cy="95" r="82" fill="none" stroke="#2B5CFF" stroke-width="16" stroke-linecap="round" stroke-dasharray="515" stroke-dashoffset="515"/>
+        </svg>
+        <div class="gv"><div><b id="gScore">0</b><span>/ 100점</span></div></div>
+      </div>
+      <div class="res-info">
+        <h2 id="rUrl"></h2>
+        <span class="grade" id="rGrade"></span>
+        <div class="gsum" id="rSum"></div>
+        <div class="subbars">
+          <div class="sb"><span>SEO 기본기</span><span class="bt"><i id="barSeo"></i></span><span class="num" id="numSeo">0/50</span></div>
+          <div class="sb"><span>AI 준비도</span><span class="bt"><i id="barGeo"></i></span><span class="num" id="numGeo">0/50</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cats" id="cats"></div>
+    <div class="todo" id="todo"></div>
+    <div class="res-cta">
+      <div><h3 id="ctaTitle">이 점수, 메세지가 올려드립니다</h3><p data-copy="final.lead">진단 결과를 바탕으로 홈페이지 최적화부터 언론·콘텐츠 축적까지 — 전담팀이 대신 실행합니다.</p></div>
+      <a class="btn btn-co" href="index.html#final" data-copy="final.cta">무료 상담 신청하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLAINER -->
+<section class="explain">
+  <div class="wrap">
+    <div class="shead">
+      <h2 class="h2" data-copy="explain.title">무엇을 진단하나요?</h2>
+      <p style="font-size:15.5px;color:var(--body);margin-top:12px" data-copy="hero.note">URL 하나로 SEO 기본기부터 AI 인용 준비도까지 — 총 <b style="color:var(--cobalt)">100점</b>, 7개 영역 <b style="color:var(--cobalt)">32개 항목</b>을 검사합니다.</p>
+    </div>
+    <div class="acat-grid">
+      <div class="acat seo">
+        <div class="acat-hd"><span class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><path d="M8 13h8M8 17h6"/></svg></span><h3>콘텐츠 SEO</h3><span class="pt">28점</span></div>
+        <div class="ai-row"><b data-copy="explain.i1t">타이틀 태그</b><span data-copy="explain.i1d">검색결과에 표시되는 페이지 제목. 핵심을 앞쪽에 담습니다.</span></div>
+        <div class="ai-row"><b data-copy="explain.i2t">타이틀 단일 사용</b><span data-copy="explain.i2d">title 태그는 페이지당 1개여야 합니다.</span></div>
+        <div class="ai-row"><b data-copy="explain.i3t">메타 디스크립션</b><span data-copy="explain.i3d">검색결과 설명문. 클릭률(CTR)에 직접 영향.</span></div>
+        <div class="ai-row"><b data-copy="explain.i4t">H1 태그 존재</b><span data-copy="explain.i4d">페이지 대표 제목. 검색·AI의 주제 파악 기준.</span></div>
+        <div class="ai-row"><b data-copy="explain.i5t">H1 단일 사용</b><span data-copy="explain.i5d">H1은 페이지당 1개로 주제를 명확히.</span></div>
+        <div class="ai-row"><b data-copy="explain.i6t">H2 구조화</b><span data-copy="explain.i6d">소제목으로 콘텐츠를 구조화 — AI 인용에 유리.</span></div>
+        <div class="ai-row"><b data-copy="explain.i7t">제목 태그 계층 구조</b><span data-copy="explain.i7d">H1→H2→H3 순서 준수, 건너뛰기 없음.</span></div>
+        <div class="ai-row"><b data-copy="explain.i8t">이미지 ALT 속성</b><span data-copy="explain.i8d">기계·AI가 이미지를 이해하는 유일한 통로.</span></div>
+      </div>
+      <div class="acat seo">
+        <div class="acat-hd"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.6M12 18.4V21M4.4 7.2l2.3 1.3M17.3 15.5l2.3 1.3M4.4 16.8l2.3-1.3M17.3 8.5l2.3-1.3"/></svg></span><h3>기술적 SEO</h3><span class="pt">12점</span></div>
+        <div class="ai-row"><b data-copy="explain.i9t">HTTPS 보안</b><span data-copy="explain.i9d">SSL 적용. 신뢰·랭킹 요소이자 AI 크롤러 접근 조건.</span></div>
+        <div class="ai-row"><b data-copy="explain.i10t">Canonical 태그</b><span data-copy="explain.i10d">대표 URL 명시로 중복 콘텐츠 방지.</span></div>
+        <div class="ai-row"><b data-copy="explain.i11t">Viewport 설정</b><span data-copy="explain.i11d">모바일 우선 인덱싱 대응.</span></div>
+        <div class="ai-row"><b data-copy="explain.i12t">언어 속성 (lang)</b><span data-copy="explain.i12d">html lang으로 콘텐츠 언어를 명시.</span></div>
+        <div class="ai-row"><b data-copy="explain.i13t">DOCTYPE 선언</b><span data-copy="explain.i13d">HTML5 표준 문서 선언.</span></div>
+        <div class="ai-row"><b data-copy="explain.i14t">Open Graph 태그</b><span data-copy="explain.i14d">SNS 공유·네이버 사이트명 표시용.</span></div>
+      </div>
+      <div class="acat seo">
+        <div class="acat-hd"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><h3>크롤링 준비</h3><span class="pt">6점</span></div>
+        <div class="ai-row"><b data-copy="explain.i15t">파비콘</b><span data-copy="explain.i15d">브라우저 탭·검색결과에 표시되는 사이트 아이콘.</span></div>
+        <div class="ai-row"><b data-copy="explain.i16t">robots.txt</b><span data-copy="explain.i16d">크롤러 접근 제어. AI 크롤러 허용 여부도 관리.</span></div>
+        <div class="ai-row"><b data-copy="explain.i17t">sitemap.xml</b><span data-copy="explain.i17d">검색엔진에 사이트 구조를 제공해 색인을 돕습니다.</span></div>
+      </div>
+      <div class="acat seo">
+        <div class="acat-hd"><span class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span><h3>속도·기술 최적화</h3><span class="pt">4점</span></div>
+        <div class="ai-row"><b data-copy="explain.i18t">혼합 콘텐츠 없음</b><span data-copy="explain.i18d">HTTPS 페이지에 http 리소스가 섞이지 않았는지.</span></div>
+        <div class="ai-row"><b data-copy="explain.i19t">이미지 지연 로딩</b><span data-copy="explain.i19d">loading="lazy"로 초기 로딩 속도 개선.</span></div>
+        <div class="ai-row"><b data-copy="explain.i20t">차세대 이미지 포맷</b><span data-copy="explain.i20d">WebP·AVIF로 이미지 용량을 크게 절감.</span></div>
+        <div class="ai-row"><b data-copy="explain.i21t">리소스 힌트</b><span data-copy="explain.i21d">preconnect·preload로 외부 자원 사전 연결.</span></div>
+      </div>
+      <div class="acat geo">
+        <div class="acat-hd"><span class="ico"><svg viewBox="0 0 24 24"><path d="M8 4C6 4 6 8.5 4 12c2 3.5 2 8 4 8M16 4c2 0 2 4.5 4 8-2 3.5-2 8-4 8"/></svg></span><h3>구조화 데이터</h3><span class="pt">30점</span></div>
+        <div class="ai-row"><b data-copy="explain.i22t">JSON-LD 존재</b><span data-copy="explain.i22d">AI가 페이지의 발행 주체를 식별하는 기반.</span></div>
+        <div class="ai-row"><b data-copy="explain.i23t">JSON-LD 문법 유효</b><span data-copy="explain.i23d">파싱 오류 없이 기계가 읽히는지.</span></div>
+        <div class="ai-row"><b data-copy="explain.i24t">발행 주체 (Organization)</b><span data-copy="explain.i24d">누가 만든 페이지인지 조직 엔티티로 선언.</span></div>
+        <div class="ai-row"><b data-copy="explain.i25t">WebSite · WebPage</b><span data-copy="explain.i25d">사이트·페이지 엔티티 선언.</span></div>
+        <div class="ai-row"><b data-copy="explain.i26t">이동경로 (BreadcrumbList)</b><span data-copy="explain.i26d">페이지 위치 맥락을 AI에 전달.</span></div>
+        <div class="ai-row"><b data-copy="explain.i27t">페이지 유형 스키마</b><span data-copy="explain.i27d">Article·Service·FAQPage 등 콘텐츠 성격 선언.</span></div>
+      </div>
+      <div class="acat geo">
+        <div class="acat-hd"><span class="ico"><svg viewBox="0 0 24 24"><path d="M9.5 14.5l5-5"/><path d="M10.5 6.5 12 5a4 4 0 0 1 6 6l-1.5 1.5"/><path d="M13.5 17.5 12 19a4 4 0 0 1-6-6l1.5-1.5"/></svg></span><h3>엔티티 연결성</h3><span class="pt">10점</span></div>
+        <div class="ai-row"><b data-copy="explain.i28t">@id 식별자</b><span data-copy="explain.i28d">엔티티끼리 상호 연결하는 기준점.</span></div>
+        <div class="ai-row"><b data-copy="explain.i29t">sameAs 외부 연결</b><span data-copy="explain.i29d">SNS·외부 프로필과 연결해 지식과 이어줍니다.</span></div>
+      </div>
+      <div class="acat geo">
+        <div class="acat-hd"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg></span><h3>AI 읽기 용이성</h3><span class="pt">10점</span></div>
+        <div class="ai-row"><b data-copy="explain.i30t">본문 텍스트 충분성</b><span data-copy="explain.i30d">서버 HTML에 AI가 읽을 텍스트가 충분한지.</span></div>
+        <div class="ai-row"><b data-copy="explain.i31t">질문형 콘텐츠</b><span data-copy="explain.i31d">Q&amp;A형 구조는 AI 인용에 유리.</span></div>
+        <div class="ai-row"><b data-copy="explain.i32t">타이틀 최적 길이</b><span data-copy="explain.i32d">권장 15~60자.</span></div>
+      </div>
+    </div>
+
+    
+
+    
+  </div>
+</section>
+
+<footer class="foot"><style>.foot{background:#070D1C;color:#7C879D;padding:60px 0 42px;font-size:13.5px}.foot a{color:inherit;text-decoration:none}.foot .wrap{max-width:1140px;margin:0 auto;padding:0 24px}.foot-in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}.foot .brand{color:#fff;margin-bottom:16px;display:inline-block}.foot p{font-size:13.5px;line-height:1.7;max-width:320px;margin:0}.foot-info{font-size:12.5px;line-height:1.7;color:#7C879D;margin-top:14px}.foot-cols{display:flex;gap:56px}.foot-col .h5x{color:#C3CBDC;font-size:13.5px;margin:0 0 15px;font-weight:800}.foot-col a{display:block;font-size:14px;margin-bottom:10px}.foot-col a:hover{color:#fff}.foot-b{margin-top:46px;padding-top:24px;border-top:1px solid #141C30;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#4E5A73}@media(max-width:720px){.foot-cols{gap:32px;flex-wrap:wrap}}</style><div class="wrap"><div class="foot-in">
+<div><a class="brand" href="index.html"><img src="assets/logo-white.png" alt="메세지AI (messeze)" style="height:24px;width:auto;display:block"></a>
+<p>메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.</p>
+<div class="foot-info">메세지AI · 상호 주식회사 퍼스트마케팅컴퍼니 · 대표 김우석<br>사업자등록번호 884-88-01123 · 통신판매업 신고 2021-대구동구-0697<br>대구 본사: 대구광역시 중구 국채보상로 488 (동산동) 섬유회관 3층<br>서울 사무소: 서울시 광진구 능동로49길 9, 2F<br>대표번호 1600-9487 · sales@firstmkt.co.kr<br>개인정보관리책임자 김우석 (work@firstmkt.co.kr)</div></div>
+<div class="foot-cols">
+<div class="foot-col"><div class="h5x">서비스</div><a href="services/visibility.html">서비스 상세</a><a href="pricing.html">요금</a><a href="check.html">AI 노출 진단</a></div>
+<div class="foot-col"><div class="h5x">리소스</div><a href="blog/index.html">블로그</a><a href="glossary/index.html">용어사전</a><a href="faq.html">FAQ</a></div>
+<div class="foot-col"><div class="h5x">회사</div><a href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener">카카오톡 상담</a><a href="index.html#final">상담 신청</a><a href="index.html#final">무료 진단</a></div>
+</div>
+</div><div class="foot-b"><span>© 2026 메세지AI</span><span>사람에게만 보이는 홍보에서, AI가 읽는 홍보로</span></div></div></footer>
+
+<script>
+/* ================= fetch ================= */
+// 1순위는 자체 서버 프록시(/api/fetch) — 서버가 받은 원본 HTML이라 AI 크롤러가 보는 조건과 같다.
+// 서버가 아예 응답하지 못할 때만 jina 리더로 넘어간다(JS 렌더링 결과라 판정에서 일부 항목을 제외한다).
+async function proxyFetch(url){
+  let ssl=false;
+  try{
+    const r=await fetch('/api/fetch?url='+encodeURIComponent(url),{signal:AbortSignal.timeout(25000)});
+    const j=await r.json().catch(()=>null);
+    const d=j&&j.data;
+    if(j&&j.status&&d){
+      if(d.ok)return {ok:true,status:d.status,text:d.text,via:'direct'};
+      if(d.ssl){ssl=true;}
+      // 대상이 4xx로 확실히 응답했다면 폴백해도 결과가 같다 — 여기서 끝낸다
+      else if(d.status>=400&&d.status<500)return {ok:false,status:d.status,text:'',via:'direct'};
+    }
+  }catch(e){}
+  try{
+    const r=await fetch('https://r.jina.ai/'+url,{headers:{'x-return-format':'html'},signal:AbortSignal.timeout(28000)});
+    if(r.ok)return {ok:true,status:200,text:await r.text(),via:'jina'};
+  }catch(e){}
+  return {ok:false,status:0,text:'',ssl};
+}
+
+/* ================= checks ================= */
+function analyze(html,baseUrl,robots,sitemap,via){
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  const items=[]; // {cat,label,desc,pts,max,state:ok/no/warn}
+  const add=(cat,label,pass,max,desc,warn)=>{items.push({cat,label,desc,max,pts:pass?max:(warn?Math.round(max/2):0),state:pass?'ok':(warn?'warn':'no')})};
+
+  /* ---- A. 콘텐츠 SEO (30) ---- */
+  const titles=doc.querySelectorAll('title');
+  const title=titles[0]?titles[0].textContent.trim():'';
+  add('콘텐츠 SEO','타이틀 태그',!!title,5,title?('"'+title.slice(0,60)+(title.length>60?'…':'')+'"'):'title 태그가 없습니다. 검색결과 제목이 비어 보입니다.');
+  add('콘텐츠 SEO','타이틀 단일 사용',titles.length===1,2,titles.length===1?'페이지당 1개 — 정상':'title 태그가 '+titles.length+'개 발견됐습니다.');
+  const desc=doc.querySelector('meta[name="description"]');
+  const descTxt=desc?(desc.getAttribute('content')||'').trim():'';
+  add('콘텐츠 SEO','메타 디스크립션',!!descTxt,5,descTxt?('길이 '+descTxt.length+'자'):'검색결과 설명문이 없습니다. 클릭률에 직접 영향을 줍니다.');
+  const h1s=doc.querySelectorAll('h1');
+  add('콘텐츠 SEO','H1 태그 존재',h1s.length>0,5,h1s.length?('"'+(h1s[0].textContent.trim().slice(0,50))+'"'):'페이지 대표 제목(H1)이 없습니다.');
+  add('콘텐츠 SEO','H1 단일 사용',h1s.length===1,2,h1s.length===1?'페이지당 1개 — 정상':(h1s.length===0?'H1이 없어 판정 불가':'H1이 '+h1s.length+'개입니다. 1개로 정리하세요.'),h1s.length===0);
+  const h2s=doc.querySelectorAll('h2');
+  add('콘텐츠 SEO','H2 구조화',h2s.length>0,3,h2s.length?('H2 '+h2s.length+'개로 콘텐츠가 구조화되어 있습니다'):'소제목(H2)이 없습니다. AI와 검색엔진이 문서 구조를 읽기 어렵습니다.');
+  // 헤딩 계층
+  let hier=true,last=0;
+  doc.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(h=>{const lv=+h.tagName[1];if(last&&lv>last+1)hier=false;last=lv;});
+  add('콘텐츠 SEO','제목 태그 계층 구조',hier,3,hier?'H1→H2→H3 순서 준수':'헤딩 레벨을 건너뛰는 구간이 있습니다 (예: H1→H3).');
+  const imgs=[...doc.querySelectorAll('img')];
+  const noAlt=imgs.filter(i=>!(i.getAttribute('alt')||'').trim()).length;
+  add('콘텐츠 SEO','이미지 ALT 속성',imgs.length>0&&noAlt===0,3,imgs.length===0?'이미지가 없어 판정 제외 (통과 처리)':(noAlt===0?'전체 '+imgs.length+'개 이미지에 ALT 있음':noAlt+'/'+imgs.length+'개 이미지에 ALT가 없습니다.'),imgs.length===0);
+
+  /* ---- B. 기술적 SEO (12) ---- */
+  add('기술적 SEO','HTTPS 보안',baseUrl.startsWith('https'),3,baseUrl.startsWith('https')?'SSL 적용됨':'HTTP로 접속됩니다. SSL 인증서를 적용하세요.');
+  add('기술적 SEO','Canonical 태그',!!doc.querySelector('link[rel="canonical"]'),2,doc.querySelector('link[rel="canonical"]')?'대표 URL 명시됨':'중복 콘텐츠 방지를 위한 canonical이 없습니다.');
+  add('기술적 SEO','Viewport 설정',!!doc.querySelector('meta[name="viewport"]'),2,doc.querySelector('meta[name="viewport"]')?'모바일 대응 선언됨':'모바일 우선 인덱싱 대응이 없습니다.');
+  const langAttr=/<html[^>]+lang=/i.test(html);
+  add('기술적 SEO','언어 속성 (lang)',langAttr,2,langAttr?'콘텐츠 언어 명시됨':'html lang 속성이 없습니다.');
+  const hasDoctype=/^\s*<!doctype html/i.test(html)||via==='jina';
+  add('기술적 SEO','DOCTYPE 선언',hasDoctype,1,via==='jina'?'렌더링 프록시 경유 — 판정 제외 (통과 처리)':(hasDoctype?'HTML5 표준':'DOCTYPE 선언이 없습니다.'));
+  const og=doc.querySelectorAll('meta[property^="og:"]').length;
+  add('기술적 SEO','Open Graph 태그',og>=3,2,og?('OG 태그 '+og+'개'):'SNS 공유·네이버 사이트명 표시용 OG 태그가 없습니다.',og>0&&og<3);
+
+  /* ---- C. 크롤링 준비 (8) ---- */
+  add('크롤링 준비','파비콘',!!doc.querySelector('link[rel*="icon"]'),1,doc.querySelector('link[rel*="icon"]')?'선언됨':'브라우저 탭·검색결과 아이콘이 없습니다.');
+  add('크롤링 준비','robots.txt',robots.ok&&robots.text.toLowerCase().includes('user-agent'),2,robots.ok?(robots.text.toLowerCase().includes('user-agent')?'유효한 규칙 확인':'파일은 있으나 User-agent 규칙이 없습니다.'):'robots.txt가 없습니다. 크롤러 접근 제어가 안 됩니다.',robots.ok&&!robots.text.toLowerCase().includes('user-agent'));
+  add('크롤링 준비','sitemap.xml',sitemap.ok&&sitemap.text.includes('<url'),3,sitemap.ok?(sitemap.text.includes('<url')?'유효한 사이트맵 확인':'파일은 있으나 URL 목록이 없습니다.'):'sitemap.xml이 없습니다. 검색엔진이 사이트 구조를 파악하기 어렵습니다.',sitemap.ok&&!sitemap.text.includes('<url'));
+
+  /* ---- C2. 속도·기술 최적화 (4) ---- */
+  const mixed=baseUrl.startsWith('https')?[...doc.querySelectorAll('img[src],script[src],link[href]')].filter(el=>/^http:\/\//i.test(el.getAttribute('src')||el.getAttribute('href')||'')).length:0;
+  add('속도·기술 최적화','혼합 콘텐츠 없음',mixed===0,1,!baseUrl.startsWith('https')?'HTTP 페이지 — 판정 제외 (통과 처리)':(mixed?mixed+'개 리소스가 http로 로드됩니다. HTTPS에서 차단·경고될 수 있습니다.':'모든 리소스가 https로 로드됩니다 — 정상'));
+  const lazyN=imgs.filter(i=>(i.getAttribute('loading')||'').toLowerCase()==='lazy').length;
+  add('속도·기술 최적화','이미지 지연 로딩',imgs.length===0||lazyN>0,1,imgs.length===0?'이미지 없음 — 판정 제외 (통과 처리)':(lazyN?lazyN+'/'+imgs.length+'개 이미지에 lazy 로딩 적용':'loading="lazy"가 없어 초기 로딩이 무거워질 수 있습니다.'),imgs.length>0&&lazyN>0&&lazyN<imgs.length);
+  const nextGen=[...doc.querySelectorAll('img,source')].some(el=>/\.(webp|avif)([?#\s]|$)/i.test((el.getAttribute('src')||'')+' '+(el.getAttribute('srcset')||''))||/image\/(webp|avif)/i.test(el.getAttribute('type')||''));
+  add('속도·기술 최적화','차세대 이미지 포맷',imgs.length===0||nextGen,1,imgs.length===0?'이미지 없음 — 판정 제외 (통과 처리)':(nextGen?'WebP/AVIF 사용 확인':'JPG/PNG만 쓰고 있습니다. WebP로 바꾸면 용량이 줄어 속도가 개선됩니다.'));
+  const hints=doc.querySelectorAll('link[rel="preconnect"],link[rel="preload"],link[rel="dns-prefetch"],link[rel="prefetch"]').length;
+  add('속도·기술 최적화','리소스 힌트',hints>0,1,hints?('preconnect·preload 등 '+hints+'개 적용'):'외부 자원 연결을 앞당기는 리소스 힌트(preconnect 등)가 없습니다.');
+
+  /* ---- D. 구조화 데이터 (30) ---- */
+  const ldNodes=[...doc.querySelectorAll('script[type="application/ld+json"]')];
+  let lds=[],ldValid=ldNodes.length>0;
+  ldNodes.forEach(n=>{try{const p=JSON.parse(n.textContent);(Array.isArray(p)?p:(p['@graph']||[p])).forEach(o=>lds.push(o));}catch(e){ldValid=false;}});
+  const types=lds.map(o=>String(o['@type']||'')).flat();
+  const hasType=t=>types.some(x=>x.toLowerCase().includes(t.toLowerCase()));
+  add('구조화 데이터','JSON-LD 존재',ldNodes.length>0,8,ldNodes.length?('스크립트 '+ldNodes.length+'개, 엔티티 '+lds.length+'개'):'구조화 데이터가 전혀 없습니다. AI가 발행 주체를 식별할 수 없습니다.');
+  add('구조화 데이터','JSON-LD 문법 유효',ldNodes.length>0&&ldValid,4,ldNodes.length===0?'JSON-LD가 없어 판정 불가':(ldValid?'파싱 정상':'JSON 문법 오류가 있습니다.'));
+  add('구조화 데이터','발행 주체 (Organization)',hasType('Organization')||hasType('LocalBusiness')||hasType('Corporation'),6,(hasType('Organization')||hasType('LocalBusiness'))?'조직 엔티티 선언됨':'누가 만든 페이지인지 AI가 알 수 없습니다. Organization 스키마를 추가하세요.');
+  add('구조화 데이터','WebSite · WebPage',hasType('WebSite')||hasType('WebPage'),4,(hasType('WebSite')||hasType('WebPage'))?'사이트·페이지 엔티티 선언됨':'WebSite/WebPage 엔티티가 없습니다.');
+  add('구조화 데이터','이동경로 (BreadcrumbList)',hasType('Breadcrumb'),3,hasType('Breadcrumb')?'선언됨':'페이지 위치 맥락을 알려주는 BreadcrumbList가 없습니다.');
+  const pageSchema=['Article','Product','Service','FAQPage','NewsArticle','BlogPosting','Offer'].some(t=>hasType(t));
+  add('구조화 데이터','페이지 유형 스키마',pageSchema,5,pageSchema?'콘텐츠 유형 스키마 확인 (Article/Service/FAQ 등)':'페이지 성격을 알리는 유형 스키마(Article·Service·FAQPage 등)가 없습니다.');
+
+  /* ---- E. 엔티티 연결성 (10) ---- */
+  const idCnt=lds.filter(o=>o['@id']).length;
+  add('엔티티 연결성','@id 식별자',lds.length>0&&idCnt>0,5,lds.length===0?'엔티티가 없어 판정 불가':(idCnt?idCnt+'개 엔티티에 @id 부여':'엔티티에 @id가 없어 상호 연결을 인식하기 어렵습니다.'));
+  const sameAs=lds.some(o=>o.sameAs&&(Array.isArray(o.sameAs)?o.sameAs.length:1));
+  add('엔티티 연결성','sameAs 외부 연결',sameAs,5,sameAs?'외부 프로필 연결 확인':'SNS·외부 프로필과의 sameAs 연결이 없습니다. AI가 외부 지식과 연결하지 못합니다.');
+
+  /* ---- F. AI 읽기 용이성 (10) ---- */
+  const bodyText=(doc.body?doc.body.textContent:'').replace(/\s+/g,' ').trim();
+  add('AI 읽기 용이성','본문 텍스트 충분성',bodyText.length>=1500,4,'서버 응답 기준 본문 '+bodyText.length.toLocaleString()+'자'+(bodyText.length>=1500?'':' — AI가 읽을 텍스트가 부족합니다. CSR(자바스크립트 렌더링)이라면 서버 렌더링을 검토하세요.'),bodyText.length>=500&&bodyText.length<1500);
+  const faqLike=hasType('FAQPage')||[...doc.querySelectorAll('h2,h3')].some(h=>/[?？]|무엇|어떻게|왜|인가요|하나요/.test(h.textContent));
+  add('AI 읽기 용이성','질문형 콘텐츠',faqLike,3,faqLike?'Q&A형 구조 확인 — AI 인용에 유리':'고객 질문에 답하는 Q&A형 콘텐츠가 없습니다.');
+  const wordTitle=title.length>=15&&title.length<=60;
+  add('AI 읽기 용이성','타이틀 최적 길이',wordTitle,3,title?('현재 '+title.length+'자 (권장 15~60자)'):'타이틀이 없습니다.',title.length>0&&!wordTitle);
+
+  return items;
+}
+
+/* ================= scoring & render ================= */
+const CAT_GROUPS={'콘텐츠 SEO':'seo','기술적 SEO':'seo','크롤링 준비':'seo','속도·기술 최적화':'seo','구조화 데이터':'geo','엔티티 연결성':'geo','AI 읽기 용이성':'geo'};
+const GRADES=[[90,'AI 인싸','#0BBF8C','AI가 먼저 꺼내 추천하는 상태입니다. 이제 콘텐츠 축적으로 추천 순위를 굳힐 차례입니다.'],
+[80,'AI 단골','#2B5CFF','AI가 확실히 아는 상태입니다. 남은 항목을 보완하면 인용이 눈에 띄게 늘어납니다.'],
+[70,'아는 사이','#6E93FF','AI가 알긴 하지만 인용까지는 부족합니다. 구조화 데이터부터 보강하세요.'],
+[60,'얼굴만 아는 사이','#E8963A','AI가 이 페이지를 절반쯤만 이해합니다. 우선순위 항목부터 개선이 필요합니다.'],
+[50,'초면','#E8823A','AI가 거의 모르는 상태입니다. 기초 구조부터 다시 세워야 합니다.'],
+[0,'투명인간','#E2574C','AI 답변에 아예 보이지 않습니다. 지금 시작하면 격차를 줄일 수 있습니다.']];
+
+function grade(sc){for(const g of GRADES)if(sc>=g[0])return g;}
+
+async function run(){
+  const errEl=document.getElementById('cerr');errEl.style.display='none';
+  let u=document.getElementById('urlIn').value.trim();
+  if(!u){errEl.textContent='URL을 입력해주세요.';errEl.style.display='block';return;}
+  if(!/^https?:\/\//i.test(u))u='https://'+u;
+  let origin;try{origin=new URL(u).origin;}catch(e){errEl.textContent='올바른 URL 형식이 아닙니다.';errEl.style.display='block';return;}
+
+  document.getElementById('res').style.display='none';
+  const prog=document.getElementById('prog');prog.style.display='block';
+  const sts=[1,2,3,4].map(i=>document.getElementById('st'+i));
+  sts.forEach(s=>s.className='st');
+  const setStep=(i,state)=>{sts[i].className='st '+state};
+  prog.scrollIntoView({behavior:'smooth',block:'center'});
+
+  setStep(0,'run');
+  const page=await proxyFetch(u);
+  if(!page.ok||!page.text){
+    prog.style.display='none';
+    errEl.textContent=page.ssl
+      ?'이 사이트는 SSL 인증서 문제로 외부에서 접근이 불안정합니다 — AI 크롤러도 같은 이유로 읽지 못할 수 있습니다. 이 문제부터 해결이 필요합니다. (무료 상담으로 문의주세요)'
+      :'페이지를 가져오지 못했습니다. 주소를 확인하거나 잠시 후 다시 시도해주세요.';
+    errEl.style.display='block';return;
+  }
+  setStep(0,'ok');setStep(1,'run');
+  await new Promise(r=>setTimeout(r,300));
+  setStep(1,'ok');setStep(2,'run');
+  const [robots,sitemap]=await Promise.all([proxyFetch(origin+'/robots.txt'),proxyFetch(origin+'/sitemap.xml')]);
+  setStep(2,'ok');setStep(3,'run');
+  const items=analyze(page.text,u,robots,sitemap,page.via);
+  await new Promise(r=>setTimeout(r,300));
+  setStep(3,'ok');
+  setTimeout(()=>{prog.style.display='none';render(u,items);},350);
+}
+
+function render(u,items){
+  const seoItems=items.filter(i=>CAT_GROUPS[i.cat]==='seo');
+  const geoItems=items.filter(i=>CAT_GROUPS[i.cat]==='geo');
+  const sum=a=>a.reduce((s,i)=>s+i.pts,0);
+  const seoSc=sum(seoItems),geoSc=sum(geoItems),total=seoSc+geoSc;
+  const g=grade(total);
+
+  const res=document.getElementById('res');res.style.display='block';
+  document.getElementById('rUrl').textContent=u.replace(/^https?:\/\//,'').replace(/\/$/,'');
+  const gr=document.getElementById('rGrade');gr.textContent=g[1];gr.style.background=g[2]+'1d';gr.style.color=g[2];
+  document.getElementById('rSum').textContent=g[3];
+  // gauge
+  const arc=document.getElementById('gArc');arc.style.stroke=g[2];
+  setTimeout(()=>{arc.style.transition='stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)';arc.style.strokeDashoffset=515-(515*total/100);},60);
+  let v=0;const n=document.getElementById('gScore');const t=setInterval(()=>{v+=2;if(v>=total){v=total;clearInterval(t)}n.textContent=v;},24);
+  document.getElementById('barSeo').style.width=(seoSc/50*100)+'%';
+  document.getElementById('barGeo').style.width=(geoSc/50*100)+'%';
+  document.getElementById('numSeo').textContent=seoSc+'/50';
+  document.getElementById('numGeo').textContent=geoSc+'/50';
+
+  // categories
+  const cats={};items.forEach(i=>{(cats[i.cat]=cats[i.cat]||[]).push(i)});
+  const catsEl=document.getElementById('cats');catsEl.innerHTML='';
+  const MK={ok:'✓',no:'✕',warn:'!'};
+  Object.entries(cats).forEach(([name,list],idx)=>{
+    const got=sum(list),max=list.reduce((s,i)=>s+i.max,0);
+    const el=document.createElement('div');el.className='cat'+(idx===0?' open':'');
+    el.innerHTML=`<div class="cat-hd"><h3>${name}</h3><span class="cs" style="color:${got===max?'var(--mint)':(got<max*.5?'var(--red)':'var(--ink)')}">${got}/${max}점</span><span class="arrow">▼</span></div>
+    <div class="cat-bd">${list.map(i=>`<div class="item ${i.state}"><span class="mk">${MK[i.state]}</span><div><b>${i.label}</b><span>${i.desc}</span></div><span class="pts">${i.pts}/${i.max}</span></div>`).join('')}</div>`;
+    el.querySelector('.cat-hd').addEventListener('click',()=>el.classList.toggle('open'));
+    catsEl.appendChild(el);
+  });
+
+  // todo (biggest lost points first)
+  const fails=items.filter(i=>i.pts<i.max).sort((a,b)=>(b.max-b.pts)-(a.max-a.pts)).slice(0,5);
+  const todo=document.getElementById('todo');
+  todo.innerHTML=fails.length?`<h3>🎯 점수를 가장 많이 올릴 개선 과제 TOP ${fails.length}</h3><ol>${fails.map(f=>`<li><b>${f.label}</b> (+${f.max-f.pts}점) — ${f.desc}</li>`).join('')}</ol>`:`<h3>🎉 모든 항목 통과!</h3><ol><li>이제 콘텐츠와 출처를 꾸준히 축적해 AI 추천 순위를 높일 차례입니다.</li></ol>`;
+  document.getElementById('ctaTitle').textContent=total>=80?'좋은 기반, 이제 축적이 승부입니다':'이 점수, 메세지가 올려드립니다';
+  res.scrollIntoView({behavior:'smooth',block:'start'});
+
+  // 체크 기록을 관리자 목록으로 전송 (개인정보 없음: URL·점수만)
+  try{
+    const APPS_URL='https://messeze.com/api/compat';
+    fetch(APPS_URL,{method:'POST',body:JSON.stringify({action:'check',site:u,score:total})});if(window.fbq)fbq('trackCustom','Diagnosis',{score:total});if(window.gtag)gtag('event','diagnosis_complete',{score:total});
+  }catch(e){}
+}
+
+document.getElementById('goBtn').addEventListener('click',run);
+document.getElementById('urlIn').addEventListener('keydown',e=>{if(e.key==='Enter')run()});
+</script>
+<!-- 카카오톡 상담 -->
+<style>
+.kko-chat{position:fixed;right:21px;bottom:92px;z-index:199;width:60px;height:60px;border-radius:50%;background:#FEE500;display:grid;place-items:center;box-shadow:0 10px 26px rgba(16,31,63,.26);transition:transform .2s,box-shadow .2s}
+.kko-chat:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 16px 34px rgba(16,31,63,.34)}
+.kko-chat svg{width:31px;height:31px;display:block}
+@media(max-width:480px){.kko-chat{right:14px;bottom:84px;width:54px;height:54px}.kko-chat svg{width:28px;height:28px}}
+</style>
+<a class="kko-chat" href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener" title="카카오톡으로 상담하기" aria-label="카카오톡으로 상담하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#3C1E1E" d="M12 3C6.48 3 2 6.58 2 11c0 2.82 1.86 5.3 4.66 6.73-.2.73-.74 2.7-.85 3.12-.13.52.19.51.4.37.17-.11 2.67-1.81 3.75-2.55.66.1 1.34.15 2.04.15 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
+<!-- kko-navfix: 모바일 헤더 CTA 줄바꿈 수정 (메인 home.css와 동일 규칙) -->
+<style>
+.nav-cta{white-space:nowrap;flex-shrink:0}
+@media(max-width:900px){.nav-in{gap:14px}.nav-cta{padding:9px 13px;font-size:13px}.brand img{height:22px!important}}
+</style>
+<!-- 채널톡 -->
+<script>
+(function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
+ChannelIO('boot', {"pluginKey": "8dff2f72-883e-4e0e-9afa-8437c3e42d3a"});
+</script>
+</body>
+</html>

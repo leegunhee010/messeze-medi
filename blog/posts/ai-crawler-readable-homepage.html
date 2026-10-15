@@ -1,0 +1,413 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI가 못 읽는 홈페이지, 원인은 화면 밖 원본 HTMLㅣ메세지AI 블로그</title>
+<meta name="description" content="AI가 홈페이지를 못 읽는 원인은 대개 디자인이 아니라 접근 차단, 자바스크립트로만 채워지는 본문, 흐트러진 제목 구조입니다. 고칠 순서와 직접 확인하는 방법을 정리했습니다.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--ink:#0A1930;--navy:#101F3F;--body:#4A5568;--mut:#8B95A7;--cobalt:#2B5CFF;--cobalt-dk:#1E46D9;
+--sky:#EAF1FF;--sky-2:#F5F8FD;--mint:#0BBF8C;--line:#E5EAF2;--line-2:#D8E0EC;
+--sans:'Pretendard',system-ui,-apple-system,sans-serif;--disp:'Poppins',var(--sans);--maxw:1140px;
+--sh-sm:0 1px 2px rgba(10,25,48,.05),0 4px 14px rgba(10,25,48,.05);--sh:0 12px 34px rgba(16,31,63,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:keep-all}
+.nav{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;height:72px;gap:40px}
+.nav .wrap{max-width:1480px;padding:0 clamp(16px,2.5vw,40px)}
+.brand{display:flex;align-items:center;gap:9px}
+.brand svg{width:25px;height:25px}
+.brand .bw{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.025em}
+.nav-menu{display:flex;gap:6px;font-size:15px;font-weight:600;color:var(--body)}
+.nav-menu a{padding:9px 13px;border-radius:10px}
+.nav-menu a:hover{background:var(--sky-2);color:var(--ink)}
+.nav-menu a.on{color:var(--cobalt)}
+.nav-r{margin-left:auto}
+.nav-cta{font-weight:700;font-size:14.5px;background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;transition:.18s}
+.nav-cta:hover{background:var(--cobalt)}
+.nav-burger{display:none;background:none;border:0;cursor:pointer;padding:10px 4px 10px 10px;flex:0 0 auto}
+.nav-burger span{display:block;width:22px;height:2.5px;background:var(--ink);border-radius:2px;margin:4.5px 0;transition:.22s}
+.nav-burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.on span:nth-child(2){opacity:0}
+.nav-burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.foot{background:#070D1C;color:#7C879D;padding:52px 0 38px;margin-top:0}
+.foot-in{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.foot .brand{color:#fff;margin-bottom:14px}
+.foot p{font-size:13.5px;line-height:1.7;max-width:320px}
+.foot-b{margin-top:38px;padding-top:22px;border-top:1px solid #141C30;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#4E5A73}
+.cta-band{background:var(--ink);border-radius:24px;padding:46px 40px;display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap;color:#fff;position:relative;overflow:hidden;margin:70px auto}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 280px at 90% 100%,rgba(43,92,255,.4),transparent 60%)}
+.cta-band h2{font-size:clamp(20px,2.6vw,27px);color:#fff;position:relative}
+.cta-band p{color:#AEB9D2;font-size:14.5px;margin-top:8px;position:relative}
+.cta-band .btn{position:relative;background:var(--cobalt);color:#fff;font-weight:700;font-size:15px;padding:15px 26px;border-radius:14px;display:inline-flex;transition:.18s}
+.cta-band .btn:hover{background:#4270FF}
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 30px 60px rgba(16,31,63,.14);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.22s;padding:32px 0 36px;z-index:80}
+.mega.on{opacity:1;visibility:visible;transform:none}
+.mega-in{display:grid;grid-template-columns:225px 1fr 1fr 1fr;gap:36px;align-items:stretch}
+.mega-brand{background:linear-gradient(160deg,#101F3F,#2B5CFF);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:225px;color:#fff;transition:.2s}
+.mega-brand:hover{transform:translateY(-3px)}
+.mega-brand .bw2{font-family:var(--disp);font-weight:600;font-size:22px}
+.mega-brand p{font-size:12.5px;color:#C7D6FF;margin-top:8px;line-height:1.55;font-weight:600}
+.mega-col .h5x{font-size:11.5px;color:var(--mut);font-weight:800;letter-spacing:.05em;margin:0 0 8px 12px}
+.mega-col .gap{height:20px}
+.mega-col a{display:block;padding:9px 12px;border-radius:12px;transition:.15s}
+.mega-col a b{font-size:14.2px;display:block;letter-spacing:-.01em}
+.mega-col a span{font-size:12.2px;color:var(--mut);display:block;margin-top:1px}
+.mega-col a:hover{background:var(--sky-2)}
+.mega-col a:hover b{color:var(--cobalt)}
+@media(max-width:900px){.nav-menu{display:none}.nav-burger{display:block}.mega{max-height:calc(100vh - 72px);overflow:auto}.mega-in{grid-template-columns:1fr;gap:18px}.mega-brand{min-height:auto;padding:18px 20px}}
+.cover{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;z-index:0}
+.card .thumb::after,.pcover::after,.rcard .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,31,63,.06) 42%,rgba(9,17,35,.55));z-index:1;pointer-events:none}
+.card .thumb .tag,.pcover .tag{z-index:2}
+.card:hover .thumb .cover,.rcard:hover .thumb .cover{transform:scale(1.06);transition:transform .6s ease}
+.card .thumb .cover,.rcard .thumb .cover{transition:transform .6s ease}
+
+.crumb{font-size:13.5px;font-weight:600;color:var(--mut);padding:34px 0 0;display:flex;gap:8px;align-items:center}
+.crumb a:hover{color:var(--cobalt)}
+.crumb .cat{color:var(--cobalt);font-weight:700}
+.phead{max-width:760px;margin:0 auto;padding:26px 0 34px}
+.phead h1{font-size:clamp(27px,3.8vw,40px);line-height:1.32}
+.phead .meta{margin-top:18px;font-size:13.5px;color:var(--mut);font-weight:600;display:flex;gap:14px;align-items:center}
+.phead .meta .by{color:var(--ink)}
+.pcover{max-width:860px;margin:0 auto;height:360px;border-radius:22px;position:relative;overflow:hidden}
+.pcover .pat{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:20px 20px}
+.pcover .tag{position:absolute;left:24px;bottom:20px;font-size:13px;font-weight:800;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:7px 14px;border-radius:999px}
+.article{max-width:720px;margin:0 auto;padding:46px 0 10px}
+.pfaq{max-width:720px;margin:26px auto 10px}
+.pfaq h2{font-size:22px;letter-spacing:-.02em;margin-bottom:4px}
+.pfq{padding:18px 0;border-bottom:1px solid var(--line)}
+.pfq:last-child{border-bottom:0}
+.pfq .q{font-weight:800;font-size:16px;word-break:keep-all}
+.pfq .q::before{content:"Q. ";color:var(--cobalt)}
+.pfq .a{margin-top:8px;color:var(--body);font-size:14.6px;line-height:1.78;word-break:keep-all}
+.article p{font-size:16.5px;color:#333C4E;line-height:1.85;margin-bottom:26px}
+.article h2{font-size:22px;margin:42px 0 16px;padding-top:8px}
+.article ul{margin:0 0 26px 4px;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+.article li{font-size:16px;color:#333C4E;line-height:1.75}
+.article b{color:var(--ink)}
+.article blockquote{background:var(--sky);border-left:4px solid var(--cobalt);border-radius:0 14px 14px 0;padding:20px 24px;font-size:16px;color:var(--navy);line-height:1.75;margin:34px 0}
+.fig{margin:38px 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--sky-2)}
+.fig svg{display:block;width:100%;height:auto}
+.fig figcaption{font-size:13px;color:var(--mut);font-weight:600;text-align:center;padding:13px 16px;border-top:1px solid var(--line);background:#fff}
+.rel{max-width:860px;margin:60px auto 0;padding:0 24px}
+.rel h3{font-size:20px;margin-bottom:20px}
+.rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rcard{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s;display:flex;flex-direction:column}
+.rcard:hover{box-shadow:var(--sh);transform:translateY(-3px)}
+.rcard .thumb{height:110px;position:relative}
+.rcard .thumb .pat{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:16px 16px}
+.rcard .b{padding:18px 20px 20px}
+.rcard .cat{font-size:12px;font-weight:800;color:var(--cobalt)}
+.rcard h4{font-size:15.5px;margin-top:8px;line-height:1.45}
+.backrow{max-width:720px;margin:44px auto 0;padding:0 24px}
+.backrow a{font-size:14.5px;font-weight:700;color:var(--cobalt)}
+@media(max-width:700px){.rel-grid{grid-template-columns:1fr}.pcover{height:220px;border-radius:16px;margin:0 20px}}
+</style><!-- auto-meta:start -->
+<link rel="canonical" href="https://medi.messeze.com/blog/posts/ai-crawler-readable-homepage.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="메세지AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="AI가 못 읽는 홈페이지, 원인은 화면 밖 원본 HTMLㅣ메세지AI 블로그">
+<meta property="og:description" content="AI가 홈페이지를 못 읽는 원인은 대개 디자인이 아니라 접근 차단, 자바스크립트로만 채워지는 본문, 흐트러진 제목 구조입니다. 고칠 순서와 직접 확인하는 방법을 정리했습니다.">
+<meta property="og:url" content="https://medi.messeze.com/blog/posts/ai-crawler-readable-homepage.html">
+<meta property="og:image" content="https://medi.messeze.com/assets/og.png?v=20260819">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI가 못 읽는 홈페이지, 원인은 화면 밖 원본 HTMLㅣ메세지AI 블로그">
+<meta name="twitter:description" content="AI가 홈페이지를 못 읽는 원인은 대개 디자인이 아니라 접근 차단, 자바스크립트로만 채워지는 본문, 흐트러진 제목 구조입니다. 고칠 순서와 직접 확인하는 방법을 정리했습니다.">
+<meta name="twitter:image" content="https://medi.messeze.com/assets/og.png?v=20260819">
+<link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2B5CFF">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://medi.messeze.com/#organization",
+   "name": "메세지AI",
+   "alternateName": [
+    "messeze",
+    "메세지AI (messeze)",
+    "메세지"
+   ],
+   "url": "https://medi.messeze.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "@id": "https://medi.messeze.com/#logo",
+    "url": "https://medi.messeze.com/assets/logo.png"
+   },
+   "image": "https://medi.messeze.com/assets/og.png",
+   "description": "메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.",
+   "email": "sales@firstmkt.co.kr",
+   "telephone": "+82-1600-9487",
+   "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KR",
+    "addressRegion": "대구광역시",
+    "addressLocality": "중구",
+    "streetAddress": "국채보상로 488 (동산동) 섬유회관 3층"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "sales@firstmkt.co.kr",
+    "telephone": "+82-1600-9487",
+    "availableLanguage": "Korean"
+   },
+   "legalName": "주식회사 퍼스트마케팅컴퍼니",
+   "disambiguatingDescription": "주식회사 퍼스트마케팅컴퍼니(대구 본사·서울 사무소)가 운영하는 SEO·GEO·AEO 검색 노출 마케팅 솔루션 브랜드(메세지AI, 영문 messeze). 유라클의 메시징 SaaS 'Message.ai', 삼성 갤럭시의 메시지 AI 기능, 카카오톡 AI 요약과는 무관합니다.",
+   "slogan": "사람에게만 보이는 홍보에서, AI가 읽고 추천하는 홍보로",
+   "knowsAbout": [
+    "SEO",
+    "GEO (생성형엔진 최적화)",
+    "AEO (답변엔진 최적화)",
+    "AI 검색 노출",
+    "기업 PR",
+    "보도자료 배포",
+    "홈페이지 콘텐츠 제작",
+    "홈페이지 제작·리뉴얼"
+   ],
+   "areaServed": "KR",
+   "employee": {
+    "@type": "Person",
+    "name": "김우석",
+    "jobTitle": "대표"
+   },
+   "location": [
+    {
+     "@type": "Place",
+     "name": "메세지AI 대구 본사",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": "대구광역시",
+      "addressLocality": "중구",
+      "streetAddress": "국채보상로 488 (동산동) 섬유회관 3층"
+     }
+    },
+    {
+     "@type": "Place",
+     "name": "메세지AI 서울 사무소",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": "서울특별시",
+      "addressLocality": "광진구",
+      "streetAddress": "능동로49길 9, 2F"
+     }
+    }
+   ],
+   "taxID": "884-88-01123",
+   "sameAs": [
+    "https://www.instagram.com/messeze_/",
+    "https://journal94894.tistory.com/",
+    "https://messezehospitalmarketing.tistory.com/",
+    "https://messezeglobalmarketing.tistory.com/",
+    "https://messezestartupmarketing.tistory.com/",
+    "https://messeze01.blogspot.com/",
+    "https://messeze02.blogspot.com/",
+    "https://messeze03.blogspot.com/",
+    "https://messeze04.blogspot.com/",
+    "https://messeze05.blogspot.com/"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://medi.messeze.com/#website",
+   "url": "https://medi.messeze.com/",
+   "name": "메세지AI",
+   "publisher": {
+    "@id": "https://medi.messeze.com/#organization"
+   },
+   "inLanguage": "ko"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://medi.messeze.com/blog/posts/ai-crawler-readable-homepage.html#webpage",
+   "url": "https://medi.messeze.com/blog/posts/ai-crawler-readable-homepage.html",
+   "name": "AI가 못 읽는 홈페이지, 원인은 화면 밖 원본 HTMLㅣ메세지AI 블로그",
+   "description": "AI가 홈페이지를 못 읽는 원인은 대개 디자인이 아니라 접근 차단, 자바스크립트로만 채워지는 본문, 흐트러진 제목 구조입니다. 고칠 순서와 직접 확인하는 방법을 정리했습니다.",
+   "isPartOf": {
+    "@id": "https://medi.messeze.com/#website"
+   },
+   "about": {
+    "@id": "https://medi.messeze.com/#organization"
+   },
+   "inLanguage": "ko"
+  }
+ ]
+}
+</script>
+<meta property="article:published_time" content="2026-10-02T09:00:00+09:00">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "AI가 못 읽는 홈페이지, 원인은 화면 밖 원본 HTML",
+ "description": "AI가 홈페이지를 못 읽는 원인은 대개 디자인이 아니라 접근 차단, 자바스크립트로만 채워지는 본문, 흐트러진 제목 구조입니다. 고칠 순서와 직접 확인하는 방법을 정리했습니다.",
+ "datePublished": "2026-10-02",
+ "dateModified": "2026-10-02",
+ "author": {
+  "@type": "Organization",
+  "name": "메세지AI 편집팀",
+  "url": "https://medi.messeze.com/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "메세지AI",
+  "logo": {
+   "@type": "ImageObject",
+   "url": "https://medi.messeze.com/assets/og.png"
+  }
+ },
+ "mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "https://medi.messeze.com/blog/posts/ai-crawler-readable-homepage.html"
+ },
+ "image": "https://medi.messeze.com/assets/og.png",
+ "inLanguage": "ko"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "홈",
+   "item": "https://medi.messeze.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "블로그",
+   "item": "https://medi.messeze.com/blog/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "AI가 못 읽는 홈페이지, 원인은 화면 밖 원본 HTML",
+   "item": "https://medi.messeze.com/blog/posts/ai-crawler-readable-homepage.html"
+  }
+ ]
+}
+</script>
+<!-- auto-meta:end -->
+<!-- meta-pixel:start -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1053375334252637');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="Meta Pixel"
+src="https://www.facebook.com/tr?id=1053375334252637&ev=PageView&noscript=1"
+/></noscript>
+<!-- meta-pixel:end -->
+<!-- google-tag:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0MY05XMLC"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config','G-Q0MY05XMLC');
+gtag('config','AW-18400024238');
+</script>
+<!-- google-tag:end -->
+</head><body>
+<header class="nav"><div class="wrap nav-in">
+<a class="brand" href="../../index.html"><img src="../../assets/logo.png" alt="메세지AI (messeze)" style="height:26px;width:auto;display:block"></a>
+<nav class="nav-menu">
+<a href="../../services/visibility.html">서비스</a>
+<a href="../../pricing.html">요금</a>
+<a href="../../check.html">AI 노출 진단</a>
+<a class="on" href="../../blog/index.html">블로그</a>
+<a href="../../glossary/index.html">용어사전</a>
+<a href="../../faq.html">FAQ</a>
+</nav>
+<div class="nav-r"><a class="nav-cta" href="../../index.html#final">무료 진단 받기</a></div>
+<button class="nav-burger" id="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+</div>
+<div class="mega" id="mega"><div class="wrap mega-in">
+<a class="mega-brand" href="../../index.html"><span class="bw2">messeze</span><p>사람에게만 보이는 홍보에서,<br>AI가 읽는 홍보로</p></a>
+<div class="mega-col"><div class="h5x">서비스</div>
+      <a href="../../services/visibility.html"><b>AI 가시성 평가</b><span>AI가 우리 회사를 아는지부터</span></a>
+      <a href="../../services/website-renewal.html"><b>홈페이지 AI 최적화</b><span>AI가 읽는 구조로 정비</span></a>
+      <a href="../../services/own-blog.html"><b>홈페이지 콘텐츠</b><span>도메인에 쌓이는 전문 글</span></a>
+      <a href="../../services/contents.html"><b>AI 가시성 콘텐츠</b><span>구글·AI가 인용하는 글</span></a>
+      <a href="../../services/press.html"><b>언론 배포</b><span>보도자료 작성 · 기사화</span></a>
+      <a href="../../services/press-distribution.html"><b>보도자료 이메일 배포</b><span>담당 기자 3,000명 배포</span></a>
+      <a href="../../services/report.html"><b>월간 성과 보고서</b><span>발행 내역 · 노출 변화 보고</span></a>
+    </div>
+<div class="mega-col"><div class="h5x">무료 도구</div>
+<a href="../../check.html"><b>AI 노출 무료 진단</b><span>URL만 넣으면 30초 진단</span></a>
+<a href="../../tools.html#pr"><b>PR 플랜 추천</b><span>3가지 질문으로 플랜 찾기</span></a>
+<div class="gap"></div><div class="h5x">요금</div>
+<a href="../../pricing.html"><b>플랜 비교</b><span>베이직 · 프리미엄 · 엔터프라이즈</span></a>
+<a href="../../pricing.html#faq"><b>요금 FAQ</b><span>약정 · 수량 · 바우처 연계</span></a></div>
+<div class="mega-col"><div class="h5x">리소스</div>
+<a href="../../blog/index.html"><b>블로그</b><span>AI 검색 시대의 홍보 인사이트</span></a>
+<a href="../../glossary/index.html"><b>용어사전</b><span>SEO·AEO·GEO·PR 용어 102개</span></a></div>
+</div></div>
+</header>
+<script>
+(function(){const p=document.getElementById('mega'),t=document.querySelector('.nav-menu'),b=document.getElementById('burger');if(!p)return;let m;const o=()=>{clearTimeout(m);p.classList.add('on')},c=()=>{m=setTimeout(()=>p.classList.remove('on'),140)};if(t){t.addEventListener('mouseenter',o);t.addEventListener('mouseleave',c);t.querySelectorAll('a').forEach(a=>a.addEventListener('mouseenter',o));}if(window.matchMedia('(hover:hover)').matches){p.addEventListener('mouseenter',o);p.addEventListener('mouseleave',c);}if(b){b.addEventListener('click',()=>{const on=p.classList.toggle('on');b.classList.toggle('on',on);});p.addEventListener('click',e=>{if(e.target.closest('a')){p.classList.remove('on');b.classList.remove('on');}});}})();
+</script>
+<div class="wrap crumb"><a href="../index.html">블로그</a><span>›</span><span class="cat">AI 가시성</span></div>
+<div class="wrap phead"><h1>AI가 못 읽는 홈페이지, 원인은 화면 밖 원본 HTML</h1>
+<div class="meta"><span class="by">by. messeze 편집팀</span><span>·</span><span>2026-10-02</span></div></div>
+<div class="pcover" style="background:linear-gradient(135deg,#12203F,#4A6BFF)"><span class="pat"></span><img class="cover" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1290&h=860&q=80&auto=format&fit=crop" alt="AI가 못 읽는 홈페이지, 원인은 화면 밖 원본 HTML" loading="lazy" referrerpolicy="no-referrer"><span class="tag">AI 가시성</span></div>
+<article class="article wrap"><p>홈페이지가 있는데도 AI가 못 읽는다는 말은 대개 디자인 문제가 아닙니다. AI 수집 로봇이 받아 가는 원본 HTML에 내용이 비어 있거나, 처음부터 접근이 막혀 있다는 뜻입니다.</p><p>고칠 곳은 세 군데입니다. 로봇의 접근 허용, 서버에서 완성된 본문, 문서의 제목 구조입니다. 순서대로 보면 원인을 대부분 좁힐 수 있습니다.</p><h2>AI 크롤러는 화면이 아니라 원본을 읽습니다</h2><p>대부분의 <a href="/glossary/terms/ai-crawler.html">AI 크롤러</a>는 브라우저처럼 화면을 그리지 않고, 서버가 처음 보낸 HTML만 읽습니다. Vercel과 MERJ가 2024년 12월 공개한 분석에서 GPTBot·ClaudeBot·PerplexityBot은 자바스크립트를 실행하지 않았고, 구글 인프라를 쓰는 Gemini만 렌더링을 했습니다.</p><p>그래서 사람 눈에는 멀쩡한 페이지도 본문을 자바스크립트로 나중에 채우는 구조라면, AI에게는 제목만 있는 빈 페이지로 보일 수 있습니다.</p><h2>먼저 로봇이 들어올 수 있는지 봅니다</h2><p>AI가 읽지 못하는 가장 흔한 원인은 내용이 아니라 접근 차단입니다. OpenAI 공식 문서는 OAI-SearchBot을 막은 사이트가 ChatGPT 검색 답변에 표시되지 않는다고 밝힙니다. Cloudflare도 2025년 7월부터 AI 크롤러를 기본 차단하는 방식으로 바꿨기 때문에, 직접 막은 적이 없어도 호스팅·보안 설정에서 막혀 있을 수 있습니다.</p><ul><li><a href="/glossary/terms/robots-txt.html">robots.txt</a>에 OAI-SearchBot·GPTBot·ClaudeBot 등을 막는 줄이 있는지</li><li>Cloudflare 같은 보안 서비스에서 AI 크롤러 차단이 켜져 있는지</li><li>회원 로그인이나 팝업 뒤에 핵심 정보가 숨어 있지 않은지</li></ul><h2>본문은 서버에서 완성해 내보내야 합니다</h2><p>회사 소개·서비스·연락처처럼 AI가 인용해야 할 내용은 서버에서 완성된 HTML로 내보내는 것이 원칙입니다. Vercel도 같은 분석에서 핵심 콘텐츠는 서버 렌더링을 우선하라고 권고합니다.</p><p>확인은 간단합니다. 브라우저에서 '페이지 소스 보기'를 열어 화면에 보이는 핵심 문장이 그대로 있는지 찾아보면 됩니다. 문장이 없고 스크립트만 보인다면 제작사에 서버 렌더링이나 정적 생성을 요청할 단계입니다. <a href="/blog/posts/image-heavy-homepage-seo.html">이미지 속에 넣은 글자</a>도 같은 이유로 본문에 텍스트로 옮겨야 합니다.</p><h2>제목 구조가 문서의 목차가 됩니다</h2><p>h1 제목 하나와 질문 단위의 h2 소제목은 AI가 페이지를 단락별로 나눠 읽는 기준이 됩니다. 소제목 없이 한 덩어리로 쓰인 페이지는 읽히더라도 어느 문장이 무엇에 대한 답인지 구분되지 않아 인용 후보가 되기 어렵습니다. <a href="/glossary/terms/structured-data.html">스키마</a> 마크업은 이 구조 위에 붙이는 보조 라벨이지 대신하는 장치가 아닙니다.</p><blockquote>AI가 읽는 것은 사람이 보는 <b>화면</b>이 아니라 서버가 보낸 <b>원본 HTML</b>입니다. 접근이 열려 있고, 원본에 본문이 있고, 소제목으로 나뉘어 있어야 <a href="/glossary/terms/share-of-voice.html">AI 가시성</a>의 출발선에 섭니다.</blockquote><h2>정리: 화면이 아니라 원본에서 고칩니다</h2><p>AI가 못 읽는 홈페이지는 새로 만들기보다 막힌 접근을 풀고, 본문을 서버에서 완성하고, 소제목으로 나누는 순서로 고치는 경우가 대부분입니다. 이 세 가지가 갖춰져야 <a href="/glossary/terms/geo.html">GEO</a>·<a href="/glossary/terms/aeo.html">AEO</a> 작업도 효과를 냅니다.</p><p>홈페이지가 사람 눈에는 멀쩡해 보여서 어디가 막혔는지 스스로 가리기 어렵다면, <a href="/check.html">무료 진단</a>에서 AI가 우리 회사를 설명할 때 홈페이지의 어떤 페이지를 실제로 가져가고 어떤 페이지는 비어 있는지부터 보실 수 있습니다. 그 차이가 접근 차단인지 빈 원본인지 알면 제작사에 요청할 수정 항목이 한 줄로 정리됩니다.</p></article>
+
+<div class="backrow"><a href="../index.html">← 블로그 목록으로</a></div>
+<div class="rel"><h3>함께 읽으면 좋은 글</h3><div class="rel-grid"><a class="rcard" href="meta-description-snippet-click.html"><div class="thumb" style="background:linear-gradient(135deg,#0F2350,#2B5CFF)"><span class="pat"></span><img class="cover" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1290&h=860&q=80&auto=format&fit=crop" alt="메타 디스크립션, 순위는 못 올려도 클릭은 바꿉니다" loading="lazy" referrerpolicy="no-referrer"></div>
+<div class="b"><span class="cat">AI 가시성</span><h4>메타 디스크립션, 순위는 못 올려도 클릭은 바꿉니다</h4></div></a><a class="rcard" href="competitor-in-ai-answer-gap.html"><div class="thumb" style="background:linear-gradient(135deg,#0F2350,#1B3C8F)"><span class="pat"></span><img class="cover" src="https://images.unsplash.com/photo-1745674684539-d90293d659a9?w=1290&h=860&q=80&auto=format&fit=crop" alt="AI 답변에 경쟁사만 나올 때, 갈리는 세 지점" loading="lazy" referrerpolicy="no-referrer"></div>
+<div class="b"><span class="cat">AI 가시성</span><h4>AI 답변에 경쟁사만 나올 때, 갈리는 세 지점</h4></div></a></div></div>
+<div class="wrap"><div class="cta-band">
+<div><h2>우리 회사는 AI에서 어떻게 보이고 있을까요?</h2><p>AI 가시성 무료 진단 · 보도자료 1건 무료 · 최적화 콘텐츠 3건</p></div>
+<a class="btn" href="../../index.html#final">무료 진단 신청하기</a></div></div>
+<footer class="foot"><style>.foot{background:#070D1C;color:#7C879D;padding:60px 0 42px;font-size:13.5px}.foot a{color:inherit;text-decoration:none}.foot .wrap{max-width:1140px;margin:0 auto;padding:0 24px}.foot-in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}.foot .brand{color:#fff;margin-bottom:16px;display:inline-block}.foot p{font-size:13.5px;line-height:1.7;max-width:320px;margin:0}.foot-info{font-size:12.5px;line-height:1.7;color:#7C879D;margin-top:14px}.foot-cols{display:flex;gap:56px}.foot-col .h5x{color:#C3CBDC;font-size:13.5px;margin:0 0 15px;font-weight:800}.foot-col a{display:block;font-size:14px;margin-bottom:10px}.foot-col a:hover{color:#fff}.foot-b{margin-top:46px;padding-top:24px;border-top:1px solid #141C30;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#4E5A73}@media(max-width:720px){.foot-cols{gap:32px;flex-wrap:wrap}}</style><div class="wrap"><div class="foot-in">
+<div><a class="brand" href="../../index.html"><img src="../../assets/logo-white.png" alt="메세지AI (messeze)" style="height:24px;width:auto;display:block"></a>
+<p>메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.</p>
+<div class="foot-info">메세지AI · 상호 주식회사 퍼스트마케팅컴퍼니 · 대표 김우석<br>사업자등록번호 884-88-01123 · 통신판매업 신고 2021-대구동구-0697<br>대구 본사: 대구광역시 중구 국채보상로 488 (동산동) 섬유회관 3층<br>서울 사무소: 서울시 광진구 능동로49길 9, 2F<br>대표번호 1600-9487 · sales@firstmkt.co.kr<br>개인정보관리책임자 김우석 (work@firstmkt.co.kr)</div></div>
+<div class="foot-cols">
+<div class="foot-col"><div class="h5x">서비스</div><a href="../../services/visibility.html">서비스 상세</a><a href="../../pricing.html">요금</a><a href="../../check.html">AI 노출 진단</a></div>
+<div class="foot-col"><div class="h5x">리소스</div><a href="../../blog/index.html">블로그</a><a href="../../glossary/index.html">용어사전</a><a href="../../faq.html">FAQ</a></div>
+<div class="foot-col"><div class="h5x">회사</div><a href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener">카카오톡 상담</a><a href="../../index.html#final">상담 신청</a><a href="../../index.html#final">무료 진단</a></div>
+</div>
+</div><div class="foot-b"><span>© 2026 메세지AI</span><span>사람에게만 보이는 홍보에서, AI가 읽는 홍보로</span></div></div></footer>
+<!-- 카카오톡 상담 -->
+<style>
+.kko-chat{position:fixed;right:21px;bottom:92px;z-index:199;width:60px;height:60px;border-radius:50%;background:#FEE500;display:grid;place-items:center;box-shadow:0 10px 26px rgba(16,31,63,.26);transition:transform .2s,box-shadow .2s}
+.kko-chat:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 16px 34px rgba(16,31,63,.34)}
+.kko-chat svg{width:31px;height:31px;display:block}
+@media(max-width:480px){.kko-chat{right:14px;bottom:84px;width:54px;height:54px}.kko-chat svg{width:28px;height:28px}}
+</style>
+<a class="kko-chat" href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener" title="카카오톡으로 상담하기" aria-label="카카오톡으로 상담하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#3C1E1E" d="M12 3C6.48 3 2 6.58 2 11c0 2.82 1.86 5.3 4.66 6.73-.2.73-.74 2.7-.85 3.12-.13.52.19.51.4.37.17-.11 2.67-1.81 3.75-2.55.66.1 1.34.15 2.04.15 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
+<!-- kko-navfix: 모바일 헤더 CTA 줄바꿈 수정 (메인 home.css와 동일 규칙) -->
+<style>
+.nav-cta{white-space:nowrap;flex-shrink:0}
+@media(max-width:900px){.nav-in{gap:14px}.nav-cta{padding:9px 13px;font-size:13px}.brand img{height:22px!important}}
+</style>
+<!-- 채널톡 -->
+<script>
+(function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
+ChannelIO('boot', {"pluginKey": "8dff2f72-883e-4e0e-9afa-8437c3e42d3a"});
+</script>
+</body></html>

@@ -1,0 +1,413 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>블로그에 같은 글을 반복해 올리면 AI 검색 노출이 약해지는 이유ㅣ메세지AI 블로그</title>
+<meta name="description" content="같은 내용을 여러 번 올려도 AI 노출은 늘지 않습니다. AI는 비슷한 글을 한 묶음으로 보고 하나만 인용하므로, 글마다 다른 질문을 맡기는 구조가 필요합니다.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--ink:#0A1930;--navy:#101F3F;--body:#4A5568;--mut:#8B95A7;--cobalt:#2B5CFF;--cobalt-dk:#1E46D9;
+--sky:#EAF1FF;--sky-2:#F5F8FD;--mint:#0BBF8C;--line:#E5EAF2;--line-2:#D8E0EC;
+--sans:'Pretendard',system-ui,-apple-system,sans-serif;--disp:'Poppins',var(--sans);--maxw:1140px;
+--sh-sm:0 1px 2px rgba(10,25,48,.05),0 4px 14px rgba(10,25,48,.05);--sh:0 12px 34px rgba(16,31,63,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:keep-all}
+.nav{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;height:72px;gap:40px}
+.nav .wrap{max-width:1480px;padding:0 clamp(16px,2.5vw,40px)}
+.brand{display:flex;align-items:center;gap:9px}
+.brand svg{width:25px;height:25px}
+.brand .bw{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.025em}
+.nav-menu{display:flex;gap:6px;font-size:15px;font-weight:600;color:var(--body)}
+.nav-menu a{padding:9px 13px;border-radius:10px}
+.nav-menu a:hover{background:var(--sky-2);color:var(--ink)}
+.nav-menu a.on{color:var(--cobalt)}
+.nav-r{margin-left:auto}
+.nav-cta{font-weight:700;font-size:14.5px;background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;transition:.18s}
+.nav-cta:hover{background:var(--cobalt)}
+.nav-burger{display:none;background:none;border:0;cursor:pointer;padding:10px 4px 10px 10px;flex:0 0 auto}
+.nav-burger span{display:block;width:22px;height:2.5px;background:var(--ink);border-radius:2px;margin:4.5px 0;transition:.22s}
+.nav-burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.on span:nth-child(2){opacity:0}
+.nav-burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.foot{background:#070D1C;color:#7C879D;padding:52px 0 38px;margin-top:0}
+.foot-in{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.foot .brand{color:#fff;margin-bottom:14px}
+.foot p{font-size:13.5px;line-height:1.7;max-width:320px}
+.foot-b{margin-top:38px;padding-top:22px;border-top:1px solid #141C30;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#4E5A73}
+.cta-band{background:var(--ink);border-radius:24px;padding:46px 40px;display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap;color:#fff;position:relative;overflow:hidden;margin:70px auto}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 280px at 90% 100%,rgba(43,92,255,.4),transparent 60%)}
+.cta-band h2{font-size:clamp(20px,2.6vw,27px);color:#fff;position:relative}
+.cta-band p{color:#AEB9D2;font-size:14.5px;margin-top:8px;position:relative}
+.cta-band .btn{position:relative;background:var(--cobalt);color:#fff;font-weight:700;font-size:15px;padding:15px 26px;border-radius:14px;display:inline-flex;transition:.18s}
+.cta-band .btn:hover{background:#4270FF}
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 30px 60px rgba(16,31,63,.14);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.22s;padding:32px 0 36px;z-index:80}
+.mega.on{opacity:1;visibility:visible;transform:none}
+.mega-in{display:grid;grid-template-columns:225px 1fr 1fr 1fr;gap:36px;align-items:stretch}
+.mega-brand{background:linear-gradient(160deg,#101F3F,#2B5CFF);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:225px;color:#fff;transition:.2s}
+.mega-brand:hover{transform:translateY(-3px)}
+.mega-brand .bw2{font-family:var(--disp);font-weight:600;font-size:22px}
+.mega-brand p{font-size:12.5px;color:#C7D6FF;margin-top:8px;line-height:1.55;font-weight:600}
+.mega-col .h5x{font-size:11.5px;color:var(--mut);font-weight:800;letter-spacing:.05em;margin:0 0 8px 12px}
+.mega-col .gap{height:20px}
+.mega-col a{display:block;padding:9px 12px;border-radius:12px;transition:.15s}
+.mega-col a b{font-size:14.2px;display:block;letter-spacing:-.01em}
+.mega-col a span{font-size:12.2px;color:var(--mut);display:block;margin-top:1px}
+.mega-col a:hover{background:var(--sky-2)}
+.mega-col a:hover b{color:var(--cobalt)}
+@media(max-width:900px){.nav-menu{display:none}.nav-burger{display:block}.mega{max-height:calc(100vh - 72px);overflow:auto}.mega-in{grid-template-columns:1fr;gap:18px}.mega-brand{min-height:auto;padding:18px 20px}}
+.cover{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;z-index:0}
+.card .thumb::after,.pcover::after,.rcard .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,31,63,.06) 42%,rgba(9,17,35,.55));z-index:1;pointer-events:none}
+.card .thumb .tag,.pcover .tag{z-index:2}
+.card:hover .thumb .cover,.rcard:hover .thumb .cover{transform:scale(1.06);transition:transform .6s ease}
+.card .thumb .cover,.rcard .thumb .cover{transition:transform .6s ease}
+
+.crumb{font-size:13.5px;font-weight:600;color:var(--mut);padding:34px 0 0;display:flex;gap:8px;align-items:center}
+.crumb a:hover{color:var(--cobalt)}
+.crumb .cat{color:var(--cobalt);font-weight:700}
+.phead{max-width:760px;margin:0 auto;padding:26px 0 34px}
+.phead h1{font-size:clamp(27px,3.8vw,40px);line-height:1.32}
+.phead .meta{margin-top:18px;font-size:13.5px;color:var(--mut);font-weight:600;display:flex;gap:14px;align-items:center}
+.phead .meta .by{color:var(--ink)}
+.pcover{max-width:860px;margin:0 auto;height:360px;border-radius:22px;position:relative;overflow:hidden}
+.pcover .pat{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:20px 20px}
+.pcover .tag{position:absolute;left:24px;bottom:20px;font-size:13px;font-weight:800;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:7px 14px;border-radius:999px}
+.article{max-width:720px;margin:0 auto;padding:46px 0 10px}
+.pfaq{max-width:720px;margin:26px auto 10px}
+.pfaq h2{font-size:22px;letter-spacing:-.02em;margin-bottom:4px}
+.pfq{padding:18px 0;border-bottom:1px solid var(--line)}
+.pfq:last-child{border-bottom:0}
+.pfq .q{font-weight:800;font-size:16px;word-break:keep-all}
+.pfq .q::before{content:"Q. ";color:var(--cobalt)}
+.pfq .a{margin-top:8px;color:var(--body);font-size:14.6px;line-height:1.78;word-break:keep-all}
+.article p{font-size:16.5px;color:#333C4E;line-height:1.85;margin-bottom:26px}
+.article h2{font-size:22px;margin:42px 0 16px;padding-top:8px}
+.article ul{margin:0 0 26px 4px;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+.article li{font-size:16px;color:#333C4E;line-height:1.75}
+.article b{color:var(--ink)}
+.article blockquote{background:var(--sky);border-left:4px solid var(--cobalt);border-radius:0 14px 14px 0;padding:20px 24px;font-size:16px;color:var(--navy);line-height:1.75;margin:34px 0}
+.fig{margin:38px 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--sky-2)}
+.fig svg{display:block;width:100%;height:auto}
+.fig figcaption{font-size:13px;color:var(--mut);font-weight:600;text-align:center;padding:13px 16px;border-top:1px solid var(--line);background:#fff}
+.rel{max-width:860px;margin:60px auto 0;padding:0 24px}
+.rel h3{font-size:20px;margin-bottom:20px}
+.rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rcard{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s;display:flex;flex-direction:column}
+.rcard:hover{box-shadow:var(--sh);transform:translateY(-3px)}
+.rcard .thumb{height:110px;position:relative}
+.rcard .thumb .pat{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:16px 16px}
+.rcard .b{padding:18px 20px 20px}
+.rcard .cat{font-size:12px;font-weight:800;color:var(--cobalt)}
+.rcard h4{font-size:15.5px;margin-top:8px;line-height:1.45}
+.backrow{max-width:720px;margin:44px auto 0;padding:0 24px}
+.backrow a{font-size:14.5px;font-weight:700;color:var(--cobalt)}
+@media(max-width:700px){.rel-grid{grid-template-columns:1fr}.pcover{height:220px;border-radius:16px;margin:0 20px}}
+</style><!-- auto-meta:start -->
+<link rel="canonical" href="https://medi.messeze.com/blog/posts/duplicate-content-ai-visibility.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="메세지AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="블로그에 같은 글을 반복해 올리면 AI 검색 노출이 약해지는 이유ㅣ메세지AI 블로그">
+<meta property="og:description" content="같은 내용을 여러 번 올려도 AI 노출은 늘지 않습니다. AI는 비슷한 글을 한 묶음으로 보고 하나만 인용하므로, 글마다 다른 질문을 맡기는 구조가 필요합니다.">
+<meta property="og:url" content="https://medi.messeze.com/blog/posts/duplicate-content-ai-visibility.html">
+<meta property="og:image" content="https://medi.messeze.com/assets/og.png?v=20260819">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="블로그에 같은 글을 반복해 올리면 AI 검색 노출이 약해지는 이유ㅣ메세지AI 블로그">
+<meta name="twitter:description" content="같은 내용을 여러 번 올려도 AI 노출은 늘지 않습니다. AI는 비슷한 글을 한 묶음으로 보고 하나만 인용하므로, 글마다 다른 질문을 맡기는 구조가 필요합니다.">
+<meta name="twitter:image" content="https://medi.messeze.com/assets/og.png?v=20260819">
+<link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2B5CFF">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://medi.messeze.com/#organization",
+   "name": "메세지AI",
+   "alternateName": [
+    "messeze",
+    "메세지AI (messeze)",
+    "메세지"
+   ],
+   "url": "https://medi.messeze.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "@id": "https://medi.messeze.com/#logo",
+    "url": "https://medi.messeze.com/assets/logo.png"
+   },
+   "image": "https://medi.messeze.com/assets/og.png",
+   "description": "메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.",
+   "email": "sales@firstmkt.co.kr",
+   "telephone": "+82-1600-9487",
+   "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KR",
+    "addressRegion": "대구광역시",
+    "addressLocality": "중구",
+    "streetAddress": "국채보상로 488 (동산동) 섬유회관 3층"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "sales@firstmkt.co.kr",
+    "telephone": "+82-1600-9487",
+    "availableLanguage": "Korean"
+   },
+   "legalName": "주식회사 퍼스트마케팅컴퍼니",
+   "disambiguatingDescription": "주식회사 퍼스트마케팅컴퍼니(대구 본사·서울 사무소)가 운영하는 SEO·GEO·AEO 검색 노출 마케팅 솔루션 브랜드(메세지AI, 영문 messeze). 유라클의 메시징 SaaS 'Message.ai', 삼성 갤럭시의 메시지 AI 기능, 카카오톡 AI 요약과는 무관합니다.",
+   "slogan": "사람에게만 보이는 홍보에서, AI가 읽고 추천하는 홍보로",
+   "knowsAbout": [
+    "SEO",
+    "GEO (생성형엔진 최적화)",
+    "AEO (답변엔진 최적화)",
+    "AI 검색 노출",
+    "기업 PR",
+    "보도자료 배포",
+    "홈페이지 콘텐츠 제작",
+    "홈페이지 제작·리뉴얼"
+   ],
+   "areaServed": "KR",
+   "employee": {
+    "@type": "Person",
+    "name": "김우석",
+    "jobTitle": "대표"
+   },
+   "location": [
+    {
+     "@type": "Place",
+     "name": "메세지AI 대구 본사",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": "대구광역시",
+      "addressLocality": "중구",
+      "streetAddress": "국채보상로 488 (동산동) 섬유회관 3층"
+     }
+    },
+    {
+     "@type": "Place",
+     "name": "메세지AI 서울 사무소",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": "서울특별시",
+      "addressLocality": "광진구",
+      "streetAddress": "능동로49길 9, 2F"
+     }
+    }
+   ],
+   "taxID": "884-88-01123",
+   "sameAs": [
+    "https://www.instagram.com/messeze_/",
+    "https://journal94894.tistory.com/",
+    "https://messezehospitalmarketing.tistory.com/",
+    "https://messezeglobalmarketing.tistory.com/",
+    "https://messezestartupmarketing.tistory.com/",
+    "https://messeze01.blogspot.com/",
+    "https://messeze02.blogspot.com/",
+    "https://messeze03.blogspot.com/",
+    "https://messeze04.blogspot.com/",
+    "https://messeze05.blogspot.com/"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://medi.messeze.com/#website",
+   "url": "https://medi.messeze.com/",
+   "name": "메세지AI",
+   "publisher": {
+    "@id": "https://medi.messeze.com/#organization"
+   },
+   "inLanguage": "ko"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://medi.messeze.com/blog/posts/duplicate-content-ai-visibility.html#webpage",
+   "url": "https://medi.messeze.com/blog/posts/duplicate-content-ai-visibility.html",
+   "name": "블로그에 같은 글을 반복해 올리면 AI 검색 노출이 약해지는 이유ㅣ메세지AI 블로그",
+   "description": "같은 내용을 여러 번 올려도 AI 노출은 늘지 않습니다. AI는 비슷한 글을 한 묶음으로 보고 하나만 인용하므로, 글마다 다른 질문을 맡기는 구조가 필요합니다.",
+   "isPartOf": {
+    "@id": "https://medi.messeze.com/#website"
+   },
+   "about": {
+    "@id": "https://medi.messeze.com/#organization"
+   },
+   "inLanguage": "ko"
+  }
+ ]
+}
+</script>
+<meta property="article:published_time" content="2026-09-23T09:00:00+09:00">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "블로그에 같은 글을 반복해 올리면 AI 검색 노출이 약해지는 이유",
+ "description": "같은 내용을 여러 번 올려도 AI 노출은 늘지 않습니다. AI는 비슷한 글을 한 묶음으로 보고 하나만 인용하므로, 글마다 다른 질문을 맡기는 구조가 필요합니다.",
+ "datePublished": "2026-09-23",
+ "dateModified": "2026-09-23",
+ "author": {
+  "@type": "Organization",
+  "name": "메세지AI 편집팀",
+  "url": "https://medi.messeze.com/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "메세지AI",
+  "logo": {
+   "@type": "ImageObject",
+   "url": "https://medi.messeze.com/assets/og.png"
+  }
+ },
+ "mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "https://medi.messeze.com/blog/posts/duplicate-content-ai-visibility.html"
+ },
+ "image": "https://medi.messeze.com/assets/og.png",
+ "inLanguage": "ko"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "홈",
+   "item": "https://medi.messeze.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "블로그",
+   "item": "https://medi.messeze.com/blog/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "블로그에 같은 글을 반복해 올리면 AI 검색 노출이 약해지는 이유",
+   "item": "https://medi.messeze.com/blog/posts/duplicate-content-ai-visibility.html"
+  }
+ ]
+}
+</script>
+<!-- auto-meta:end -->
+<!-- meta-pixel:start -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1053375334252637');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="Meta Pixel"
+src="https://www.facebook.com/tr?id=1053375334252637&ev=PageView&noscript=1"
+/></noscript>
+<!-- meta-pixel:end -->
+<!-- google-tag:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0MY05XMLC"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config','G-Q0MY05XMLC');
+gtag('config','AW-18400024238');
+</script>
+<!-- google-tag:end -->
+</head><body>
+<header class="nav"><div class="wrap nav-in">
+<a class="brand" href="../../index.html"><img src="../../assets/logo.png" alt="메세지AI (messeze)" style="height:26px;width:auto;display:block"></a>
+<nav class="nav-menu">
+<a href="../../services/visibility.html">서비스</a>
+<a href="../../pricing.html">요금</a>
+<a href="../../check.html">AI 노출 진단</a>
+<a class="on" href="../../blog/index.html">블로그</a>
+<a href="../../glossary/index.html">용어사전</a>
+<a href="../../faq.html">FAQ</a>
+</nav>
+<div class="nav-r"><a class="nav-cta" href="../../index.html#final">무료 진단 받기</a></div>
+<button class="nav-burger" id="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+</div>
+<div class="mega" id="mega"><div class="wrap mega-in">
+<a class="mega-brand" href="../../index.html"><span class="bw2">messeze</span><p>사람에게만 보이는 홍보에서,<br>AI가 읽는 홍보로</p></a>
+<div class="mega-col"><div class="h5x">서비스</div>
+      <a href="../../services/visibility.html"><b>AI 가시성 평가</b><span>AI가 우리 회사를 아는지부터</span></a>
+      <a href="../../services/website-renewal.html"><b>홈페이지 AI 최적화</b><span>AI가 읽는 구조로 정비</span></a>
+      <a href="../../services/own-blog.html"><b>홈페이지 콘텐츠</b><span>도메인에 쌓이는 전문 글</span></a>
+      <a href="../../services/contents.html"><b>AI 가시성 콘텐츠</b><span>구글·AI가 인용하는 글</span></a>
+      <a href="../../services/press.html"><b>언론 배포</b><span>보도자료 작성 · 기사화</span></a>
+      <a href="../../services/press-distribution.html"><b>보도자료 이메일 배포</b><span>담당 기자 3,000명 배포</span></a>
+      <a href="../../services/report.html"><b>월간 성과 보고서</b><span>발행 내역 · 노출 변화 보고</span></a>
+    </div>
+<div class="mega-col"><div class="h5x">무료 도구</div>
+<a href="../../check.html"><b>AI 노출 무료 진단</b><span>URL만 넣으면 30초 진단</span></a>
+<a href="../../tools.html#pr"><b>PR 플랜 추천</b><span>3가지 질문으로 플랜 찾기</span></a>
+<div class="gap"></div><div class="h5x">요금</div>
+<a href="../../pricing.html"><b>플랜 비교</b><span>베이직 · 프리미엄 · 엔터프라이즈</span></a>
+<a href="../../pricing.html#faq"><b>요금 FAQ</b><span>약정 · 수량 · 바우처 연계</span></a></div>
+<div class="mega-col"><div class="h5x">리소스</div>
+<a href="../../blog/index.html"><b>블로그</b><span>AI 검색 시대의 홍보 인사이트</span></a>
+<a href="../../glossary/index.html"><b>용어사전</b><span>SEO·AEO·GEO·PR 용어 102개</span></a></div>
+</div></div>
+</header>
+<script>
+(function(){const p=document.getElementById('mega'),t=document.querySelector('.nav-menu'),b=document.getElementById('burger');if(!p)return;let m;const o=()=>{clearTimeout(m);p.classList.add('on')},c=()=>{m=setTimeout(()=>p.classList.remove('on'),140)};if(t){t.addEventListener('mouseenter',o);t.addEventListener('mouseleave',c);t.querySelectorAll('a').forEach(a=>a.addEventListener('mouseenter',o));}if(window.matchMedia('(hover:hover)').matches){p.addEventListener('mouseenter',o);p.addEventListener('mouseleave',c);}if(b){b.addEventListener('click',()=>{const on=p.classList.toggle('on');b.classList.toggle('on',on);});p.addEventListener('click',e=>{if(e.target.closest('a')){p.classList.remove('on');b.classList.remove('on');}});}})();
+</script>
+<div class="wrap crumb"><a href="../index.html">블로그</a><span>›</span><span class="cat">AI 가시성</span></div>
+<div class="wrap phead"><h1>블로그에 같은 글을 반복해 올리면 AI 검색 노출이 약해지는 이유</h1>
+<div class="meta"><span class="by">by. messeze 편집팀</span><span>·</span><span>2026-09-23</span></div></div>
+<div class="pcover" style="background:linear-gradient(135deg,#0F2350,#2B5CFF)"><span class="pat"></span><img class="cover" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=450&fit=crop&q=70&auto=format" alt="블로그에 같은 글을 반복해 올리면 AI 검색 노출이 약해지는 이유" loading="lazy" referrerpolicy="no-referrer"><span class="tag">AI 가시성</span></div>
+<article class="article wrap"><p>같은 내용을 여러 번 올린다고 AI 노출에 도움이 되지는 않습니다. 오히려 비슷한 글이 여러 개 있으면 검색엔진과 AI가 어느 글을 대표로 삼아야 할지 헷갈리고, 그만큼 신호가 흩어집니다.</p><p>글의 개수보다 중요한 것은 글마다 맡은 질문이 서로 다른가입니다. 그 이유를 구조부터 설명드리겠습니다.</p><h2>중복 콘텐츠는 벌점이 아니라 신호를 나눠 갖게 만듭니다</h2><p>중복 콘텐츠는 그 자체로 벌점을 받지는 않지만, 비슷한 페이지끼리 권위를 나눠 갖게 만듭니다. Google 검색 센터 문서는 속이려는 의도가 없는 중복은 조치 대상이 아니라고 밝히고 있습니다. 대신 여러 URL 가운데 하나를 대표(canonical)로 골라 검색결과에 보여 줍니다.</p><p>문제는 그 대표를 사이트 주인이 아니라 검색엔진이 고른다는 점입니다. 공들여 고친 최신 글 대신 예전 글이 선택될 수도 있습니다.</p><h2>AI는 비슷한 글을 묶은 뒤 하나만 인용합니다</h2><p>생성형 AI는 거의 같은 페이지들을 한 묶음으로 보고 그중 한 페이지만 대표로 골라 답변에 씁니다. Microsoft Bing 웹마스터 블로그는 2025년 12월 글에서, 차이가 미미한 페이지가 여러 개면 오래되었거나 의도하지 않은 버전이 선택될 수 있다고 설명했습니다.</p><p>같은 글에서 Bing은 중복이 권위를 희석하고, 검색 의도를 흐리며, 수정 내용이 검색엔진과 AI에 반영되는 속도까지 늦춘다고 정리했습니다. 똑같은 글 열 편이 인용될 기회를 열 배로 늘려 주지는 않는다는 뜻입니다.</p><blockquote>AI 검색에서 <b>같은 글 열 편</b>은 인용 기회 열 번이 아니라 <b>하나의 묶음</b>으로 처리됩니다.</blockquote><h2>광고주가 자주 만드는 중복은 세 가지입니다</h2><p>실무에서 흔히 생기는 중복은 대부분 의도하지 않은 것입니다. 다음 세 가지부터 점검하시기 바랍니다.</p><ul><li><b>채널 복붙</b>: 같은 원고를 홈페이지와 여러 블로그에 문장만 조금 바꿔 올리는 경우</li><li><b>캠페인 페이지 누적</b>: 행사마다 내용이 거의 같은 랜딩 페이지를 새로 만드는 경우</li><li><b>지역·언어 복제</b>: 지역명이나 언어만 바꾸고 본문은 그대로 둔 페이지</li></ul><p>Bing은 이런 경우 원본 URL을 표시하는 canonical 태그나 301 리다이렉트로 정리하고, 다국어 페이지에는 hreflang을 쓰되 용어와 규정까지 실제로 현지에 맞추라고 권합니다.</p><h2>개수를 늘리지 말고 질문을 나누십시오</h2><p>AI 노출을 넓히려면 같은 이야기를 반복하지 말고, 글마다 다른 질문 하나씩을 맡겨야 합니다. 비용, 기간, 비교, 절차처럼 고객 질문을 쪼개 한 글에 한 질문씩 답하면 GEO와 AEO 신호가 페이지마다 선명하게 쌓입니다. 메세지가 모든 채널 원고를 서로 다른 질문으로 배정하는 이유도 여기에 있습니다.</p><blockquote>좋은 콘텐츠 축적은 <b>한 페이지에 한 질문</b>, 페이지마다 <b>대표 역할이 분명한 구조</b>에서 시작합니다.</blockquote><h2>정리: 지금 올린 글부터 역할을 확인하십시오</h2><p>이미 비슷한 글이 여러 개라면 하나로 합치거나 대표 URL을 정하고, 나머지는 각자 다른 질문에 답하도록 고쳐 쓰는 편이 새 글을 더 쓰는 것보다 효과적입니다. 사이트맵을 최신으로 유지하면 정리한 결과가 검색엔진에 더 빨리 반영됩니다. 우리 회사 글이 AI에게 어떻게 읽히고 있는지 궁금하시다면 <a href="/check.html"><b>무료 진단</b></a>으로 먼저 확인해 보실 수 있습니다.</p></article>
+
+<div class="backrow"><a href="../index.html">← 블로그 목록으로</a></div>
+<div class="rel"><h3>함께 읽으면 좋은 글</h3><div class="rel-grid"><a class="rcard" href="ai-search-cannot-buy-recommendation.html"><div class="thumb" style="background:linear-gradient(135deg,#0F2350,#1B3C8F)"><span class="pat"></span><img class="cover" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=450&fit=crop&q=70&auto=format" alt="AI 검색은 '추천'을 돈으로 살 수 없습니다 — 광고가 생겨도 그대로인 이유" loading="lazy" referrerpolicy="no-referrer"></div>
+<div class="b"><span class="cat">AI 가시성</span><h4>AI 검색은 '추천'을 돈으로 살 수 없습니다 — 광고가 생겨도 그대로인 이유</h4></div></a><a class="rcard" href="naver-ai-briefing-structure.html"><div class="thumb" style="background:linear-gradient(135deg,#101F3F,#0BBF8C)"><span class="pat"></span><img class="cover" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=450&fit=crop&q=70&auto=format" alt="네이버도 AI가 먼저 답합니다 — AI 브리핑에 인용되는 정보의 조건" loading="lazy" referrerpolicy="no-referrer"></div>
+<div class="b"><span class="cat">AI 가시성</span><h4>네이버도 AI가 먼저 답합니다 — AI 브리핑에 인용되는 정보의 조건</h4></div></a></div></div>
+<div class="wrap"><div class="cta-band">
+<div><h2>우리 회사는 AI에서 어떻게 보이고 있을까요?</h2><p>AI 가시성 무료 진단 · 보도자료 1건 무료 · 최적화 콘텐츠 3건</p></div>
+<a class="btn" href="../../index.html#final">무료 진단 신청하기</a></div></div>
+<footer class="foot"><style>.foot{background:#070D1C;color:#7C879D;padding:60px 0 42px;font-size:13.5px}.foot a{color:inherit;text-decoration:none}.foot .wrap{max-width:1140px;margin:0 auto;padding:0 24px}.foot-in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}.foot .brand{color:#fff;margin-bottom:16px;display:inline-block}.foot p{font-size:13.5px;line-height:1.7;max-width:320px;margin:0}.foot-info{font-size:12.5px;line-height:1.7;color:#7C879D;margin-top:14px}.foot-cols{display:flex;gap:56px}.foot-col .h5x{color:#C3CBDC;font-size:13.5px;margin:0 0 15px;font-weight:800}.foot-col a{display:block;font-size:14px;margin-bottom:10px}.foot-col a:hover{color:#fff}.foot-b{margin-top:46px;padding-top:24px;border-top:1px solid #141C30;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#4E5A73}@media(max-width:720px){.foot-cols{gap:32px;flex-wrap:wrap}}</style><div class="wrap"><div class="foot-in">
+<div><a class="brand" href="../../index.html"><img src="../../assets/logo-white.png" alt="메세지AI (messeze)" style="height:24px;width:auto;display:block"></a>
+<p>메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.</p>
+<div class="foot-info">메세지AI · 상호 주식회사 퍼스트마케팅컴퍼니 · 대표 김우석<br>사업자등록번호 884-88-01123 · 통신판매업 신고 2021-대구동구-0697<br>대구 본사: 대구광역시 중구 국채보상로 488 (동산동) 섬유회관 3층<br>서울 사무소: 서울시 광진구 능동로49길 9, 2F<br>대표번호 1600-9487 · sales@firstmkt.co.kr<br>개인정보관리책임자 김우석 (work@firstmkt.co.kr)</div></div>
+<div class="foot-cols">
+<div class="foot-col"><div class="h5x">서비스</div><a href="../../services/visibility.html">서비스 상세</a><a href="../../pricing.html">요금</a><a href="../../check.html">AI 노출 진단</a></div>
+<div class="foot-col"><div class="h5x">리소스</div><a href="../../blog/index.html">블로그</a><a href="../../glossary/index.html">용어사전</a><a href="../../faq.html">FAQ</a></div>
+<div class="foot-col"><div class="h5x">회사</div><a href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener">카카오톡 상담</a><a href="../../index.html#final">상담 신청</a><a href="../../index.html#final">무료 진단</a></div>
+</div>
+</div><div class="foot-b"><span>© 2026 메세지AI</span><span>사람에게만 보이는 홍보에서, AI가 읽는 홍보로</span></div></div></footer>
+<!-- 카카오톡 상담 -->
+<style>
+.kko-chat{position:fixed;right:21px;bottom:92px;z-index:199;width:60px;height:60px;border-radius:50%;background:#FEE500;display:grid;place-items:center;box-shadow:0 10px 26px rgba(16,31,63,.26);transition:transform .2s,box-shadow .2s}
+.kko-chat:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 16px 34px rgba(16,31,63,.34)}
+.kko-chat svg{width:31px;height:31px;display:block}
+@media(max-width:480px){.kko-chat{right:14px;bottom:84px;width:54px;height:54px}.kko-chat svg{width:28px;height:28px}}
+</style>
+<a class="kko-chat" href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener" title="카카오톡으로 상담하기" aria-label="카카오톡으로 상담하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#3C1E1E" d="M12 3C6.48 3 2 6.58 2 11c0 2.82 1.86 5.3 4.66 6.73-.2.73-.74 2.7-.85 3.12-.13.52.19.51.4.37.17-.11 2.67-1.81 3.75-2.55.66.1 1.34.15 2.04.15 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
+<!-- kko-navfix: 모바일 헤더 CTA 줄바꿈 수정 (메인 home.css와 동일 규칙) -->
+<style>
+.nav-cta{white-space:nowrap;flex-shrink:0}
+@media(max-width:900px){.nav-in{gap:14px}.nav-cta{padding:9px 13px;font-size:13px}.brand img{height:22px!important}}
+</style>
+<!-- 채널톡 -->
+<script>
+(function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
+ChannelIO('boot', {"pluginKey": "8dff2f72-883e-4e0e-9afa-8437c3e42d3a"});
+</script>
+</body></html>

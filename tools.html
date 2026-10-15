@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>무료 도구ㅣ메세지AI AI 노출 진단 · PR 플랜 추천</title>
+<meta name="description" content="가입 없이 쓰는 메세지AI 무료 도구. URL만 넣는 AI 노출 무료 진단과 3가지 질문 PR 플랜 추천으로 SEO·GEO·AEO 현재 상태를 확인하세요.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://medi.messeze.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://medi.messeze.com/tools.html"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--ink:#0A1930;--navy:#101F3F;--body:#4A5568;--mut:#8B95A7;--cobalt:#2B5CFF;--cobalt-dk:#1E46D9;
+--sky:#EAF1FF;--sky-2:#F5F8FD;--mint:#0BBF8C;--amber:#F59F1E;--red:#E2574C;--line:#E5EAF2;--line-2:#D8E0EC;
+--sans:'Pretendard',system-ui,-apple-system,sans-serif;--disp:var(--sans);--maxw:1140px;
+--sh-sm:0 1px 2px rgba(10,25,48,.05),0 4px 14px rgba(10,25,48,.05);--sh:0 12px 34px rgba(16,31,63,.10);--sh-lg:0 30px 70px rgba(16,31,63,.16)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:keep-all}
+.co{color:var(--cobalt)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--cobalt)}
+.btn{font-family:var(--sans);font-weight:700;font-size:15.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;padding:15px 26px;border:1.5px solid transparent;transition:.18s}
+.btn-co{background:var(--cobalt);color:#fff;box-shadow:0 8px 22px rgba(43,92,255,.28)}
+.btn-co:hover{background:var(--cobalt-dk);transform:translateY(-2px)}
+.btn-gh{background:#fff;color:var(--ink);border-color:var(--line-2)}
+.btn-gh:hover{border-color:var(--ink)}
+/* nav */
+.nav{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;height:72px;gap:40px}
+.nav .wrap{max-width:1480px;padding:0 clamp(16px,2.5vw,40px)}
+.brand{display:flex;align-items:center;gap:9px}
+.brand svg{width:25px;height:25px}
+.brand .bw{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-.035em}
+.nav-menu{display:flex;gap:6px;font-size:15px;font-weight:600;color:var(--body)}
+.nav-menu a{padding:9px 13px;border-radius:10px}
+.nav-menu a:hover{background:var(--sky-2);color:var(--ink)}
+.nav-menu a.on{color:var(--cobalt)}
+.nav-r{margin-left:auto}
+.nav-cta{font-weight:700;font-size:14.5px;background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;transition:.18s}
+.nav-cta:hover{background:var(--cobalt)}
+.nav-burger{display:none;background:none;border:0;cursor:pointer;padding:10px 4px 10px 10px;flex:0 0 auto}
+.nav-burger span{display:block;width:22px;height:2.5px;background:var(--ink);border-radius:2px;margin:4.5px 0;transition:.22s}
+.nav-burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.on span:nth-child(2){opacity:0}
+.nav-burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* mega */
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 30px 60px rgba(16,31,63,.14);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.22s;padding:32px 0 36px;z-index:80}
+.mega.on{opacity:1;visibility:visible;transform:none}
+.mega-in{display:grid;grid-template-columns:225px 1fr 1fr 1fr;gap:36px;align-items:stretch}
+.mega-brand{background:linear-gradient(160deg,#101F3F,#2B5CFF);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:225px;color:#fff;transition:.2s}
+.mega-brand:hover{transform:translateY(-3px)}
+.mega-brand .bw2{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:-.03em}
+.mega-brand p{font-size:12.5px;color:#C7D6FF;margin-top:8px;line-height:1.55;font-weight:600}
+.mega-col .h5x{font-size:11.5px;color:var(--mut);font-weight:800;letter-spacing:.05em;margin:0 0 8px 12px}
+.mega-col .gap{height:20px}
+.mega-col a{display:block;padding:9px 12px;border-radius:12px;transition:.15s}
+.mega-col a b{font-size:14.2px;display:block;letter-spacing:-.01em}
+.mega-col a span{font-size:12.2px;color:var(--mut);display:block;margin-top:1px}
+.mega-col a:hover{background:var(--sky-2)}
+.mega-col a:hover b{color:var(--cobalt)}
+@media(max-width:900px){.nav-burger{display:block}.mega{max-height:calc(100vh - 72px);overflow:auto}.mega-in{grid-template-columns:1fr;gap:18px}.mega-brand{min-height:auto;padding:18px 20px}}
+/* hero */
+.thero{padding:70px 0 42px;text-align:center;background:linear-gradient(180deg,#F4F9FF,#fff)}
+.thero .eyebrow{margin-bottom:16px}
+.thero h1{font-size:clamp(28px,4.2vw,46px);line-height:1.24}
+.thero p{font-size:16.5px;color:var(--body);margin:16px auto 0;max-width:820px}
+/* tool cards */
+.tsec{padding:8px 0 56px}
+.tools-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tcard{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px 28px 26px;box-shadow:var(--sh-sm);transition:transform .24s cubic-bezier(.34,1.2,.4,1),box-shadow .24s,border-color .24s;text-align:left}
+.tcard:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:#C4D4FF}
+.tcard .tic{width:54px;height:54px;border-radius:15px;background:var(--sky);display:grid;place-items:center;color:var(--cobalt);margin-bottom:20px}
+.tcard .tic svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.tcard h2{font-size:20px}
+.tcard p{font-size:14px;color:var(--body);margin-top:9px;line-height:1.62}
+.tcard .go{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:14px;font-weight:800;color:var(--cobalt)}
+.tcard .go svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:.18s}
+.tcard:hover .go svg{transform:translateX(4px)}
+.tcard .badge{position:absolute;top:20px;right:20px;font-size:10.5px;font-weight:800;color:#fff;background:var(--cobalt);border-radius:999px;padding:4px 11px;letter-spacing:.03em}
+@media(max-width:720px){.tools-grid{grid-template-columns:1fr}}
+/* quiz */
+.qsec{padding:56px 0 90px;background:#F5F8FD}
+.tool-block{scroll-margin-top:88px}
+.tool-block + .tool-block{margin-top:64px;padding-top:60px;border-top:1px solid var(--line)}
+.qhead{text-align:center;max-width:980px;margin:0 auto 30px}
+/* 체크리스트 도구 */
+.qchecks{display:flex;flex-direction:column;gap:10px}
+.qcheck{display:flex;align-items:center;gap:13px;text-align:left;width:100%;background:#fff;border:1.5px solid var(--line-2);border-radius:14px;padding:15px 18px;font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;transition:.16s}
+.qcheck:hover{border-color:var(--cobalt);background:var(--sky-2)}
+.qcheck .qbox{width:24px;height:24px;border-radius:7px;border:2px solid var(--line-2);flex:0 0 auto;display:grid;place-items:center;color:#fff;transition:.16s}
+.qcheck .qbox svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.qcheck.on{border-color:var(--cobalt);background:var(--sky-2)}
+.qcheck.on .qbox{background:var(--cobalt);border-color:var(--cobalt)}
+.qcheck.on .qbox svg{opacity:1}
+.qsubmit{margin-top:20px;width:100%}
+.rchans{list-style:none;margin:16px 0 0;display:flex;flex-direction:column;gap:8px}
+.rchans li{background:var(--sky);color:var(--navy);font-weight:700;font-size:14.5px;border-radius:12px;padding:12px 16px;text-align:left}
+.qhead h2{font-size:clamp(24px,3.2vw,36px);margin-top:12px}
+.qhead p{font-size:15.5px;color:var(--body);margin-top:12px}
+.quiz{max-width:620px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--sh);overflow:hidden}
+.quiz-hd{display:flex;align-items:center;justify-content:space-between;padding:19px 26px;border-bottom:1px solid var(--line);background:#FAFBFE}
+.quiz-hd b{font-size:14.5px}
+.qdots{display:flex;gap:7px}
+.qdots i{width:22px;height:5px;border-radius:3px;background:var(--line-2);transition:.3s}
+.qdots i.on{background:var(--cobalt);width:30px}
+.quiz-bd{padding:30px 28px 30px}
+.qq{font-size:12.5px;font-weight:800;color:var(--cobalt);letter-spacing:.05em}
+.quiz-bd h3{font-size:21px;margin:9px 0 22px}
+.qopts{display:flex;flex-direction:column;gap:11px}
+.qopt{display:flex;align-items:center;gap:13px;text-align:left;width:100%;background:#fff;border:1.5px solid var(--line-2);border-radius:14px;padding:15px 18px;font-family:var(--sans);font-size:15.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:.16s}
+.qopt:hover{border-color:var(--cobalt);background:var(--sky-2);transform:translateX(3px)}
+.qopt .qk{width:26px;height:26px;border-radius:8px;background:var(--sky);color:var(--cobalt);font-weight:800;font-size:12.5px;display:grid;place-items:center;flex:0 0 auto}
+.qback{margin-top:20px;background:none;border:0;color:var(--mut);font-weight:700;font-size:13.5px;cursor:pointer;padding:4px 2px}
+.qback:hover{color:var(--ink)}
+/* result */
+.qres{padding:34px 30px 32px;text-align:center;animation:rup .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes rup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.qres .rlead{font-size:12.5px;font-weight:800;color:var(--cobalt);letter-spacing:.06em}
+.rplan{margin-top:12px}
+.rplan .rn{font-size:31px;font-weight:800;letter-spacing:-.025em}
+.rplan .rp{font-size:14.5px;font-weight:700;color:var(--body);margin-top:5px}
+.rstars{margin-top:13px;font-size:20px;color:var(--amber);letter-spacing:4px}
+.rwhy{margin-top:22px;background:var(--sky-2);border:1px solid var(--line);border-radius:16px;padding:20px 22px;font-size:14.5px;color:var(--body);line-height:1.74;text-align:left}
+.rwhy b{color:var(--ink);font-weight:800}
+.rcta{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.qretry{display:block;margin:16px auto 0;background:none;border:0;color:var(--mut);font-weight:700;font-size:13.5px;cursor:pointer}
+.qretry:hover{color:var(--ink)}
+/* cta band */
+.cta-band{max-width:var(--maxw);margin:0 auto 70px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(120deg,#101F3F,#2B5CFF);color:#fff;border-radius:24px;padding:34px 40px;flex-wrap:wrap}
+.cta-band h2{font-size:22px}
+.cta-band p{font-size:14.5px;color:#C7D6FF;margin-top:6px}
+.cta-band .btn{background:#fff;color:var(--ink)}
+/* foot */
+.foot{background:#070D1C;color:#7C879D;padding:52px 0 38px}
+.foot-in{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.foot .brand{color:#fff;margin-bottom:14px}
+.foot p{font-size:13.5px;line-height:1.7;max-width:320px}
+.foot-b{margin-top:38px;padding-top:22px;border-top:1px solid #141C30;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#4E5A73}
+@media(max-width:820px){.nav-menu{display:none}.cta-band{text-align:center;justify-content:center}}
+</style>
+<!-- auto-meta:start -->
+<link rel="canonical" href="https://medi.messeze.com/tools.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="메세지AI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="무료 도구ㅣ메세지AI AI 노출 진단 · PR 플랜 추천">
+<meta property="og:description" content="가입 없이 쓰는 메세지AI 무료 도구. URL만 넣는 AI 노출 무료 진단과 3가지 질문 PR 플랜 추천으로 SEO·GEO·AEO 현재 상태를 확인하세요.">
+<meta property="og:url" content="https://medi.messeze.com/tools.html">
+<meta property="og:image" content="https://medi.messeze.com/assets/og.png?v=20260819">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="무료 도구ㅣ메세지AI AI 노출 진단 · PR 플랜 추천">
+<meta name="twitter:description" content="가입 없이 쓰는 메세지AI 무료 도구. URL만 넣는 AI 노출 무료 진단과 3가지 질문 PR 플랜 추천으로 SEO·GEO·AEO 현재 상태를 확인하세요.">
+<meta name="twitter:image" content="https://medi.messeze.com/assets/og.png?v=20260819">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2B5CFF">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://medi.messeze.com/#organization",
+   "name": "메세지AI",
+   "alternateName": [
+    "messeze",
+    "메세지AI (messeze)",
+    "메세지"
+   ],
+   "url": "https://medi.messeze.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "@id": "https://medi.messeze.com/#logo",
+    "url": "https://medi.messeze.com/assets/logo.png"
+   },
+   "image": "https://medi.messeze.com/assets/og.png",
+   "description": "메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.",
+   "email": "sales@firstmkt.co.kr",
+   "telephone": "+82-1600-9487",
+   "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KR",
+    "addressRegion": "대구광역시",
+    "addressLocality": "중구",
+    "streetAddress": "국채보상로 488 (동산동) 섬유회관 3층"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "sales@firstmkt.co.kr",
+    "telephone": "+82-1600-9487",
+    "availableLanguage": "Korean"
+   },
+   "legalName": "주식회사 퍼스트마케팅컴퍼니",
+   "disambiguatingDescription": "주식회사 퍼스트마케팅컴퍼니(대구 본사·서울 사무소)가 운영하는 SEO·GEO·AEO 검색 노출 마케팅 솔루션 브랜드(메세지AI, 영문 messeze). 유라클의 메시징 SaaS 'Message.ai', 삼성 갤럭시의 메시지 AI 기능, 카카오톡 AI 요약과는 무관합니다.",
+   "slogan": "사람에게만 보이는 홍보에서, AI가 읽고 추천하는 홍보로",
+   "knowsAbout": [
+    "SEO",
+    "GEO (생성형엔진 최적화)",
+    "AEO (답변엔진 최적화)",
+    "AI 검색 노출",
+    "기업 PR",
+    "보도자료 배포",
+    "홈페이지 콘텐츠 제작",
+    "홈페이지 제작·리뉴얼"
+   ],
+   "areaServed": "KR",
+   "employee": {
+    "@type": "Person",
+    "name": "김우석",
+    "jobTitle": "대표"
+   },
+   "location": [
+    {
+     "@type": "Place",
+     "name": "메세지AI 대구 본사",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": "대구광역시",
+      "addressLocality": "중구",
+      "streetAddress": "국채보상로 488 (동산동) 섬유회관 3층"
+     }
+    },
+    {
+     "@type": "Place",
+     "name": "메세지AI 서울 사무소",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": "서울특별시",
+      "addressLocality": "광진구",
+      "streetAddress": "능동로49길 9, 2F"
+     }
+    }
+   ],
+   "taxID": "884-88-01123",
+   "sameAs": [
+    "https://www.instagram.com/messeze_/",
+    "https://journal94894.tistory.com/",
+    "https://messezehospitalmarketing.tistory.com/",
+    "https://messezeglobalmarketing.tistory.com/",
+    "https://messezestartupmarketing.tistory.com/",
+    "https://messeze01.blogspot.com/",
+    "https://messeze02.blogspot.com/",
+    "https://messeze03.blogspot.com/",
+    "https://messeze04.blogspot.com/",
+    "https://messeze05.blogspot.com/"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://medi.messeze.com/#website",
+   "url": "https://medi.messeze.com/",
+   "name": "메세지AI",
+   "publisher": {
+    "@id": "https://medi.messeze.com/#organization"
+   },
+   "inLanguage": "ko"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://medi.messeze.com/tools.html#webpage",
+   "url": "https://medi.messeze.com/tools.html",
+   "name": "무료 도구ㅣ메세지AI AI 노출 진단 · PR 플랜 추천",
+   "description": "가입 없이 쓰는 메세지AI 무료 도구. URL만 넣는 AI 노출 무료 진단과 3가지 질문 PR 플랜 추천으로 SEO·GEO·AEO 현재 상태를 확인하세요.",
+   "isPartOf": {
+    "@id": "https://medi.messeze.com/#website"
+   },
+   "about": {
+    "@id": "https://medi.messeze.com/#organization"
+   },
+   "inLanguage": "ko"
+  }
+ ]
+}
+</script>
+<!-- auto-meta:end -->
+<!-- meta-pixel:start -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1053375334252637');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="Meta Pixel"
+src="https://www.facebook.com/tr?id=1053375334252637&ev=PageView&noscript=1"
+/></noscript>
+<!-- meta-pixel:end -->
+<!-- google-tag:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0MY05XMLC"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config','G-Q0MY05XMLC');
+gtag('config','AW-18400024238');
+</script>
+<!-- google-tag:end -->
+</head>
+<body id="top">
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="메세지AI (messeze)" style="height:26px;width:auto;display:block"></a>
+    <nav class="nav-menu">
+      <a href="services/visibility.html">서비스</a>
+      <a href="pricing.html">요금</a>
+      <a class="on" href="tools.html">무료 도구</a>
+      <a href="blog/index.html">블로그</a>
+      <a href="glossary/index.html">용어사전</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="nav-r"><a class="nav-cta" href="index.html#final">무료 진단 받기</a></div>
+    <button class="nav-burger" id="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mega" id="mega"><div class="wrap mega-in">
+    <a class="mega-brand" href="index.html"><span class="bw2">messeze</span><p>사람에게만 보이는 홍보에서,<br>AI가 읽는 홍보로</p></a>
+    <div class="mega-col">
+      <div class="h5x">서비스</div>
+      <a href="services/visibility.html"><b>AI 가시성 평가</b><span>AI가 우리 회사를 아는지부터</span></a>
+      <a href="services/website-renewal.html"><b>홈페이지 AI 최적화</b><span>AI가 읽는 구조로 정비</span></a>
+      <a href="services/own-blog.html"><b>홈페이지 콘텐츠</b><span>도메인에 쌓이는 전문 글</span></a>
+      <a href="services/contents.html"><b>AI 가시성 콘텐츠</b><span>구글·AI가 인용하는 글</span></a>
+      <a href="services/press.html"><b>언론 배포</b><span>보도자료 작성 · 기사화</span></a>
+      <a href="services/press-distribution.html"><b>보도자료 이메일 배포</b><span>담당 기자 3,000명 배포</span></a>
+      <a href="services/report.html"><b>월간 성과 보고서</b><span>발행 내역 · 노출 변화 보고</span></a>
+    </div>
+    <div class="mega-col">
+      <div class="h5x">무료 도구</div>
+      <a href="check.html"><b>AI 노출 무료 진단</b><span>URL만 넣으면 30초 진단</span></a>
+      <a href="tools.html#pr"><b>PR 플랜 추천</b><span>3가지 질문으로 플랜 찾기</span></a>
+      <div class="gap"></div>
+      <div class="h5x">요금</div>
+      <a href="pricing.html"><b>플랜 비교</b><span>베이직 · 프리미엄 · 엔터프라이즈</span></a>
+      <a href="pricing.html#faq"><b>요금 FAQ</b><span>약정 · 수량 · 바우처 연계</span></a>
+    </div>
+    <div class="mega-col">
+      <div class="h5x">리소스</div>
+      <a href="blog/index.html"><b>블로그</b><span>AI 검색 시대의 홍보 인사이트</span></a>
+      <a href="glossary/index.html"><b>용어사전</b><span>SEO·AEO·GEO·PR 용어</span></a>
+    </div>
+  </div></div>
+</header>
+<script>
+(function(){const p=document.getElementById('mega'),t=document.querySelector('.nav-menu'),b=document.getElementById('burger');if(!p)return;let m;const o=()=>{clearTimeout(m);p.classList.add('on')},c=()=>{m=setTimeout(()=>p.classList.remove('on'),140)};if(t){t.addEventListener('mouseenter',o);t.addEventListener('mouseleave',c);t.querySelectorAll('a').forEach(a=>a.addEventListener('mouseenter',o));}if(window.matchMedia('(hover:hover)').matches){p.addEventListener('mouseenter',o);p.addEventListener('mouseleave',c);}if(b){b.addEventListener('click',()=>{const on=p.classList.toggle('on');b.classList.toggle('on',on);});p.addEventListener('click',e=>{if(e.target.closest('a')){p.classList.remove('on');b.classList.remove('on');}});}})();
+</script>
+
+<!-- HERO -->
+<section class="thero">
+  <div class="wrap">
+    <span class="eyebrow" data-copy="hero.eyebrow">무료 도구 · 가입 없이 바로 사용</span>
+    <h1 data-copy="hero.title">우리 회사, <span class="co">AI 시대의 홍보 준비</span>가<br>얼마나 됐는지 확인해 보세요</h1>
+    <p data-copy="hero.lead">가입 없이 바로 쓰는 messeze 무료 도구. 지금 상태를 진단하고, 우리 회사에 맞는 PR 방향을 추천받으세요.</p>
+  </div>
+</section>
+
+<!-- TOOL CARDS -->
+<section class="tsec">
+  <div class="wrap tools-grid">
+    <a class="tcard" href="check.html">
+      <span class="tic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
+      <h2 data-copy="card1.title">AI 노출 무료 진단</h2>
+      <p data-copy="card1.desc">URL만 입력하면 검색 기본기(SEO)와 AI 인용 준비도를 <b>100점 만점</b>으로 진단합니다.</p>
+      <span class="go">30초 진단 시작 <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    
+    <a class="tcard" href="#pr">
+      <span class="badge">추천</span>
+      <span class="tic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M21 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+      <h2 data-copy="card2.title">PR 플랜 추천</h2>
+      <p data-copy="card2.desc">상황·목표·예산 <b>3가지 질문</b>으로 우리에게 맞는 구독 플랜을 추천해 드립니다.</p>
+      <span class="go">진단 시작 <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- 무료 진단 도구들 -->
+<section class="qsec">
+  
+
+  <div class="tool-block" id="pr">
+    <div class="wrap qhead">
+      <span class="eyebrow" style="justify-content:center">PR 플랜 추천</span>
+      <h2 data-copy="quiz.title">3가지만 답하면, 딱 맞는 PR 플랜을 알려드려요</h2>
+      <p data-copy="quiz.lead">정답은 없어요. 지금 상황에 가장 가까운 것을 골라주세요.</p>
+    </div>
+    <div class="quiz" data-tool="pr">
+      <div class="quiz-hd"><b class="qTitle">PR 플랜 추천</b><span class="qdots"></span></div>
+      <div class="qBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div>
+    <h2 data-copy="final.title">진단 결과, 메세지가 대신 실행해 드립니다</h2>
+    <p data-copy="final.lead">전담팀이 홈페이지 정비부터 언론·콘텐츠 축적까지 매달 쌓아 올립니다.</p>
+  </div>
+  <a class="btn" href="index.html#final" data-copy="final.cta">무료 상담 신청하기</a>
+</div>
+
+<footer class="foot"><style>.foot{background:#070D1C;color:#7C879D;padding:60px 0 42px;font-size:13.5px}.foot a{color:inherit;text-decoration:none}.foot .wrap{max-width:1140px;margin:0 auto;padding:0 24px}.foot-in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}.foot .brand{color:#fff;margin-bottom:16px;display:inline-block}.foot p{font-size:13.5px;line-height:1.7;max-width:320px;margin:0}.foot-info{font-size:12.5px;line-height:1.7;color:#7C879D;margin-top:14px}.foot-cols{display:flex;gap:56px}.foot-col .h5x{color:#C3CBDC;font-size:13.5px;margin:0 0 15px;font-weight:800}.foot-col a{display:block;font-size:14px;margin-bottom:10px}.foot-col a:hover{color:#fff}.foot-b{margin-top:46px;padding-top:24px;border-top:1px solid #141C30;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#4E5A73}@media(max-width:720px){.foot-cols{gap:32px;flex-wrap:wrap}}</style><div class="wrap"><div class="foot-in">
+<div><a class="brand" href="index.html"><img src="assets/logo-white.png" alt="메세지AI (messeze)" style="height:24px;width:auto;display:block"></a>
+<p>메세지AI는 네이버·구글 SEO와 GEO·AEO 최적화로 검색엔진과 생성형 AI의 브랜드 노출을 높이는 마케팅 솔루션입니다.</p>
+<div class="foot-info">메세지AI · 상호 주식회사 퍼스트마케팅컴퍼니 · 대표 김우석<br>사업자등록번호 884-88-01123 · 통신판매업 신고 2021-대구동구-0697<br>대구 본사: 대구광역시 중구 국채보상로 488 (동산동) 섬유회관 3층<br>서울 사무소: 서울시 광진구 능동로49길 9, 2F<br>대표번호 1600-9487 · sales@firstmkt.co.kr<br>개인정보관리책임자 김우석 (work@firstmkt.co.kr)</div></div>
+<div class="foot-cols">
+<div class="foot-col"><div class="h5x">서비스</div><a href="services/visibility.html">서비스 상세</a><a href="pricing.html">요금</a><a href="check.html">AI 노출 진단</a></div>
+<div class="foot-col"><div class="h5x">리소스</div><a href="blog/index.html">블로그</a><a href="glossary/index.html">용어사전</a><a href="faq.html">FAQ</a></div>
+<div class="foot-col"><div class="h5x">회사</div><a href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener">카카오톡 상담</a><a href="index.html#final">상담 신청</a><a href="index.html#final">무료 진단</a></div>
+</div>
+</div><div class="foot-b"><span>© 2026 메세지AI</span><span>사람에게만 보이는 홍보에서, AI가 읽는 홍보로</span></div></div></footer>
+
+<script>
+/* ===== messeze 무료 진단 도구 엔진 (퀴즈 + 체크리스트) ===== */
+(function(){
+  var TOOLS={
+    pr:{title:'PR 플랜 추천',type:'quiz',
+      questions:[
+        {tag:'Q1 · 우리 회사 상황',q:'지금 우리 회사는 어떤 상황인가요?',o:[{k:'A',t:'홍보를 거의 안 해봤어요',s:0},{k:'B',t:'신제품·서비스 출시를 앞두고 있어요',s:0.5},{k:'C',t:'기사만 몇 번 내봤어요',s:0.5},{k:'D',t:'투자유치·B2B 수주를 준비 중이에요',s:1}]},
+        {tag:'Q2 · 가장 중요한 목표',q:'PR로 가장 이루고 싶은 목표는?',o:[{k:'A',t:'브랜드 인지도 알리기',s:0},{k:'B',t:'검색·AI 노출 늘리기',s:0},{k:'C',t:'투자·B2B 신뢰 확보',s:1},{k:'D',t:'해외 진출·수출 확대',s:1}]},
+        {tag:'Q3 · 월 예산',q:'매달 투입 가능한 예산은?',o:[{k:'A',t:'50만원 이하',s:1},{k:'B',t:'100만원 안팎',s:2},{k:'C',t:'300만원 이상',s:3}]}
+      ],
+      result:function(ans){var total=ans[0].s+ans[1].s+ans[2].s;var P=total<=1.5?{n:'베이직',p:'월 60만원 · 3개월 150만원'}:(total<=3.5?{n:'프리미엄',p:'월 100만원 · 3개월 240만원'}:{n:'엔터프라이즈',p:'목표·범위 맞춤 견적'});
+        return {big:P.n,sub:P.p,tone:'var(--cobalt)',stars:true,why:'<b>'+ans[0].t+'</b> 상황에서 <b>'+ans[1].t+'</b>이(가) 목표라면 '+P.n+'이 가장 잘 맞습니다. 전담팀이 홈페이지·언론·콘텐츠를 매달 쌓아 올립니다.',cta:{href:'pricing.html',label:'플랜 자세히 비교'}};}}
+  };
+
+  function mount(box){
+    var key=box.getAttribute('data-tool'),cfg=TOOLS[key];if(!cfg)return;
+    var body=box.querySelector('.qBody'),dots=box.querySelector('.qdots'),titleEl=box.querySelector('.qTitle'),baseTitle=cfg.title;
+    function resultCard(r){
+      titleEl.textContent='진단 결과';
+      var stars=r.stars?'<div class="rstars">★★★★★</div>':'';
+      var extra=r.html?r.html:'';
+      var cta=r.cta?'<a class="btn btn-gh" href="'+r.cta.href+'">'+r.cta.label+'</a>':'';
+      return '<div class="qres"><div class="rlead">진단 결과</div>'
+        +'<div class="rplan"><div class="rn" style="color:'+r.tone+'">'+r.big+'</div>'+(r.sub?'<div class="rp">'+r.sub+'</div>':'')+'</div>'
+        +stars+extra+'<div class="rwhy"><b>이렇게 도와드려요</b><br>'+r.why+'</div>'
+        +'<div class="rcta"><a class="btn btn-co" href="index.html#final">무료 상담 신청</a>'+cta+'</div>'
+        +'<button class="qretry">↺ 다시 하기</button></div>';
+    }
+    function bindRetry(fn){var b=body.querySelector('.qretry');if(b)b.addEventListener('click',function(){titleEl.textContent=baseTitle;fn();});}
+
+    if(cfg.type==='checklist'){
+      if(dots)dots.style.display='none';
+      var checked=cfg.items.map(function(){return false;});
+      renderC();
+      function renderC(){
+        var h='<div class="quiz-bd"><div class="qq">'+cfg.lead+'</div><div class="qchecks">';
+        cfg.items.forEach(function(it,i){h+='<button class="qcheck'+(checked[i]?' on':'')+'" data-i="'+i+'"><span class="qbox"><svg viewBox="0 0 24 24"><path d="M4 12l6 6 10-12"/></svg></span>'+it+'</button>';});
+        h+='</div><button class="btn btn-co qsubmit">결과 보기</button></div>';
+        body.innerHTML=h;
+        body.querySelectorAll('.qcheck').forEach(function(el){el.addEventListener('click',function(){var i=+this.getAttribute('data-i');checked[i]=!checked[i];this.classList.toggle('on',checked[i]);});});
+        body.querySelector('.qsubmit').addEventListener('click',function(){var n=0;checked.forEach(function(c){if(c)n++;});body.innerHTML=resultCard(cfg.result(n,cfg.items.length));bindRetry(function(){checked=cfg.items.map(function(){return false;});renderC();});});
+      }
+    } else {
+      var Q=cfg.questions,step=0,ans=[];
+      if(dots){var dh='';for(var i=0;i<Q.length;i++)dh+='<i'+(i===0?' class="on"':'')+'></i>';dots.innerHTML=dh;dots.style.display='';}
+      renderQ();
+      function setDots(){if(!dots)return;var ds=dots.children;for(var i=0;i<ds.length;i++)ds[i].classList.toggle('on',i<=step);}
+      function renderQ(){
+        setDots();var d=Q[step];
+        var h='<div class="quiz-bd"><div class="qq">'+d.tag+'</div><h3>'+d.q+'</h3><div class="qopts">';
+        d.o.forEach(function(op,i){h+='<button class="qopt" data-i="'+i+'"><span class="qk">'+op.k+'</span>'+op.t+'</button>';});
+        h+='</div>'+(step>0?'<button class="qback">← 이전</button>':'')+'</div>';
+        body.innerHTML=h;
+        body.querySelectorAll('.qopt').forEach(function(el){el.addEventListener('click',function(){var idx=+this.getAttribute('data-i');ans[step]={s:Q[step].o[idx].s,t:Q[step].o[idx].t};if(step<Q.length-1){step++;renderQ();}else{body.innerHTML=resultCard(cfg.result(ans));bindRetry(function(){step=0;ans=[];renderQ();});}});});
+        var back=body.querySelector('.qback');if(back)back.addEventListener('click',function(){step--;renderQ();});
+      }
+    }
+  }
+  document.querySelectorAll('.quiz[data-tool]').forEach(mount);
+})();
+</script>
+<!-- 카카오톡 상담 -->
+<style>
+.kko-chat{position:fixed;right:21px;bottom:92px;z-index:199;width:60px;height:60px;border-radius:50%;background:#FEE500;display:grid;place-items:center;box-shadow:0 10px 26px rgba(16,31,63,.26);transition:transform .2s,box-shadow .2s}
+.kko-chat:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 16px 34px rgba(16,31,63,.34)}
+.kko-chat svg{width:31px;height:31px;display:block}
+@media(max-width:480px){.kko-chat{right:14px;bottom:84px;width:54px;height:54px}.kko-chat svg{width:28px;height:28px}}
+</style>
+<a class="kko-chat" href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener" title="카카오톡으로 상담하기" aria-label="카카오톡으로 상담하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#3C1E1E" d="M12 3C6.48 3 2 6.58 2 11c0 2.82 1.86 5.3 4.66 6.73-.2.73-.74 2.7-.85 3.12-.13.52.19.51.4.37.17-.11 2.67-1.81 3.75-2.55.66.1 1.34.15 2.04.15 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
+<!-- kko-navfix: 모바일 헤더 CTA 줄바꿈 수정 (메인 home.css와 동일 규칙) -->
+<style>
+.nav-cta{white-space:nowrap;flex-shrink:0}
+@media(max-width:900px){.nav-in{gap:14px}.nav-cta{padding:9px 13px;font-size:13px}.brand img{height:22px!important}}
+</style>
+<!-- 채널톡 -->
+<script>
+(function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
+ChannelIO('boot', {"pluginKey": "8dff2f72-883e-4e0e-9afa-8437c3e42d3a"});
+</script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>네이버는 기본, 이제 AI 검색도 준비할 때ㅣ메세지</title>
+<meta name="description" content="네이버 바이럴만 15년. 로직이 바뀐 날 문의가 반토막 났고, 우리 브랜드 10개를 다시 띄웠습니다. 검색은 또 바뀝니다. 네이버는 기본, AI 검색까지 지금 준비합니다.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/home.css?v=20260929">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<meta name="theme-color" content="#2B5CFF">
+<style>
+/* ===== 랜딩 전용 (home.css 토큰 재사용) ===== */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+
+/* 이미지 자리표시 */
+.ph{position:relative;border:1.5px dashed #B7C4E0;background:repeating-linear-gradient(135deg,#F5F8FD 0 12px,#EEF3FB 12px 24px);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#5B6B8C;font-size:13.5px;font-weight:600;line-height:1.6;padding:24px;word-break:keep-all}
+.ph small{display:block;font-weight:500;color:#8B95A7;margin-top:6px;font-size:12px}
+.ph::before{content:"IMAGE";position:absolute;top:10px;left:14px;font-size:10.5px;letter-spacing:.14em;color:#8B95A7;font-weight:800}
+.ph.dark{border-color:rgba(255,255,255,.35);background:repeating-linear-gradient(135deg,rgba(255,255,255,.06) 0 12px,rgba(255,255,255,.1) 12px 24px);color:#DCE5FF}
+.ph.dark small,.ph.dark::before{color:#9FB2E0}
+
+/* 히어로 */
+.hero-s{position:relative;padding:150px 0 96px;color:#fff;background:radial-gradient(90% 70% at 85% 0%,rgba(59,107,255,.35),transparent 55%),radial-gradient(120% 90% at 0% 110%,rgba(6,13,30,.9),transparent 65%),linear-gradient(150deg,#16295C 0%,#0E1D42 45%,#0A1930 100%);overflow:hidden}
+.hero-s .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero-s .eyebrow{color:#9FB2E0}
+.hero-s .eyebrow::before{background:#9FB2E0}
+.hero-s h1{font-size:clamp(34px,4.6vw,56px);line-height:1.18}
+.hero-s h1 em{font-style:normal;color:#6E93FF}
+.hero-s .lead{color:#C7D6FF;font-size:18.5px;max-width:560px;margin-top:22px}
+.hero-s .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.hero-s .btn-gh{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.hero-s .btn-gh:hover{border-color:#fff}
+.hero-s .ph{min-height:420px}
+.hero-s .note{margin-top:22px;font-size:13px;color:#9FB2E0}
+
+/* 그날 */
+.day{background:var(--sky-2)}
+.day-in{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
+.day .date{display:inline-block;font-family:'Poppins',var(--sans);font-weight:700;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.03em;color:var(--cobalt);margin-bottom:14px}
+.day .quote{margin-top:28px;padding:22px 26px;border-left:3px solid var(--cobalt);background:#fff;border-radius:0 14px 14px 0;font-size:18px;font-weight:700;line-height:1.55;box-shadow:var(--sh-sm)}
+.day .quote span{display:block;font-size:13px;color:var(--mut);font-weight:600;margin-top:8px}
+.day .ph{min-height:380px}
+
+/* 그래서 뭘 했나 */
+.did-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.did{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 28px;box-shadow:var(--sh-sm)}
+.did .tag{display:inline-block;font-family:'Poppins',var(--sans);font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--cobalt);background:var(--sky);padding:5px 10px;border-radius:8px;margin-bottom:16px}
+.did h3{font-size:20px;margin-bottom:10px}
+.did p{font-size:15px;color:var(--body);line-height:1.7}
+.did .ph{min-height:150px;margin-top:20px}
+
+/* 직접 검색해보세요 */
+.proof{background:var(--navy);color:#fff}
+.proof .eyebrow{color:#9FB2E0}.proof .eyebrow::before{background:#9FB2E0}
+.proof .lead{color:#C7D6FF}
+.proof-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px}
+.bc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px 18px;display:flex;flex-direction:column;gap:12px;transition:.18s}
+.bc:hover{background:rgba(255,255,255,.09);transform:translateY(-3px)}
+.bc .lg{height:44px;display:flex;align-items:center}
+.bc .lg img{max-height:28px;width:auto;filter:brightness(0) invert(1);opacity:.9}
+.bc .lg img.raw{filter:none;opacity:1;background:#fff;padding:4px 8px;border-radius:8px;max-height:34px}
+.bc .lg.ph{min-height:44px;height:44px;padding:0;border-radius:10px;font-size:11.5px}
+.bc .lg.ph::before{display:none}
+.bc b{font-size:15.5px;letter-spacing:-.01em}
+.bc .kw{font-size:12.5px;color:#9FB2E0;line-height:1.5}
+.bc .kw i{font-style:normal;color:#fff;font-weight:600}
+.bc a.go{margin-top:auto;font-size:13px;font-weight:700;color:#6E93FF;display:inline-flex;align-items:center;gap:6px}
+.bc a.go:hover{color:#fff}
+.proof .naverline{margin-top:44px;padding:24px 28px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.proof .naverline b{font-size:19px}
+.proof .naverline span{color:#C7D6FF;font-size:14.5px}
+.proof .naverline>div:first-child{flex:1 1 320px}
+.proof .naverline .ph{flex:1 1 320px;min-height:120px}
+
+/* 다음은 AI 검색 */
+.next-in{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.next-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.nx{border:1px solid var(--line);border-radius:16px;padding:18px 16px;background:#fff;box-shadow:var(--sh-sm)}
+.nx b{display:block;font-size:16px;margin-bottom:6px}
+.nx span{font-size:13.5px;color:var(--body);line-height:1.6;display:block}
+.next-note{margin-top:22px;font-size:15px;color:var(--ink);font-weight:600;padding-left:14px;border-left:3px solid var(--cobalt);line-height:1.6}
+.next .ph{min-height:420px}
+
+/* 왜 우리 */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.why ul{list-style:none;margin-top:8px}
+.why li{padding:20px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:14px}
+.why li:last-child{border-bottom:1px solid var(--line)}
+.why li i{width:40px;height:40px;border-radius:12px;background:var(--sky);color:var(--cobalt);display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800;font-family:'Poppins',var(--sans)}
+.why li b{display:block;font-size:17.5px;margin-bottom:5px}
+.why li p{font-size:14.5px;color:var(--body);line-height:1.65}
+.why .ph{min-height:440px}
+
+/* 서비스 */
+.svc{background:var(--sky-2)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.sv{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 24px;box-shadow:var(--sh-sm)}
+.sv .n{font-family:'Poppins',var(--sans);font-weight:700;color:var(--cobalt);font-size:13px;letter-spacing:.06em;margin-bottom:12px}
+.sv h3{font-size:18px;margin-bottom:8px}
+.sv p{font-size:14px;color:var(--body);line-height:1.65}
+.sv .ph{min-height:120px;margin-top:18px}
+.priceline{margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:var(--sh-sm)}
+.priceline b{font-size:19px}
+.priceline span{display:block;font-size:14px;color:var(--body);margin-top:4px}
+
+@media(max-width:960px){
+  .hero-s .wrap,.day-in,.why-grid,.next-in{grid-template-columns:1fr;gap:36px}
+  .did-grid{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:repeat(2,1fr)}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .sec{padding:88px 0}
+  .hero-s{padding:120px 0 72px}
+  .hero-s .ph{min-height:260px}
+  .day .ph,.why .ph,.next .ph{min-height:260px}
+  .next-row{grid-template-columns:1fr}
+  .why .ph{order:2}
+}
+@media(max-width:560px){.svc-grid{grid-template-columns:1fr}.proof-grid{grid-template-columns:1fr 1fr;gap:10px}.bc{padding:16px 14px}}
+</style>
+</head>
+<body id="top">
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="메세지AI (messeze)" width="520" height="73" style="height:26px;width:auto;display:block"></a>
+    <nav class="nav-menu">
+      <a href="#proof">직접 검색해보기</a>
+      <a href="#svc">서비스</a>
+      <a href="pricing.html">요금</a>
+      <a href="check.html">노출 진단</a>
+    </nav>
+    <div class="nav-r">
+      <a href="#final" class="nav-cta">무료 진단 받기</a>
+    </div>
+    <button class="nav-burger" id="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mega" id="mega"><div class="wrap mega-in">
+    <a class="mega-brand" href="index.html"><span class="bw2">messeze</span><p>네이버는 기본,<br>이제 AI 검색까지</p></a>
+    <div class="mega-col">
+      <div class="h5x">이 페이지</div>
+      <a href="#day"><b>그날</b><span>로직이 바뀐 날, 문의 반토막</span></a>
+      <a href="#did"><b>그래서 뭘 했나</b><span>네이버 복구, 그리고 다음</span></a>
+      <a href="#proof"><b>직접 검색해보세요</b><span>우리 브랜드 10개</span></a>
+      <a href="#next"><b>다음은 AI 검색</b><span>또 바뀌기 전에</span></a>
+    </div>
+    <div class="mega-col">
+      <div class="h5x">서비스</div>
+      <a href="#svc"><b>매달 받는 것</b><span>진단·글·채널·보고서</span></a>
+      <a href="pricing.html"><b>요금</b><span>플랜 비교</span></a>
+    </div>
+    <div class="mega-col">
+      <div class="h5x">무료 도구</div>
+      <a href="check.html"><b>네이버·AI 노출 진단</b><span>URL만 넣으면 30초</span></a>
+    </div>
+  </div></div>
+</header>
+
+<!-- 1. 히어로 -->
+<section class="hero-s">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">네이버 바이럴 회사의 고백</div>
+      <h1>네이버 바이럴만 15년.<br>로직이 바뀐 날,<br><em>문의가 반토막 났습니다.</em></h1>
+      <p class="lead">우리 브랜드 10개를 전부 다시 띄우면서 배웠습니다.<br>검색은 또 바뀝니다. 네이버는 계속해야 하고, 이제 AI 검색도 같이 준비할 때입니다.</p>
+      <div class="ctas">
+        <a href="#final" class="btn btn-co">우리 회사 노출 상태 진단</a>
+        <a href="#proof" class="btn btn-gh">우리 브랜드 직접 검색해보기</a>
+      </div>
+      <div class="note">가입 없음 · 홈페이지 주소만 있으면 30초</div>
+    </div>
+    <div class="ph dark">히어로 이미지<small>문의 그래프가 반으로 꺾였다가 다시 올라오는 캡처<br>또는 사무실에서 팀이 모니터 보는 실제 사진</small></div>
+  </div>
+</section>
+
+<!-- 2. 숫자 4개 -->
+<div class="statband">
+  <div class="wrap statband-in stagger rv">
+    <div class="stt"><b>15년</b><span>네이버 바이럴만<br>해온 시간</span></div>
+    <div class="stt"><b>10개</b><span>직접 운영한<br>우리 브랜드</span></div>
+    <div class="stt"><b>30명</b><span>네이버 바이럴<br>전담 직원</span></div>
+    <div class="stt"><b>10~20건</b><span>브랜드마다<br>하루 들어오던 문의</span></div>
+  </div>
+</div>
+
+<!-- 3. 그날 -->
+<section class="sec day" id="day">
+  <div class="wrap day-in">
+    <div class="rv">
+      <div class="eyebrow">그날</div>
+      <div class="date">2026. 00. 00</div>
+      <h2 class="h2">네이버 로직이 바뀌었고,<br>다음 날부터 문의가 반으로 줄었습니다</h2>
+      <p class="lead">브랜드 10개, 키워드 전부 노출시키고 있던 회사였습니다. 30명이 매일 글을 올렸습니다. 그런데 하루아침에 그 글들이 검색에서 사라졌습니다.</p>
+      <div class="quote">"회사가 망하는 줄 알았습니다."<span>메세지 대표</span></div>
+    </div>
+    <div class="ph rv">문의 그래프 캡처<small>로직 변경일 기준 전후 문의 건수. 실제 CRM 또는 시트 화면 캡처 권장</small></div>
+  </div>
+</section>
+
+<!-- 4. 그래서 뭘 했나 -->
+<section class="sec" id="did">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">그래서 뭘 했나</div>
+      <h2 class="h2">네이버가 이제 무엇을 보고<br>띄우는지, 처음부터 다시 뜯어봤습니다</h2>
+      <p class="lead">바이럴 글을 더 많이 올리는 방법은 이미 안 통했습니다. 그날부터 우리 브랜드 10개를 실험 대상으로 놓고 세 가지만 팠습니다. 그리고 이 세 가지는 네이버에만 통하는 게 아니었습니다.</p>
+    </div>
+    <div class="did-grid stagger rv">
+      <div class="did">
+        <div class="tag">SEO</div>
+        <h3>홈페이지를 네이버가 읽을 수 있게</h3>
+        <p>글은 많은데 홈페이지는 네이버가 못 읽는 상태였습니다. 구조부터 고쳤습니다.</p>
+        <div class="ph">전후 비교 이미지<small>홈페이지 진단 점수 전후</small></div>
+      </div>
+      <div class="did">
+        <div class="tag">AEO</div>
+        <h3>고객이 묻는 질문에 답하는 글로</h3>
+        <p>키워드 채우기가 아니라, 고객이 실제로 치는 질문에 답하는 글로 바꿨습니다.</p>
+        <div class="ph">글 예시 이미지<small>질문형 제목 글이 노출된 캡처</small></div>
+      </div>
+      <div class="did">
+        <div class="tag">GEO</div>
+        <h3>AI가 답할 때 우리를 인용하게</h3>
+        <p>네이버 AI 브리핑, 구글 AI 개요, ChatGPT. 이제 AI가 먼저 답합니다. 그 답에 우리 브랜드가 인용되도록 정보를 정리했습니다.</p>
+        <div class="ph">AI 답변 캡처<small>네이버 AI 브리핑 또는 ChatGPT에 우리 브랜드가 인용된 화면</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 직접 검색해보세요 -->
+<section class="sec proof" id="proof">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">결과</div>
+      <h2 class="h2">말로 하지 않겠습니다.<br>지금 네이버에서 직접 검색해보세요</h2>
+      <p class="lead">아래 브랜드는 전부 우리가 운영하는 회사입니다. 네이버에서 쳐보시고, ChatGPT에도 물어보세요.</p>
+    </div>
+    <div class="proof-grid stagger rv">
+      <div class="bc"><div class="lg"><img src="assets/logos/trevity.png" alt="트래비티"></div><b>트래비티</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="https://search.naver.com/search.naver?query=트래비티" target="_blank" rel="noopener">네이버에서 확인 →</a></div>
+      <div class="bc"><div class="lg"><img src="assets/logos/hao.png" alt="하오디자인"></div><b>하오디자인</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="https://search.naver.com/search.naver?query=하오디자인" target="_blank" rel="noopener">네이버에서 확인 →</a></div>
+      <div class="bc"><div class="lg"><img class="raw" src="assets/logos/haofactory.png" alt="하오팩토리"></div><b>하오팩토리</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="https://search.naver.com/search.naver?query=하오팩토리" target="_blank" rel="noopener">네이버에서 확인 →</a></div>
+      <div class="bc"><div class="lg"><img src="assets/logos/makenov.png" alt="메이크노브"></div><b>메이크노브</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="https://search.naver.com/search.naver?query=메이크노브" target="_blank" rel="noopener">네이버에서 확인 →</a></div>
+      <div class="bc"><div class="lg"><img src="assets/logos/redtrans.png" alt="레드트랜스"></div><b>레드트랜스</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="https://search.naver.com/search.naver?query=레드트랜스" target="_blank" rel="noopener">네이버에서 확인 →</a></div>
+      <div class="bc"><div class="lg"><img src="assets/logos/first.png" alt="퍼스트마케팅컴퍼니"></div><b>퍼스트마케팅</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="https://search.naver.com/search.naver?query=퍼스트마케팅컴퍼니" target="_blank" rel="noopener">네이버에서 확인 →</a></div>
+      <div class="bc"><div class="lg ph">로고</div><b>브랜드 7</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="#proof">네이버에서 확인 →</a></div>
+      <div class="bc"><div class="lg ph">로고</div><b>브랜드 8</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="#proof">네이버에서 확인 →</a></div>
+      <div class="bc"><div class="lg ph">로고</div><b>브랜드 9</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="#proof">네이버에서 확인 →</a></div>
+      <div class="bc"><div class="lg ph">로고</div><b>브랜드 10</b><div class="kw">검색어 <i>○○○○</i></div><a class="go" href="#proof">네이버에서 확인 →</a></div>
+    </div>
+    <div class="naverline rv">
+      <div>
+        <b>네이버부터 살렸습니다. 한국 고객은 아직 네이버에서 찾으니까요.</b><br>
+        <span>SEO 업체 대부분은 구글 이론으로 말합니다. 우리는 네이버에서 실제로 띄운 것부터 보여드립니다. 그다음이 AI 검색입니다.</span>
+      </div>
+      <div class="ph dark">검색 결과 캡처<small>네이버 통합검색 상단 노출 1장 + ChatGPT 답변에 브랜드 인용 1장</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5.5 다음은 AI 검색 -->
+<section class="sec next" id="next">
+  <div class="wrap next-in">
+    <div class="rv">
+      <div class="eyebrow">다음</div>
+      <h2 class="h2">검색은 또 바뀝니다.<br>이번엔 AI입니다</h2>
+      <p class="lead">네이버 로직이 바뀌던 날, 우리는 준비가 없었습니다. 그래서 문의가 반으로 줄었습니다. 지금 고객은 네이버에 치고, ChatGPT에 묻고, 구글 AI 개요를 읽습니다. 그 세 곳에 우리 회사가 같이 나와야 합니다.</p>
+      <div class="next-row stagger rv">
+        <div class="nx"><b>네이버</b><span>아직 한국 고객의 첫 검색. 계속해야 합니다.</span></div>
+        <div class="nx"><b>구글 AI 개요</b><span>검색 결과 위에 AI 답이 먼저 뜹니다.</span></div>
+        <div class="nx"><b>ChatGPT</b><span>"○○ 잘하는 회사 알려줘"에 이름이 나와야 합니다.</span></div>
+      </div>
+      <p class="next-note">한 번 준비해 두면 셋 다 갑니다. 네이버에 통한 글 구조가 AI 인용의 조건과 같았기 때문입니다.</p>
+    </div>
+    <div class="ph rv">3화면 비교 이미지<small>같은 질문을 네이버·구글·ChatGPT에 넣었을 때 우리 브랜드가 나오는 화면 3장</small></div>
+  </div>
+</section>
+
+<!-- 6. 왜 우리인가 -->
+<section class="sec why" id="why">
+  <div class="wrap why-grid">
+    <div class="ph rv">팀 사진<small>실제 사무실, 실제 직원. 스톡 사진 금지</small></div>
+    <div class="rv">
+      <div class="eyebrow">왜 우리인가</div>
+      <h2 class="h2">자기 브랜드를 이렇게 띄운<br>회사는 없습니다</h2>
+      <p class="lead">대행사는 남의 예산으로 실험합니다. 우리는 우리 브랜드 10개를 우리 돈으로 살려냈습니다. 그 과정을 그대로 해드립니다.</p>
+      <ul>
+        <li><i>1</i><div><b>남의 광고가 아니라 우리 브랜드로 검증</b><p>결과가 안 나오면 우리 회사 매출이 줄었습니다. 그래서 되는 방법만 남았습니다.</p></div></li>
+        <li><i>2</i><div><b>바이럴 팀 30명이 그대로 실행팀</b><p>네이버를 15년 본 사람들이 SEO·AEO·GEO를 합니다. 외주로 돌리지 않습니다.</p></div></li>
+        <li><i>3</i><div><b>네이버도, AI 검색도 같이 봅니다</b><p>네이버 통합검색에서 실제로 뜬 것만 하고, 같은 글이 ChatGPT와 구글 AI에도 인용되게 만듭니다.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 서비스 -->
+<section class="sec svc" id="svc">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">서비스</div>
+      <h2 class="h2">매달 이렇게 받습니다</h2>
+      <p class="lead">우리 브랜드에 했던 순서 그대로입니다. 어려운 건 우리가 하고, 사장님은 결과만 확인하시면 됩니다.</p>
+    </div>
+    <div class="svc-grid stagger rv">
+      <div class="sv"><div class="n">01</div><h3>홈페이지 진단·수정</h3><p>네이버와 AI가 읽을 수 있는 상태로 고칩니다. 점수로 전후를 보여드립니다.</p><div class="ph">진단 리포트 이미지</div></div>
+      <div class="sv"><div class="n">02</div><h3>질문에 답하는 글</h3><p>고객이 실제로 검색하는 질문으로 매달 글을 씁니다. 홈페이지 블로그에 쌓입니다.</p><div class="ph">글 목록 이미지</div></div>
+      <div class="sv"><div class="n">03</div><h3>홈페이지 콘텐츠 · AI 가시성 콘텐츠</h3><p>홈페이지에 쌓은 글이 네이버 검색에 잡히게 하고, 같은 글이 구글·ChatGPT 답변에 인용되게 합니다.</p><div class="ph">노출 화면 이미지</div></div>
+      <div class="sv"><div class="n">04</div><h3>월간 성과 보고서</h3><p>네이버에 어디까지 떴는지, ChatGPT가 우리 회사를 뭐라고 답하는지 매달 보고합니다.</p><div class="ph">보고서 이미지</div></div>
+    </div>
+    <div class="priceline rv">
+      <div><b>요금은 플랜 3가지입니다.</b><span>회사 규모와 채널 수에 따라 베이직·프리미엄·엔터프라이즈 중 고릅니다.</span></div>
+      <a href="pricing.html" class="btn btn-navy">요금 자세히 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 엔딩 -->
+<section class="final" id="final">
+  <div class="wrap"><div class="final-in rv">
+    <div class="final-l">
+      <h2>우리 회사는 지금<br>네이버와 AI에 어떻게 뜨고 있을까요</h2>
+      <p>홈페이지 주소만 남겨주세요.<br>우리 브랜드에 했던 진단 그대로 해드립니다.</p>
+      <div class="free">
+        <span><i>✓</i>네이버·AI 노출 진단 리포트</span>
+        <span><i>✓</i>지금 안 뜨는 이유 3가지</span>
+        <span><i>✓</i>영업일 1일 내 회신</span>
+      </div>
+    </div>
+    <form class="fform" id="diagForm">
+      <h3>네이버·AI 노출 무료 진단</h3>
+      <div class="fld"><label>담당자 이름</label><input type="text" placeholder="홍길동" required></div>
+      <div class="fld"><label>회사명</label><input type="text" placeholder="○○정밀" required></div>
+      <div class="fld"><label>연락처</label><input type="tel" placeholder="010-0000-0000" required></div>
+      <div class="fld"><label>홈페이지 주소</label><input type="url" placeholder="https://"></div>
+      <button type="submit" class="btn">무료 진단 신청하기</button>
+      <div class="fn">영업일 기준 1일 내 회신드립니다</div>
+    </form>
+  </div></div>
+</section>
+
+<footer class="foot"><style>.foot{background:#070D1C;color:#7C879D;padding:60px 0 42px;font-size:13.5px}.foot a{color:inherit;text-decoration:none}.foot .wrap{max-width:1140px;margin:0 auto;padding:0 24px}.foot-in{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}.foot .brand{color:#fff;margin-bottom:16px;display:inline-block}.foot p{font-size:13.5px;line-height:1.7;max-width:320px;margin:0}.foot-info{font-size:12.5px;line-height:1.7;color:#7C879D;margin-top:14px}.foot-cols{display:flex;gap:56px}.foot-col .h5x{color:#C3CBDC;font-size:13.5px;margin:0 0 15px;font-weight:800}.foot-col a{display:block;font-size:14px;margin-bottom:10px}.foot-col a:hover{color:#fff}.foot-b{margin-top:46px;padding-top:24px;border-top:1px solid #141C30;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#4E5A73}@media(max-width:720px){.foot-cols{gap:32px;flex-wrap:wrap}}</style><div class="wrap"><div class="foot-in">
+<div><a class="brand" href="index.html"><img src="assets/logo-white.png" alt="메세지AI (messeze)" width="520" height="73" style="height:24px;width:auto;display:block"></a>
+<p>네이버 바이럴 15년. 우리 브랜드 10개로 검증한 방법으로 네이버와 AI 검색 노출을 함께 준비합니다.</p>
+<div class="foot-info">메세지AI · 상호 주식회사 퍼스트마케팅컴퍼니 · 대표 김우석<br>사업자등록번호 884-88-01123 · 통신판매업 신고 2021-대구동구-0697<br>대구 본사: 대구광역시 중구 국채보상로 488 (동산동) 섬유회관 3층<br>서울 사무소: 서울시 광진구 능동로49길 9, 2F<br>대표번호 1600-9487 · sales@firstmkt.co.kr<br>개인정보관리책임자 김우석 (work@firstmkt.co.kr)</div></div>
+<div class="foot-cols">
+<div class="foot-col"><div class="h5x">서비스</div><a href="services/visibility.html">서비스 상세</a><a href="pricing.html">요금</a><a href="check.html">노출 진단</a></div>
+<div class="foot-col"><div class="h5x">리소스</div><a href="blog/index.html">블로그</a><a href="glossary/index.html">용어사전</a><a href="faq.html">FAQ</a></div>
+<div class="foot-col"><div class="h5x">회사</div><a href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener">카카오톡 상담</a><a href="#final">상담 신청</a><a href="#final">무료 진단</a></div>
+</div>
+</div><div class="foot-b"><span>© 2026 메세지AI</span><span>네이버는 기본, 이제 AI 검색까지</span></div></div></footer>
+
+<script>
+(function(){const n=document.getElementById('nav');const f=()=>n.classList.toggle('solid',scrollY>40);f();addEventListener('scroll',f,{passive:true});})();
+(function(){const p=document.getElementById('mega'),t=document.querySelector('.nav-menu'),b=document.getElementById('burger');if(!p)return;let m;const o=()=>{clearTimeout(m);p.classList.add('on')},c=()=>{m=setTimeout(()=>p.classList.remove('on'),140)};if(t){t.addEventListener('mouseenter',o);t.addEventListener('mouseleave',c);t.querySelectorAll('a').forEach(a=>a.addEventListener('mouseenter',o));}if(window.matchMedia('(hover:hover)').matches){p.addEventListener('mouseenter',o);p.addEventListener('mouseleave',c);}if(b){b.addEventListener('click',()=>{const on=p.classList.toggle('on');b.classList.toggle('on',on);});p.addEventListener('click',e=>{if(e.target.closest('a')){p.classList.remove('on');b.classList.remove('on');}});}})();
+(function(){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});document.querySelectorAll('.rv').forEach(el=>io.observe(el));setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>el.classList.add('in')),2500);})();
+document.getElementById('diagForm').addEventListener('submit',e=>{e.preventDefault();alert('시안입니다. 실제 접수는 연결 후 동작합니다.');});
+</script>
+<!-- 카카오톡 상담 -->
+<style>
+.kko-chat{position:fixed;right:21px;bottom:92px;z-index:199;width:60px;height:60px;border-radius:50%;background:#FEE500;display:grid;place-items:center;box-shadow:0 10px 26px rgba(16,31,63,.26);transition:transform .2s,box-shadow .2s}
+.kko-chat:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 16px 34px rgba(16,31,63,.34)}
+.kko-chat svg{width:31px;height:31px;display:block}
+@media(max-width:480px){.kko-chat{right:14px;bottom:84px;width:54px;height:54px}.kko-chat svg{width:28px;height:28px}}
+</style>
+<a class="kko-chat" href="https://pf.kakao.com/_swEFX/chat" target="_blank" rel="noopener" title="카카오톡으로 상담하기" aria-label="카카오톡으로 상담하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#3C1E1E" d="M12 3C6.48 3 2 6.58 2 11c0 2.82 1.86 5.3 4.66 6.73-.2.73-.74 2.7-.85 3.12-.13.52.19.51.4.37.17-.11 2.67-1.81 3.75-2.55.66.1 1.34.15 2.04.15 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
+<!-- 채널톡 -->
+<script>
+(function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
+ChannelIO('boot', {"pluginKey": "8dff2f72-883e-4e0e-9afa-8437c3e42d3a"});
+</script>
+</body>
+</html>
