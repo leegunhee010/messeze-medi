@@ -394,6 +394,8 @@
 .md-rg-go{background:#3182F6;color:#fff;text-decoration:none;font-weight:700;font-size:15px;border-radius:10px;padding:11px 16px}
 @media(max-width:640px){.md-rg{border-radius:20px}.md-rg-bar{padding:16px}.md-rg-tabs{padding:10px 12px}.md-rg-grp{grid-template-columns:1fr;gap:6px;padding:16px}.md-rg-grp h4{margin:0}.md-rg-grp h4 small{display:inline;margin-left:4px}.md-rg-chips{grid-template-columns:repeat(3,1fr)}.md-rg-chip{font-size:14px;padding:9px 8px}.md-rg-list{max-height:420px}.md-rg-result{padding:14px 16px}}
 .md-talk{position:relative;min-height:100vh;background:#0B0D12;display:flex}
+@media(max-width:1023px){.md-talk{display:block!important;min-height:0!important;height:calc(100vh + (var(--steps) + 1) * 42vh + 70vh)!important;overflow:visible!important}.md-tk-stick{position:sticky!important;top:0!important;height:100vh!important;min-height:0!important;padding:80px 16px 24px!important}}
+
 .md-tk-stick{position:relative;width:100%;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:96px 20px 28px;box-sizing:border-box}
 .md-tk-panel{flex-shrink:0;width:100%;max-width:720px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
 .md-tk-head{display:flex;align-items:center;gap:14px;padding:16px 22px;border-bottom:1px solid rgba(255,255,255,.06)}.md-tk-head b{display:block;font-size:17px;color:#fff}.md-tk-head span{font-size:13px;color:#8B95A1}.md-tk-ring{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:#30C85A;display:flex!important;align-items:center;justify-content:center;animation:mdring 1.6s ease-in-out infinite;box-shadow:0 0 0 6px rgba(48,200,90,.15)}@media (prefers-reduced-motion:reduce){.md-tk-ring{animation:none}}
@@ -1148,11 +1150,14 @@ function fix(){body.style.minHeight='';var sv=msgs.map(function(m){return m.clas
 fix();addEventListener('resize',fix);
 window.mdTalk={el:sec,total:total,busy:function(){return step>=total&&Date.now()<readyAt},get step(){return step},next:function(){if(step<total){step++;render();return true}return false},prev:function(){if(step>0){step--;render();return true}return false},all:function(){step=total;render()}};
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){window.mdTalk.all();return}
-// 데스크톱은 스크롤 단계(아래 스냅 스크립트), 모바일은 화면에 들어오면 순서대로
+// 데스크톱은 휠 단계(아래 스냅 스크립트), 모바일은 섹션을 고정해 두고 스크롤 진행에 따라 한 단계씩
 var desk=window.matchMedia('(min-width:1024px) and (pointer:fine)');
-if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){
-  if(e.isIntersecting&&!desk.matches&&step===0){(function go(){if(window.mdTalk.next())setTimeout(go,1100)})()}
-})},{threshold:.5}).observe(sec)}
+window.mdTalk.set=function(n){n=Math.max(0,Math.min(total,n));if(n!==step){step=n;render()}};
+if(!desk.matches){
+  var tk=false;
+  function upd(){tk=false;var r=sec.getBoundingClientRect(),tot=sec.offsetHeight-innerHeight;if(tot<=0)return;var pr=Math.min(1,Math.max(0,-r.top/tot));window.mdTalk.set(Math.floor(pr*(total+1)*1.0))}
+  addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd();
+}
 })();
 </script>
 <script>
