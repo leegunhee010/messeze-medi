@@ -356,9 +356,9 @@
 .md-tk-head{display:flex;align-items:center;gap:14px;padding:16px 22px;border-bottom:1px solid rgba(255,255,255,.06)}.md-tk-head b{display:block;font-size:17px;color:#fff}.md-tk-head span{font-size:13px;color:#8B95A1}.md-tk-ring{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:#30C85A;display:flex!important;align-items:center;justify-content:center;animation:mdring 1.6s ease-in-out infinite;box-shadow:0 0 0 6px rgba(48,200,90,.15)}@media (prefers-reduced-motion:reduce){.md-tk-ring{animation:none}}
 .md-tk-dot{width:8px;height:8px;border-radius:50%;background:#FF5A5F;box-shadow:0 0 0 4px rgba(255,90,95,.18)}
 .md-tk-body{display:flex;flex-direction:column;gap:12px;padding:22px 24px 24px;min-height:0}
-.md-tk-msg{display:flex;align-items:flex-end;gap:10px;max-width:82%;opacity:0;transform:translateX(-36px) scale(.96);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
-.md-tk-msg.r{align-self:flex-end;flex-direction:row-reverse;transform:translateX(36px) scale(.96)}
-.md-tk-msg.on{opacity:1;transform:none}
+.md-tk-msg{display:none;align-items:flex-end;gap:10px;max-width:82%}.md-tk-msg.on{display:flex;animation:mdTkL .55s cubic-bezier(.2,.8,.2,1) both}.md-tk-msg.r.on{animation-name:mdTkR}@keyframes mdTkL{from{opacity:0;transform:translateX(-36px) scale(.96)}to{opacity:1;transform:none}}@keyframes mdTkR{from{opacity:0;transform:translateX(36px) scale(.96)}to{opacity:1;transform:none}}
+.md-tk-msg.r{align-self:flex-end;flex-direction:row-reverse}
+
 .md-tk-msg b{display:none}
 .md-tk-msg.r b{text-align:right}
 .md-tk-msg p{margin:0;padding:12px 16px;border-radius:18px;font-size:clamp(15px,1.4vw,17px);line-height:1.5;font-weight:500;word-break:keep-all}
@@ -975,6 +975,9 @@ function render(){
   var nx=msgs[step];
   if(nx&&step>0){tt=setTimeout(function(){ty.classList.toggle('r',nx.classList.contains('r'));nx.parentNode.insertBefore(ty,nx);ty.classList.add('on')},500)}
 }
+var body=sec.querySelector('.md-tk-body');
+function fix(){body.style.minHeight='';var sv=msgs.map(function(m){return m.classList.contains('on')});msgs.forEach(function(m){m.classList.add('on');m.style.animation='none'});ty.classList.add('on');body.appendChild(ty);var h=body.offsetHeight;ty.classList.remove('on');msgs.forEach(function(m,i){m.classList.toggle('on',sv[i]);m.style.animation=''});body.style.minHeight=h+'px'}
+fix();addEventListener('resize',fix);
 window.mdTalk={el:sec,total:total,get step(){return step},next:function(){if(step<total){step++;render();return true}return false},prev:function(){if(step>0){step--;render();return true}return false},all:function(){step=total;render()}};
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){window.mdTalk.all();return}
 // 데스크톱은 스크롤 단계(아래 스냅 스크립트), 모바일은 화면에 들어오면 순서대로
