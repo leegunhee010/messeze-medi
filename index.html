@@ -388,6 +388,54 @@
 @media(min-width:1024px) and (max-height:820px){.ts-sec.md-slide{padding-top:70px;padding-bottom:12px}#past .ts-h2{font-size:28px}#past .md-ps-card{width:22vh}#crisis .ts-h2{font-size:34px}#crisis .md-crash-svg{max-height:28vh}#crisis .md-fall-h{font-size:34px}#past .ts-past-text{font-size:.88em}#past .ts-head{margin-bottom:16px}}
 @media(min-width:1024px){.md-slide,.md-talk{height:100vh!important;min-height:0!important;overflow:hidden}.ts-sec.md-slide{padding:76px 0 24px}.md-tk-stick{min-height:0!important;height:100%}.md-slide .ts-head{margin-bottom:28px}#past .md-blog{margin:0 auto 24px}#past .md-blog-tag{margin-bottom:14px}#past .ts-past-text p{margin:0}#past .ts-past-text p+p{margin-top:10px}#past .ts-h2{font-size:clamp(30px,3.4vw,46px)}#crisis .md-crash{margin-top:4px;padding-top:24px}#crisis .md-crash-svg{max-height:34vh}#crisis .md-fall{margin-top:28px}#crisis .md-fall-h{font-size:clamp(28px,3.6vw,50px)}.md-ps-card{width:min(300px,29vh)}#past .md-ps{gap:12px}#past .md-ps-track{gap:12px}#past .ts-past-text{font-size:.95em}.md-kw{margin-top:3vh!important}.md-kw-item{height:min(320px,36vh)!important;width:calc(min(320px,36vh) * .75)!important}#recover-head .ts-head{margin-bottom:0}#recover-head .md-kw-note{margin-top:12px}}
 .md-slide>.ts-wrap,.md-slide>.wrap{width:100%}
+.mprice{background:#F7F9FC}
+.mp-lead{margin:16px auto 0;font-size:16.5px;line-height:1.65;color:#4E5968;word-break:keep-all}
+.mp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1240px;margin:44px auto 0;align-items:stretch}
+.mp-card{display:flex;flex-direction:column;background:#fff;border:1px solid #E5E8EB;border-radius:24px;padding:26px 22px 22px;text-align:left}
+.mp-card header{display:flex;align-items:center;justify-content:space-between;min-height:24px}
+.mp-tag{font-family:'Poppins',var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.12em;color:#8B95A1}
+.mp-best{font-size:12px;font-weight:700;color:#fff;background:#3182F6;border-radius:999px;padding:4px 10px}
+.mp-card h3{margin:10px 0 18px;font-size:21px;font-weight:800;letter-spacing:-.02em;color:#191F28}
+.mp-price{display:flex;align-items:baseline;gap:4px;color:#191F28}
+.mp-price em{font-style:normal;font-size:20px;font-weight:700;margin-right:2px}
+.mp-price b{font-family:'Poppins',var(--sans);font-size:44px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.mp-price b.ask{font-family:inherit;font-size:34px;font-weight:800;letter-spacing:-.02em}
+.mp-price span{font-size:16px;font-weight:600;color:#4E5968}
+.mp-sub{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0 0;font-size:13.5px;color:#4E5968}
+.mp-sub i{font-style:normal;font-size:12.5px;font-weight:700;color:#1B64DA;background:#EAF2FF;border-radius:6px;padding:3px 8px}
+.mp-setup{margin:8px 0 0;font-size:13px;color:#8B95A1}
+.mp-desc{margin:18px 0 0;padding-top:18px;border-top:1px solid #F2F4F6;font-size:15px;line-height:1.6;color:#333D4B;word-break:keep-all}
+.mp-fit{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;font-size:13.5px;line-height:1.5;color:#4E5968;word-break:keep-all}
+.mp-fit span{flex:0 0 auto;font-size:11.5px;font-weight:700;color:#03A94D;background:#E6F8EE;border-radius:5px;padding:2px 6px;margin-top:1px}
+.mp-list{list-style:none;margin:20px 0 24px;padding:0;display:flex;flex-direction:column;gap:2px;flex:1}
+.mp-list li{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed #EDEFF2;font-size:14.5px;color:#191F28}
+.mp-list li:last-child{border-bottom:0}
+.mp-list li div{display:flex;flex-direction:column;gap:2px}
+.mp-list li span{font-weight:600}
+.mp-list li small{font-size:12px;color:#8B95A1;line-height:1.45}
+.mp-list li>b{flex:0 0 auto;font-size:13.5px;font-weight:700;color:#1B64DA;white-space:nowrap}
+.mp-list li.mp-inc{justify-content:flex-start;font-size:13px;font-weight:700;color:#4E5968;background:#F2F4F6;border:0;border-radius:10px;padding:9px 12px;margin-bottom:6px}
+.mp-cta{display:block;text-align:center;border:1px solid #D9DFE7;border-radius:14px;padding:14px;font-weight:700;font-size:15px;color:#191F28;text-decoration:none;margin-top:auto}
+.mp-cta:hover{border-color:#191F28}
+.mp-card.best{background:#0E1A33;border-color:#0E1A33;box-shadow:0 30px 60px -30px rgba(14,26,51,.6)}
+.mp-card.best .mp-tag{color:#8FA6CC}.mp-card.best h3,.mp-card.best .mp-price,.mp-card.best .mp-list li{color:#fff}
+.mp-card.best .mp-price span,.mp-card.best .mp-sub,.mp-card.best .mp-fit{color:#B6C2D9}
+.mp-card.best .mp-sub i{background:rgba(49,130,246,.22);color:#9CC1FF}
+.mp-card.best .mp-setup{color:#8FA6CC}.mp-card.best .mp-desc{color:#DCE3EE;border-color:rgba(255,255,255,.08)}
+.mp-card.best .mp-list li{border-color:rgba(255,255,255,.08)}.mp-card.best .mp-list li>b{color:#7FB0FF}
+.mp-card.best .mp-list li.mp-inc{background:rgba(255,255,255,.07);color:#B6C2D9}
+.mp-card.best .mp-fit span{background:rgba(3,199,90,.16);color:#5BE59B}
+.mp-card.best .mp-cta{background:#3182F6;border-color:#3182F6;color:#fff}
+.mp-card.custom{background:#F9FAFB;border-style:dashed;border-color:#C4CAD1}
+.mp-card.custom .mp-list li{justify-content:flex-start}
+.mp-card.custom .mp-list li span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#191F28;margin-right:10px;vertical-align:middle}
+.mp-card.custom .mp-cta{background:#191F28;border-color:#191F28;color:#fff}
+.mp-promise{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 14px;margin:28px auto 0;max-width:900px}
+.mp-promise span{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #DCE6F7;border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700;color:#1B4DB1}
+.mp-promise i{font-style:normal;width:20px;height:20px;border-radius:50%;background:#3182F6;color:#fff;font-size:11px;display:inline-flex;align-items:center;justify-content:center}
+.mp-note{margin:18px auto 0;max-width:900px;text-align:center;font-size:12.5px;line-height:1.7;color:#8B95A1;word-break:keep-all}
+@media(max-width:1180px){.mp-grid{grid-template-columns:repeat(2,1fr);max-width:760px}}
+@media(max-width:640px){.mp-grid{grid-template-columns:1fr;max-width:440px}.mp-price b{font-size:40px}.mp-promise span{font-size:13px}.mp-lead br,.mp-note br{display:none}}
 .md-kw{overflow:hidden;margin-top:48px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .md-kw-track{display:flex;gap:16px;width:max-content;animation:tsroll 70s linear infinite}
 .md-kw:hover .md-kw-track{animation-play-state:paused}
@@ -465,7 +513,6 @@
     </div>
     <div class="ts-wrap">
       <div class="md-blog rv">
-        <span class="md-blog-tag"><i>blog</i>블로그 운영 당시 검색 결과</span>
         <div class="md-ps" aria-label="블로그 운영 당시 네이버 검색 캡처 12장"><div class="md-ps-row"><div class="md-ps-track" style="--dur:94s"><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 야간투석병원</span></figcaption><img src="assets/medi/past/all/003.jpg" alt="네이버 “구리 야간투석병원” 검색 블로그 노출 캡처" loading="eager" width="640" height="322"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리시 신장내과</span></figcaption><img src="assets/medi/past/all/004.jpg" alt="네이버 “구리시 신장내과” 검색 블로그 노출 캡처" loading="eager" width="640" height="309"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주 혈액투석실</span></figcaption><img src="assets/medi/past/all/005.jpg" alt="네이버 “남양주 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="282"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주시 야간투석</span></figcaption><img src="assets/medi/past/all/006.jpg" alt="네이버 “남양주시 야간투석” 검색 블로그 노출 캡처" loading="eager" width="640" height="306"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리시 고혈압</span></figcaption><img src="assets/medi/past/all/010.jpg" alt="네이버 “구리시 고혈압” 검색 블로그 노출 캡처" loading="eager" width="640" height="330"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 야간투석병원</span></figcaption><img src="assets/medi/past/all/003.jpg" alt="네이버 “구리 야간투석병원” 검색 블로그 노출 캡처" loading="eager" width="640" height="322"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리시 신장내과</span></figcaption><img src="assets/medi/past/all/004.jpg" alt="네이버 “구리시 신장내과” 검색 블로그 노출 캡처" loading="eager" width="640" height="309"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주 혈액투석실</span></figcaption><img src="assets/medi/past/all/005.jpg" alt="네이버 “남양주 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="282"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주시 야간투석</span></figcaption><img src="assets/medi/past/all/006.jpg" alt="네이버 “남양주시 야간투석” 검색 블로그 노출 캡처" loading="eager" width="640" height="306"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리시 고혈압</span></figcaption><img src="assets/medi/past/all/010.jpg" alt="네이버 “구리시 고혈압” 검색 블로그 노출 캡처" loading="eager" width="640" height="330"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 야간투석병원</span></figcaption><img src="assets/medi/past/all/003.jpg" alt="네이버 “구리 야간투석병원” 검색 블로그 노출 캡처" loading="eager" width="640" height="322"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리시 신장내과</span></figcaption><img src="assets/medi/past/all/004.jpg" alt="네이버 “구리시 신장내과” 검색 블로그 노출 캡처" loading="eager" width="640" height="309"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주 혈액투석실</span></figcaption><img src="assets/medi/past/all/005.jpg" alt="네이버 “남양주 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="282"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주시 야간투석</span></figcaption><img src="assets/medi/past/all/006.jpg" alt="네이버 “남양주시 야간투석” 검색 블로그 노출 캡처" loading="eager" width="640" height="306"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리시 고혈압</span></figcaption><img src="assets/medi/past/all/010.jpg" alt="네이버 “구리시 고혈압” 검색 블로그 노출 캡처" loading="eager" width="640" height="330"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 야간투석병원</span></figcaption><img src="assets/medi/past/all/003.jpg" alt="네이버 “구리 야간투석병원” 검색 블로그 노출 캡처" loading="eager" width="640" height="322"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리시 신장내과</span></figcaption><img src="assets/medi/past/all/004.jpg" alt="네이버 “구리시 신장내과” 검색 블로그 노출 캡처" loading="eager" width="640" height="309"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주 혈액투석실</span></figcaption><img src="assets/medi/past/all/005.jpg" alt="네이버 “남양주 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="282"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주시 야간투석</span></figcaption><img src="assets/medi/past/all/006.jpg" alt="네이버 “남양주시 야간투석” 검색 블로그 노출 캡처" loading="eager" width="640" height="306"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리시 고혈압</span></figcaption><img src="assets/medi/past/all/010.jpg" alt="네이버 “구리시 고혈압” 검색 블로그 노출 캡처" loading="eager" width="640" height="330"/></figure></div></div><div class="md-ps-row rev"><div class="md-ps-track" style="--dur:131s"><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 인공신장실</span></figcaption><img src="assets/medi/past/all/001.jpg" alt="네이버 “구리 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="255"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 혈액투석실</span></figcaption><img src="assets/medi/past/all/002.jpg" alt="네이버 “구리 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="261"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주시 인공신장실</span></figcaption><img src="assets/medi/past/all/007.jpg" alt="네이버 “남양주시 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="232"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>다산 인공신장실</span></figcaption><img src="assets/medi/past/all/008.jpg" alt="네이버 “다산 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="222"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>다산 혈액투석실</span></figcaption><img src="assets/medi/past/all/009.jpg" alt="네이버 “다산 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="223"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 고지혈증</span></figcaption><img src="assets/medi/past/all/011.jpg" alt="네이버 “구리 고지혈증” 검색 블로그 노출 캡처" loading="eager" width="640" height="255"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 통풍</span></figcaption><img src="assets/medi/past/all/012.jpg" alt="네이버 “구리 통풍” 검색 블로그 노출 캡처" loading="eager" width="640" height="225"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 인공신장실</span></figcaption><img src="assets/medi/past/all/001.jpg" alt="네이버 “구리 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="255"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 혈액투석실</span></figcaption><img src="assets/medi/past/all/002.jpg" alt="네이버 “구리 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="261"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주시 인공신장실</span></figcaption><img src="assets/medi/past/all/007.jpg" alt="네이버 “남양주시 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="232"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>다산 인공신장실</span></figcaption><img src="assets/medi/past/all/008.jpg" alt="네이버 “다산 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="222"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>다산 혈액투석실</span></figcaption><img src="assets/medi/past/all/009.jpg" alt="네이버 “다산 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="223"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 고지혈증</span></figcaption><img src="assets/medi/past/all/011.jpg" alt="네이버 “구리 고지혈증” 검색 블로그 노출 캡처" loading="eager" width="640" height="255"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 통풍</span></figcaption><img src="assets/medi/past/all/012.jpg" alt="네이버 “구리 통풍” 검색 블로그 노출 캡처" loading="eager" width="640" height="225"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 인공신장실</span></figcaption><img src="assets/medi/past/all/001.jpg" alt="네이버 “구리 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="255"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 혈액투석실</span></figcaption><img src="assets/medi/past/all/002.jpg" alt="네이버 “구리 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="261"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주시 인공신장실</span></figcaption><img src="assets/medi/past/all/007.jpg" alt="네이버 “남양주시 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="232"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>다산 인공신장실</span></figcaption><img src="assets/medi/past/all/008.jpg" alt="네이버 “다산 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="222"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>다산 혈액투석실</span></figcaption><img src="assets/medi/past/all/009.jpg" alt="네이버 “다산 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="223"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 고지혈증</span></figcaption><img src="assets/medi/past/all/011.jpg" alt="네이버 “구리 고지혈증” 검색 블로그 노출 캡처" loading="eager" width="640" height="255"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 통풍</span></figcaption><img src="assets/medi/past/all/012.jpg" alt="네이버 “구리 통풍” 검색 블로그 노출 캡처" loading="eager" width="640" height="225"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 인공신장실</span></figcaption><img src="assets/medi/past/all/001.jpg" alt="네이버 “구리 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="255"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 혈액투석실</span></figcaption><img src="assets/medi/past/all/002.jpg" alt="네이버 “구리 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="261"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>남양주시 인공신장실</span></figcaption><img src="assets/medi/past/all/007.jpg" alt="네이버 “남양주시 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="232"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>다산 인공신장실</span></figcaption><img src="assets/medi/past/all/008.jpg" alt="네이버 “다산 인공신장실” 검색 블로그 노출 캡처" loading="eager" width="640" height="222"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>다산 혈액투석실</span></figcaption><img src="assets/medi/past/all/009.jpg" alt="네이버 “다산 혈액투석실” 검색 블로그 노출 캡처" loading="eager" width="640" height="223"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 고지혈증</span></figcaption><img src="assets/medi/past/all/011.jpg" alt="네이버 “구리 고지혈증” 검색 블로그 노출 캡처" loading="eager" width="640" height="255"/></figure><figure class="md-ps-card"><figcaption><em class="top">1위</em><span>구리 통풍</span></figcaption><img src="assets/medi/past/all/012.jpg" alt="네이버 “구리 통풍” 검색 블로그 노출 캡처" loading="eager" width="640" height="225"/></figure></div></div></div>
       </div>
     </div>
@@ -654,62 +701,50 @@
 
 
 
-<section class="sec price" id="price">
+<section class="sec mprice" id="price">
   <div class="wrap">
     <div class="shead center rv">
-      <span class="eyebrow" data-copy="price.eyebrow">구독 요금</span>
-      <h2 class="h2" data-copy="price.title">처음 시작하는 병원도<br>쉽게 준비할 수 있습니다</h2>
-      <p class="lead" data-copy="price.lead">병원 홈페이지 정비부터 진료 정보 콘텐츠까지 메세지가 단계별로 함께합니다.<br></p>
+      <span class="eyebrow">구독 요금</span>
+      <h2 class="h2">병원 AI 검색 노출,<br/>홈페이지부터 바로잡습니다</h2>
+      <p class="mp-lead">ChatGPT·네이버 AI·구글이 읽는 홈페이지와 플레이스를 먼저 세팅하고,<br/>단계별로 인용 콘텐츠를 쌓습니다.</p>
     </div>
-    <div class="price-grid rv stagger">
-      <div class="tier">
-        <div class="tn" data-copy="price.t1name">베이직</div>
-        <div class="tp">월 <span class="num" data-to="60">0</span><small>만원</small></div>
-        <div class="tp3" data-copy="price.t1p3">3개월 150만원<b>17% 할인</b></div>
-        <div class="td" data-copy="price.t1desc">검색과 AI 답변에서 병원이 발견될 수 있도록 콘텐츠 노출 기반을 만듭니다.</div>
-        <ul>
-          <li data-copy="price.t1f1"><span class="c">✓</span>병원 AI 노출 진단 <b>월 1회</b></li>
-          <li data-copy="price.t1f2"><span class="c">✓</span>환자 질문 콘텐츠 <b>월 40회</b></li>
-          <li data-copy="price.t1f3"><span class="c">✓</span>월간 노출 리포트 <b>월 1회</b></li>
-        </ul>
-        <a href="#final" class="btn btn-gh">상담 신청</a>
-      </div>
-      <div class="tier pop">
-        <span class="badge" data-copy="price.t2badge">가장 많이 찾는</span>
-        <div class="tn" data-copy="price.t2name">프리미엄</div>
-        <div class="tp">월 <span class="num" data-to="100">0</span><small>만원</small></div>
-        <div class="tp3" data-copy="price.t2p3">3개월 240만원<b>20% 할인</b></div>
-        <div class="td" data-copy="price.t2desc">병원 홈페이지까지 정비해 웹사이트 영역과 AI 답변 노출을 함께 키웁니다.</div>
-        <ul>
-          <li data-copy="price.t2f1"><span class="c">✓</span>병원 AI 노출 진단 <b>월 1회</b></li>
-          <li data-copy="price.t2f2"><span class="c">✓</span>환자 질문 콘텐츠 <b>월 80회</b> <small>홈페이지 포함</small></li>
-          <li data-copy="price.t2f3"><span class="c">✓</span>홈페이지 최적화 · 진료 정보 <b>주 3회</b></li>
-          <li data-copy="price.t2f4"><span class="c">✓</span>언론 보도 <b>월 1회</b> · 기자 3,000명</li>
-          <li data-copy="price.t2f5"><span class="c">✓</span>월간 노출 리포트&nbsp;</li>
-        </ul>
-        <a href="#final" class="btn">상담 신청</a>
-      </div>
-      <div class="tier">
-        <div class="tn" data-copy="price.t3name">엔터프라이즈</div>
-        <div class="tp" data-copy="price.t3price">별도 문의</div>
-        <div class="tp3" data-copy="price.t3p3">3개월 플랜 별도 문의</div>
-        <div class="td" data-copy="price.t3desc">여러 지점·진료과를 운영하는 병원에 맞춰 범위를 따로 설계합니다.</div>
-        <ul>
-          <li data-copy="price.t3f1"><span class="c">✓</span>병원 AI 노출 진단 <b>월 1회</b></li>
-          <li data-copy="price.t3f2"><span class="c">✓</span>환자 질문 콘텐츠</li>
-          <li data-copy="price.t3f3"><span class="c">✓</span>월간 노출 리포트</li>
-          <li data-copy="price.t3f4"><span class="c">✓</span>병원 홈페이지 최적화</li>
-          <li data-copy="price.t3f5"><span class="c">✓</span>진료 정보 페이지</li>
-          <li data-copy="price.t3f6"><span class="c">✓</span>언론 보도</li>
-          <li data-copy="price.t3f7"><span class="c">✓</span>보도자료 이메일 배포</li>
-        </ul>
-        <a href="#final" class="btn btn-gh">상담 신청</a>
-      </div>
+    <div class="mp-grid rv">
+        <article class="mp-card ">
+          <header><span class="mp-tag">FOUNDATION</span></header>
+          <h3>AI 인식 패키지</h3>
+          <div class="mp-price"><b>250</b><span>만원 · 1회</span></div><p class="mp-sub"><i>1회성</i>홈페이지 200만 + 플레이스 50만</p>
+          <p class="mp-desc">AI가 병원을 정확히 인식하도록 홈페이지와 지도·디렉토리 정보를 한 번에 정비합니다.</p><p class="mp-fit"><span>추천</span>처음 시작하는 의원</p>
+          <ul class="mp-list"><li><div><span>AEO 홈페이지 + 관리자</span><small>30p +50만 · 40p +100만</small></div><b>20p</b></li><li><div><span>플레이스 정비</span><small>네이버·구글·카카오·빙·애플</small></div><b>5곳</b></li><li><div><span>의료 디렉토리 통일</span><small>하이닥·굿닥·똑닥</small></div><b>3곳</b></li><li><div><span>홈페이지 점수표</span><small>현재 점수와 개선 후 점수</small></div><b>전·후 비교</b></li></ul>
+          <a href="#final" class="mp-cta">상담 신청</a>
+        </article><article class="mp-card best">
+          <header><span class="mp-tag">CITATION</span><span class="mp-best">가장 많이 찾는</span></header>
+          <h3>AI 인용 패키지</h3>
+          <div class="mp-price"><em>월</em><b>100</b><span>만원</span></div><p class="mp-sub"><i>3개월 250만원</i>17% 할인</p><p class="mp-setup">+ AI 인식 패키지 250만원 (1회)</p>
+          <p class="mp-desc">홈페이지와 블로그 채널에 질문형 콘텐츠를 매달 쌓아 AI 답변에 병원이 인용되게 합니다.</p><p class="mp-fit"><span>추천</span>지역 경쟁이 있는 병원</p>
+          <ul class="mp-list"><li class="mp-inc">AI 인식 패키지 전체 포함</li><li><div><span>홈페이지 칼럼 자동화</span></div><b>월 20건</b></li><li><div><span>네이버 블로그</span></div><b>월 10건</b></li><li><div><span>티스토리</span></div><b>월 10건</b></li><li><div><span>구글 블로그스팟</span></div><b>월 10건</b></li><li><div><span>AI 가시성 리포트</span></div><b>월 1회</b></li></ul>
+          <a href="#final" class="mp-cta">상담 신청</a>
+        </article><article class="mp-card ">
+          <header><span class="mp-tag">AUTHORITY</span></header>
+          <h3>AI 신뢰 패키지</h3>
+          <div class="mp-price"><em>월</em><b>200</b><span>만원</span></div><p class="mp-sub"><i>3개월 550만원</i>8% 할인</p><p class="mp-setup">+ AI 인식 패키지 250만원 (1회)</p>
+          <p class="mp-desc">언론 보도와 플레이스 리뷰로 AI가 신뢰하는 출처를 더합니다.</p><p class="mp-fit"><span>추천</span>비급여 중심 과 · 병원급 · 다지점 네트워크</p>
+          <ul class="mp-list"><li class="mp-inc">AI 인용 패키지 전체 포함</li><li><div><span>언론 보도</span><small>기자 3,000명 배포</small></div><b>월 2건</b></li><li><div><span>네이버 플레이스 리뷰</span></div><b>월 30개</b></li><li><div><span>구글 리뷰</span></div><b>월 10개</b></li><li><div><span>카카오맵 리뷰</span></div><b>월 10개</b></li><li><div><span>경쟁 병원 비교 리포트</span></div><b>월 1회</b></li><li><div><span>AI 가시성 리포트</span></div><b>월 1회</b></li></ul>
+          <a href="#final" class="mp-cta">상담 신청</a>
+        </article><article class="mp-card custom">
+          <header><span class="mp-tag">CUSTOM</span></header>
+          <h3>1:1 병원 맞춤 패키지</h3>
+          <div class="mp-price"><b class="ask">별도 견적</b></div><p class="mp-sub"><i>상담 후 구성</i>병원 상황에 맞춰 항목·건수 조정</p>
+          <p class="mp-desc">표준 플랜에 없는 구성이 필요한 병원은 상담 후 범위를 정하고 견적을 드립니다.</p>
+          <ul class="mp-list"><li><div><span>다지점·네트워크 병원</span></div></li><li><div><span>진료과별 사이트 분리</span></div></li><li><div><span>외국인 환자 다국어</span></div></li><li><div><span>40p 초과 · 콘텐츠 건수 조정</span></div></li><li><div><span>전담 PM 배정</span></div></li></ul>
+          <a href="#final" class="mp-cta">맞춤 견적 상담</a>
+        </article>
     </div>
-    
-    <div class="price-note rv" data-copy="price.note">* 3개월 결제 시 할인가가 적용됩니다. 정보가 누적되는 특성상 3개월 이상 운영을 권장합니다.</div>
-    <div class="rv" style="text-align:center;margin-top:28px"><a href="pricing.html" class="btn btn-gh" data-copy="price.cta">플랜 자세히 비교하기 →</a></div>
-</div>
+    <div class="mp-promise rv">
+      <span><i>✓</i>홈페이지 점수 미달 시 제작비 100% 환불</span>
+      <span><i>✓</i>3개월 후 AI 미노출 시 콘텐츠비 환불 또는 기존 홈페이지 복구</span>
+    </div>
+    <p class="mp-note">* 월 패키지는 AI 인식 패키지(1회) 설치 후 1개월 단위로 계약하며, 3개월 결제 시 할인가가 적용됩니다.<br/>AI 미노출 환불은 3개월 결제에 적용되고, 환불 조건은 계약서에 따릅니다.</p>
+  </div>
 </section>
 
 <section class="sec" id="faq" style="background:var(--sky-2)">
