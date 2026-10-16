@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>메세지AI 메디 관리자</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+<style>
+:root{--ink:#191F28;--body:#4E5968;--mut:#8B95A1;--line:#E5E8EB;--bg:#F7F8FA;--co:#3182F6;--co-dk:#1B64DA;--red:#F04452;--green:#03A94D}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{font-family:'Pretendard',-apple-system,sans-serif;background:var(--bg);color:var(--ink);font-size:14.5px;line-height:1.5}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}input,select,textarea{font:inherit}
+.gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.gate-box{width:100%;max-width:420px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px}
+.gate-box h1{margin:0 0 6px;font-size:22px}.gate-box p{margin:0 0 20px;color:var(--mut);font-size:13.5px}
+.fld{margin-bottom:14px}.fld label{display:block;font-size:12.5px;font-weight:700;color:var(--body);margin-bottom:6px}
+.fld input,.fld select,.fld textarea{width:100%;border:1px solid #D9DFE7;border-radius:10px;padding:11px 12px;background:#fff;color:var(--ink)}
+.fld input:focus,.fld textarea:focus,.fld select:focus{outline:0;border-color:var(--co);box-shadow:0 0 0 3px rgba(49,130,246,.15)}
+.fld small{display:block;margin-top:5px;color:var(--mut);font-size:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:10px;padding:10px 16px;font-weight:700}
+.btn.co{background:var(--co);border-color:var(--co)}.btn.gh{background:#fff;color:var(--ink)}.btn.sm{padding:7px 11px;font-size:13px;border-radius:8px}.btn.red{background:#fff;color:var(--red);border-color:#F7C5C9}
+.btn:disabled{opacity:.5;cursor:default}
+.app{display:none;min-height:100vh}.app.on{display:grid;grid-template-columns:220px 1fr}
+.side{background:#fff;border-right:1px solid var(--line);padding:22px 16px;position:sticky;top:0;height:100vh}
+.side .brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:16px;margin:0 6px 22px}.side .brand i{font-style:normal;font-size:11px;font-weight:800;color:#fff;background:var(--co);border-radius:6px;padding:2px 6px}
+.side nav a{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:10px;color:var(--body);font-weight:600;margin-bottom:2px}
+.side nav a.on{background:#EAF2FF;color:var(--co-dk)}.side nav a em{font-style:normal;font-size:11.5px;color:var(--mut);background:var(--bg);border-radius:999px;padding:2px 7px}
+.side .foot{position:absolute;bottom:18px;left:16px;right:16px;font-size:12px;color:var(--mut)}.side .foot a{display:block;color:var(--body);margin-top:6px}
+.main{padding:28px 32px 60px;max-width:1240px}
+.main h2{margin:0 0 4px;font-size:22px}.main .sub{margin:0 0 22px;color:var(--mut)}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:16px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.notice{position:fixed;right:20px;bottom:20px;background:var(--ink);color:#fff;padding:12px 16px;border-radius:12px;font-weight:600;box-shadow:0 14px 30px -14px rgba(0,0,0,.5);opacity:0;transform:translateY(8px);transition:.25s;pointer-events:none;z-index:50;max-width:420px}
+.notice.on{opacity:1;transform:none}.notice.err{background:var(--red)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}.stat b{display:block;font-size:26px;letter-spacing:-.02em}.stat span{color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px}.tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--body)}.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rg-grp{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:12px 0;border-top:1px solid #F2F4F6}.rg-grp h4{margin:4px 0 0;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 11px;font-size:13.5px;font-weight:600;color:var(--ink)}
+.chip.no{background:#FFF1F1;border-color:#F7C5C9;color:var(--red);text-decoration:line-through}.chip.no::after{content:" 마감";text-decoration:none;font-size:11px}
+.closed-list{margin-top:10px}.closed-list .it{display:grid;grid-template-columns:150px 1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid #F2F4F6}.closed-list input{border:1px solid #D9DFE7;border-radius:8px;padding:7px 10px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{padding:10px 8px;border-bottom:1px solid #F2F4F6;text-align:left;vertical-align:top}th{color:var(--mut);font-weight:700;font-size:12.5px}
+td select,td input{border:1px solid #D9DFE7;border-radius:8px;padding:6px 8px;width:100%}td .st{width:92px}
+.cp-wrap{display:grid;grid-template-columns:1fr 300px;gap:16px;align-items:start}.cp-frame{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;height:calc(100vh - 220px)}
+.cp-frame iframe{width:1280px;height:calc((100vh - 220px) / .72);border:0;transform:scale(.72);transform-origin:0 0}
+.cp-list{position:sticky;top:20px}.cp-list .k{font-size:12px;color:var(--mut);margin-bottom:2px;word-break:break-all}.cp-list .v{font-size:13px;background:var(--bg);border-radius:8px;padding:8px;margin-bottom:8px;max-height:72px;overflow:hidden}
+.ed-tb{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}.ed-tb button{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 9px;font-size:12.5px}
+.editor{min-height:320px;border:1px solid #D9DFE7;border-radius:10px;padding:14px 16px;background:#fff;line-height:1.7}.editor:focus{outline:0;border-color:var(--co)}
+.editor h2{font-size:19px;margin:22px 0 8px}.editor table{border-collapse:collapse;margin:12px 0}.editor td,.editor th{border:1px solid var(--line);padding:6px 10px}.editor blockquote{background:#EAF2FF;border-left:4px solid var(--co);margin:14px 0;padding:10px 14px;border-radius:0 10px 10px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pv{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;height:70vh}.pv iframe{width:100%;height:100%;border:0}
+.post-list .it{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #F2F4F6}.post-list .it b{display:block}.post-list .it small{color:var(--mut)}
+@media(max-width:900px){.app.on{grid-template-columns:1fr}.side{position:static;height:auto}.side .foot{position:static;margin-top:16px}.stats{grid-template-columns:1fr 1fr}.cp-wrap{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="gate-box">
+    <h1>메세지AI 메디 관리자</h1>
+    <p>GitHub 토큰으로 로그인합니다. 저장하면 사이트에 1~2분 뒤 반영됩니다.</p>
+    <div class="fld"><label>GitHub 토큰</label><input id="gTok" type="password" placeholder="ghp_… (repo 권한)" autocomplete="off"><small>레포 <b>leegunhee010/messeze-medi</b>에 쓰기 권한이 있는 토큰</small></div>
+    <div class="fld"><label>접수 키 (선택)</label><input id="gKey" type="password" placeholder="messeze.com 관리자 키" autocomplete="off"><small>상담 접수 목록을 보려면 필요합니다. 나중에 입력해도 됩니다.</small></div>
+    <button class="btn co" id="gBtn" style="width:100%;justify-content:center">들어가기</button>
+    <p id="gMsg" style="margin:12px 0 0;color:var(--red);min-height:18px"></p>
+  </div>
+</div>
+
+<div class="app" id="app">
+  <aside class="side">
+    <div class="brand">messeze <i>medi</i></div>
+    <nav id="nav">
+      <a href="#dash" data-v="dash">대시보드</a>
+      <a href="#region" data-v="region">지역 마감 <em id="nRegion">0</em></a>
+      <a href="#inq" data-v="inq">상담 접수 <em id="nInq">–</em></a>
+      <a href="#copy" data-v="copy">문구 편집</a>
+      <a href="#blog" data-v="blog">블로그 <em id="nBlog">0</em></a>
+    </nav>
+    <div class="foot">leegunhee010/messeze-medi<a href="index.html" target="_blank">사이트 열기 ↗</a><a href="#" id="logout">로그아웃</a></div>
+  </aside>
+  <main class="main" id="view"></main>
+</div>
+<div class="notice" id="notice"></div>
+
+<script>
+const REPO='leegunhee010/messeze-medi', BR='main', API='https://messeze.com/api/compat', SITE='https://medi.messeze.com';
+const TOK_LS='mdm_gh_token', KEY_LS='mdm_api_key';
+const REGIONS=[["서울", ["종로구", "중구", "용산구", "성동구", "광진구", "동대문구", "중랑구", "성북구", "강북구", "도봉구", "노원구", "은평구", "서대문구", "마포구", "양천구", "강서구", "구로구", "금천구", "영등포구", "동작구", "관악구", "서초구", "강남구", "송파구", "강동구"]], ["부산", ["중구", "서구", "동구", "영도구", "부산진구", "동래구", "남구", "북구", "해운대구", "사하구", "금정구", "강서구", "연제구", "수영구", "사상구", "기장군"]], ["대구", ["중구", "동구", "서구", "남구", "북구", "수성구", "달서구", "달성군", "군위군"]], ["인천", ["중구", "동구", "미추홀구", "연수구", "남동구", "부평구", "계양구", "서구", "강화군", "옹진군"]], ["광주", ["동구", "서구", "남구", "북구", "광산구"]], ["대전", ["동구", "중구", "서구", "유성구", "대덕구"]], ["울산", ["중구", "남구", "동구", "북구", "울주군"]], ["세종", ["세종시"]], ["경기", ["수원시", "성남시", "의정부시", "안양시", "부천시", "광명시", "평택시", "동두천시", "안산시", "고양시", "과천시", "구리시", "남양주시", "오산시", "시흥시", "군포시", "의왕시", "하남시", "용인시", "파주시", "이천시", "안성시", "김포시", "화성시", "광주시", "양주시", "포천시", "여주시", "연천군", "가평군", "양평군"]], ["강원", ["춘천시", "원주시", "강릉시", "동해시", "태백시", "속초시", "삼척시", "홍천군", "횡성군", "영월군", "평창군", "정선군", "철원군", "화천군", "양구군", "인제군", "고성군", "양양군"]], ["충북", ["청주시", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군"]], ["충남", ["천안시", "공주시", "보령시", "아산시", "서산시", "논산시", "계룡시", "당진시", "금산군", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군"]], ["전북", ["전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군"]], ["전남", ["목포시", "여수시", "순천시", "나주시", "광양시", "담양군", "곡성군", "구례군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "해남군", "영암군", "무안군", "함평군", "영광군", "장성군", "완도군", "진도군", "신안군"]], ["경북", ["포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "의성군", "청송군", "영양군", "영덕군", "청도군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군"]], ["경남", ["창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "의령군", "함안군", "창녕군", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군"]], ["제주", ["제주시", "서귀포시"]]];
+const CATS=['병원 검색 노출','AI 답변','병원 정보 관리'];
+const GRADS=['linear-gradient(135deg,#101F3F,#2B5CFF)','linear-gradient(135deg,#16295C,#419CFF)','linear-gradient(135deg,#12203F,#4A6BFF)'];
+const ABOUT='<h2>메세지AI 메디 소개</h2>\n<p>메세지AI 메디는 병원·의원 전용 AI 검색 노출 서비스입니다. 병원 홈페이지와 지도·의료 디렉토리 정보를 AI가 읽는 구조로 정비하고, 환자가 묻는 질문에 답하는 진료 정보를 쌓아 네이버 웹사이트 영역과 AI 답변에 병원이 나오도록 돕습니다. 지역별로 한 병원만 진행하며, 우리 지역 진행 가능 여부는 <a href="../../index.html#region">지역 확인</a>에서 볼 수 있습니다.</p>';
+
+const $=s=>document.querySelector(s);
+const tok=()=>localStorage.getItem(TOK_LS)||'', key=()=>localStorage.getItem(KEY_LS)||'';
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const b64enc=s=>btoa(unescape(encodeURIComponent(s))), b64dec=b=>decodeURIComponent(escape(atob(String(b).replace(/\n/g,''))));
+let noticeT;function say(m,err){const n=$('#notice');n.textContent=m;n.className='notice on'+(err?' err':'');clearTimeout(noticeT);noticeT=setTimeout(()=>n.classList.remove('on'),err?5000:2600)}
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+
+/* ---------- GitHub ---------- */
+const GH='https://api.github.com/repos/'+REPO+'/contents/';
+const gh=(m,p,b)=>fetch(GH+p+(m==='GET'?'?ref='+BR+'&t='+Date.now():''),{method:m,headers:{Authorization:'Bearer '+tok(),Accept:'application/vnd.github+json','Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});
+async function ghGet(path){const r=await gh('GET',path);if(r.status===404)return null;if(!r.ok)throw new Error('GitHub 읽기 실패 ('+r.status+')');const j=await r.json();return {sha:j.sha,text:b64dec(j.content)}}
+async function ghPutRaw(path,contentB64,msg,sha){const body={message:msg,content:contentB64,branch:BR};if(sha)body.sha=sha;let r=await gh('PUT',path,body);
+  if(r.status===409||r.status===422){const cur=await ghGet(path);if(cur)body.sha=cur.sha;r=await gh('PUT',path,body)}
+  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.message||('저장 실패 '+r.status))}return r.json()}
+async function ghPut(path,text,msg){const cur=await ghGet(path);return ghPutRaw(path,b64enc(text),msg,cur&&cur.sha)}
+async function ghDel(path,msg){const cur=await ghGet(path);if(!cur)return;const r=await gh('DELETE',path,{message:msg,sha:cur.sha,branch:BR});if(!r.ok)throw new Error('삭제 실패 '+r.status)}
+async function ghJson(path,fallback){const c=await ghGet(path);if(!c)return fallback;try{return JSON.parse(c.text)}catch(e){return fallback}}
+
+/* ---------- gate ---------- */
+async function enter(){const t=$('#gTok').value.trim(),k=$('#gKey').value.trim();if(!t){$('#gMsg').textContent='토큰을 입력해 주세요.';return}
+  $('#gBtn').disabled=true;localStorage.setItem(TOK_LS,t);if(k)localStorage.setItem(KEY_LS,k);
+  try{const r=await gh('GET','data/regions.json');if(r.status===401||r.status===403)throw new Error('토큰이 올바르지 않거나 권한이 없습니다.');if(!r.ok&&r.status!==404)throw new Error('GitHub 연결 실패 ('+r.status+')');
+    boot()}catch(e){$('#gMsg').textContent=e.message;localStorage.removeItem(TOK_LS)}$('#gBtn').disabled=false}
+$('#gBtn').onclick=enter;$('#gKey').addEventListener('keydown',e=>{if(e.key==='Enter')enter()});$('#gTok').addEventListener('keydown',e=>{if(e.key==='Enter')enter()});
+$('#logout').onclick=e=>{e.preventDefault();localStorage.removeItem(TOK_LS);location.reload()};
+
+/* ---------- state ---------- */
+let S={regions:{closed:[]},posts:[],copy:{},inq:null};
+async function boot(){$('#gate').style.display='none';$('#app').classList.add('on');
+  try{S.regions=await ghJson('data/regions.json',{closed:[]});S.posts=await ghJson('data/posts.json',[]);S.copy=await ghJson('data/medi-copy.json',{})}catch(e){say(e.message,true)}
+  updateSide();route()}
+function updateSide(){$('#nRegion').textContent=S.regions.closed.length;$('#nBlog').textContent=S.posts.length;$('#nInq').textContent=S.inq?S.inq.length:'–'}
+function route(){const v=(location.hash||'#dash').slice(1);document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));({dash:vDash,region:vRegion,inq:vInq,copy:vCopy,blog:vBlog}[v]||vDash)()}
+addEventListener('hashchange',route);
+
+/* ---------- dashboard ---------- */
+function vDash(){$('#view').innerHTML=`<h2>대시보드</h2><p class="sub">메세지AI 메디 사이트 운영 현황</p>
+<div class="stats"><div class="stat"><b>${S.regions.closed.length}</b><span>마감 지역</span></div><div class="stat"><b id="dInq">–</b><span>메디 상담 접수</span></div><div class="stat"><b>${S.posts.length}</b><span>블로그 글</span></div><div class="stat"><b>${Object.keys(S.copy).length}</b><span>수정한 문구</span></div></div>
+<div class="card" style="margin-top:16px"><b>이렇게 쓰세요</b><ul style="margin:8px 0 0 18px;padding:0;color:var(--body);line-height:1.8"><li><b>지역 마감</b>: 계약한 병원의 시·군·구를 마감으로 바꾸면 사이트 지역 확인에서 "마감"으로 표시됩니다.</li><li><b>상담 접수</b>: 사이트 상담폼으로 들어온 병원 문의를 보고 상태·메모를 남깁니다.</li><li><b>문구 편집</b>: 미리보기 화면의 글자를 눌러 바로 고치고 저장합니다.</li><li><b>블로그</b>: 제목·본문·표지를 넣고 발행하면 글 페이지와 목록이 함께 만들어집니다.</li></ul><p style="margin:12px 0 0;color:var(--mut);font-size:13px">저장은 GitHub에 바로 기록되고, 공개 사이트에는 1~2분 뒤 반영됩니다.</p></div>`;
+  loadInq().then(()=>{const d=$('#dInq');if(d)d.textContent=S.inq?S.inq.length:'키 필요'}).catch(()=>{})}
+
+/* ---------- regions ---------- */
+let rgTab='전체';
+function vRegion(){const v=$('#view');v.innerHTML=`<h2>지역 마감</h2><p class="sub">지역을 누르면 마감 ↔ 가능이 바뀝니다. 바꾼 뒤 저장을 눌러야 사이트에 반영됩니다.</p>
+<div class="card"><div class="row" style="justify-content:space-between"><div class="tabs" id="rgTabs" style="margin:0"></div><button class="btn co" id="rgSave">저장</button></div><div id="rgList" style="margin-top:12px"></div></div>
+<div class="card"><b>마감 지역 메모</b> <span style="color:var(--mut);font-size:13px">(병원명 등, 관리자에서만 보입니다)</span><div class="closed-list" id="rgClosed"></div></div>`;
+  const tabs=$('#rgTabs');['전체'].concat(REGIONS.map(r=>r[0])).forEach(n=>{const b=document.createElement('button');b.textContent=n;b.className=n===rgTab?'on':'';b.onclick=()=>{rgTab=n;[...tabs.children].forEach(x=>x.className=x.textContent===n?'on':'');drawRg()};tabs.appendChild(b)});
+  drawRg();$('#rgSave').onclick=saveRg}
+const isClosed=(s,g)=>S.regions.closed.some(c=>c.sido===s&&c.gugun===g);
+function drawRg(){const list=$('#rgList');list.innerHTML=REGIONS.filter(r=>rgTab==='전체'||r[0]===rgTab).map(r=>`<div class="rg-grp"><h4>${r[0]}</h4><div class="chips">${r[1].map(g=>`<button class="chip${isClosed(r[0],g)?' no':''}" data-s="${r[0]}" data-g="${g}">${g}</button>`).join('')}</div></div>`).join('');
+  list.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{const s=b.dataset.s,g=b.dataset.g;if(isClosed(s,g))S.regions.closed=S.regions.closed.filter(c=>!(c.sido===s&&c.gugun===g));else S.regions.closed.push({sido:s,gugun:g,note:''});drawRg();drawClosed();updateSide()});
+  drawClosed()}
+function drawClosed(){const el=$('#rgClosed');if(!el)return;el.innerHTML=S.regions.closed.length?S.regions.closed.map((c,i)=>`<div class="it"><b>${c.sido} ${c.gugun}</b><input data-i="${i}" value="${esc(c.note||'')}" placeholder="병원명 · 계약일 등 메모"><button class="btn sm gh" data-un="${i}">가능으로</button></div>`).join(''):'<p style="color:var(--mut);margin:10px 0 0">마감 지역이 없습니다.</p>';
+  el.querySelectorAll('input').forEach(i=>i.oninput=()=>{S.regions.closed[+i.dataset.i].note=i.value});el.querySelectorAll('[data-un]').forEach(b=>b.onclick=()=>{S.regions.closed.splice(+b.dataset.un,1);drawRg();updateSide()})}
+async function saveRg(){const b=$('#rgSave');b.disabled=true;try{await ghPut('data/regions.json',JSON.stringify({updated:today(),closed:S.regions.closed},null,2),'지역 마감 변경: '+S.regions.closed.map(c=>c.gugun).join(', '));say('저장했습니다. 1~2분 뒤 사이트에 반영됩니다.')}catch(e){say(e.message,true)}b.disabled=false}
+
+/* ---------- inquiries ---------- */
+async function loadInq(){if(!key()){S.inq=null;return}const r=await fetch(API+'?key='+encodeURIComponent(key())+'&t='+Date.now());const j=await r.json().catch(()=>null);if(!j||j.ok===false)throw new Error('접수 키가 맞지 않거나 서버 연결에 실패했습니다.');
+  const rows=(j.rows||j.data||(Array.isArray(j)?j:[])).map((x,i)=>Object.assign({_i:i},x));S.inq=rows.filter(x=>/^\[메디\]/.test(String(x.company||'')));updateSide()}
+async function vInq(){const v=$('#view');v.innerHTML=`<h2>상담 접수</h2><p class="sub">사이트 상담폼으로 들어온 병원 문의입니다. 본사 messeze.com 접수함에서 [메디] 표시된 건만 보여 줍니다.</p><div class="card" id="inqBox">불러오는 중…</div>`;
+  if(!key()){$('#inqBox').innerHTML=`<p>접수 목록을 보려면 messeze.com 관리자 키가 필요합니다.</p><div class="row"><input id="kIn" type="password" placeholder="접수 키" style="border:1px solid #D9DFE7;border-radius:10px;padding:10px 12px;min-width:260px"><button class="btn co" id="kBtn">저장하고 불러오기</button></div>`;$('#kBtn').onclick=()=>{localStorage.setItem(KEY_LS,$('#kIn').value.trim());vInq()};return}
+  try{await loadInq()}catch(e){$('#inqBox').innerHTML=`<p style="color:var(--red)">${esc(e.message)}</p><button class="btn sm gh" id="kReset">키 다시 입력</button>`;$('#kReset').onclick=()=>{localStorage.removeItem(KEY_LS);vInq()};return}
+  const ST=['신규','연락중','견적 발송','계약','보류'];
+  $('#inqBox').innerHTML=S.inq.length?`<div class="row" style="justify-content:space-between;margin-bottom:10px"><span>${S.inq.length}건</span><button class="btn sm gh" id="inqRe">새로고침</button></div><table><thead><tr><th>접수</th><th>이름</th><th>병원</th><th>연락처</th><th>홈페이지 / 지역</th><th style="width:110px">상태</th><th>메모</th><th></th></tr></thead><tbody>${S.inq.map(x=>`<tr data-row="${esc(x.row??x.id??x._i)}"><td>${esc((x.ts||x.date||x.created||'').toString().slice(0,16))}</td><td>${esc(x.name)}</td><td>${esc(String(x.company).replace(/^\[메디\]\s*/,''))}</td><td><a href="tel:${esc(x.phone)}">${esc(x.phone)}</a></td><td>${esc(x.site)}</td><td><select class="st">${ST.map(s=>`<option${s===(x.status||'신규')?' selected':''}>${s}</option>`).join('')}</select></td><td><input class="memo" value="${esc(x.memo||'')}"></td><td><button class="btn sm gh">저장</button></td></tr>`).join('')}</tbody></table>`:'<p style="color:var(--mut)">아직 접수된 병원 문의가 없습니다.</p>';
+  const re=$('#inqRe');if(re)re.onclick=vInq;
+  $('#inqBox').querySelectorAll('tbody tr').forEach(tr=>tr.querySelector('button').onclick=async()=>{const b=tr.querySelector('button');b.disabled=true;try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'update',key:key(),row:tr.dataset.row,status:tr.querySelector('.st').value,memo:tr.querySelector('.memo').value})});const j=await r.json();if(!j.ok)throw new Error(j.err||'저장 실패');say('저장했습니다.')}catch(e){say(e.message,true)}b.disabled=false})}
+
+/* ---------- copy ---------- */
+const COPY_PAGES={'index.html':'메인','pricing.html':'요금','faq.html':'FAQ'};
+let cpPage='index.html',cpChanged={};
+function vCopy(){const v=$('#view');v.innerHTML=`<h2>문구 편집</h2><p class="sub">미리보기에서 글자를 눌러 바로 고치세요. 파란 테두리가 있는 글자만 수정됩니다.</p>
+<div class="row" style="margin-bottom:12px;justify-content:space-between"><div class="tabs" id="cpTabs" style="margin:0"></div><div class="row"><button class="btn sm gh" id="cpReset">이 페이지 원래대로</button><button class="btn co" id="cpSave">저장</button></div></div>
+<div class="cp-wrap"><div class="cp-frame"><iframe id="cpFrame"></iframe></div><div class="cp-list card"><b>이번에 바꾼 문구</b><div id="cpChanges" style="margin-top:10px;color:var(--mut);font-size:13px">아직 없음</div><hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><b>저장된 수정</b> <span id="cpSavedN" style="color:var(--mut)"></span><div id="cpSaved" style="margin-top:8px;font-size:13px;color:var(--mut)"></div></div></div>`;
+  const tabs=$('#cpTabs');Object.keys(COPY_PAGES).forEach(p=>{const b=document.createElement('button');b.textContent=COPY_PAGES[p];b.className=p===cpPage?'on':'';b.onclick=()=>{cpPage=p;cpChanged={};vCopy()};tabs.appendChild(b)});
+  loadFrame();$('#cpSave').onclick=saveCopy;$('#cpReset').onclick=resetCopyPage;drawSaved()}
+function loadFrame(){const f=$('#cpFrame');f.src=cpPage+'?edit=1&t='+Date.now();f.onload=()=>{const d=f.contentDocument;if(!d)return;const st=d.createElement('style');st.textContent='[data-copy]{outline:2px dashed rgba(49,130,246,.55);outline-offset:3px;cursor:text;min-width:1em}[data-copy]:hover{outline-color:#3182F6;background:rgba(49,130,246,.08)}[data-copy]:focus{outline:2px solid #3182F6;background:rgba(49,130,246,.1)}.rv{opacity:1!important;transform:none!important}.md-ps-track,.md-kw-track{animation-play-state:paused!important}.nav,.kko-chat,#ch-plugin,[class*="kko"]{pointer-events:none}';d.head.appendChild(st);
+    d.querySelectorAll('[data-copy]').forEach(el=>{el.setAttribute('contenteditable','true');el.addEventListener('input',()=>{cpChanged[el.dataset.copy]=el.innerHTML;drawChanges()});el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();d.execCommand('insertLineBreak')}})});
+    d.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{if(a.closest('[data-copy]'))e.preventDefault()}))}}
+function drawChanges(){const el=$('#cpChanges');const ks=Object.keys(cpChanged);el.innerHTML=ks.length?ks.map(k=>`<div class="k">${k}</div><div class="v">${cpChanged[k].replace(/<[^>]+>/g,' ')}</div>`).join(''):'아직 없음'}
+function drawSaved(){const ks=Object.keys(S.copy);$('#cpSavedN').textContent=ks.length+'개';$('#cpSaved').innerHTML=ks.length?ks.map(k=>`<div class="k">${k} <a href="#" data-del="${k}" style="color:var(--red)">원래대로</a></div>`).join(''):'없음';$('#cpSaved').querySelectorAll('[data-del]').forEach(a=>a.onclick=async e=>{e.preventDefault();delete S.copy[a.dataset.del];try{await ghPut('data/medi-copy.json',JSON.stringify(S.copy,null,2),'문구 원래대로: '+a.dataset.del);say('원래 문구로 되돌렸습니다.');drawSaved();loadFrame()}catch(err){say(err.message,true)}})}
+async function saveCopy(){if(!Object.keys(cpChanged).length){say('바뀐 문구가 없습니다.');return}const b=$('#cpSave');b.disabled=true;try{Object.assign(S.copy,cpChanged);await ghPut('data/medi-copy.json',JSON.stringify(S.copy,null,2),'문구 수정: '+Object.keys(cpChanged).join(', '));cpChanged={};drawChanges();drawSaved();say('저장했습니다. 1~2분 뒤 사이트에 반영됩니다.')}catch(e){say(e.message,true)}b.disabled=false}
+async function resetCopyPage(){const pre={'index.html':'home.','pricing.html':'price.','faq.html':'faqpage.'}[cpPage];const ks=Object.keys(S.copy).filter(k=>k.startsWith(pre)||(cpPage==='index.html'&&!/^(price|faqpage)\./.test(k)));if(!ks.length){say('저장된 수정이 없습니다.');return}if(!confirm(ks.length+'개 문구를 원래대로 되돌릴까요?'))return;ks.forEach(k=>delete S.copy[k]);try{await ghPut('data/medi-copy.json',JSON.stringify(S.copy,null,2),'문구 원래대로: '+COPY_PAGES[cpPage]);cpChanged={};say('되돌렸습니다.');vCopy()}catch(e){say(e.message,true)}}
+
+/* ---------- blog ---------- */
+let edPost=null;
+function vBlog(){const v=$('#view');v.innerHTML=`<h2>블로그</h2><p class="sub">제목·본문·표지를 넣고 발행하면 글 페이지, 목록, 사이트맵이 함께 만들어집니다.</p>
+<div class="card"><div class="row" style="justify-content:space-between"><b>글 목록 (${S.posts.length})</b><button class="btn co" id="bNew">새 글 쓰기</button></div><div class="post-list" id="bList" style="margin-top:8px"></div></div><div id="bEditor"></div>`;
+  $('#bList').innerHTML=S.posts.length?S.posts.map(p=>`<div class="it"><div><b>${esc(p.title)}</b><small>${esc(p.cat)} · ${esc(p.date)} · ${esc(p.slug)}</small></div><a class="btn sm gh" href="blog/posts/${esc(p.slug)}.html" target="_blank">보기</a><button class="btn sm red" data-del="${esc(p.slug)}">삭제</button></div>`).join(''):'<p style="color:var(--mut)">글이 없습니다.</p>';
+  $('#bNew').onclick=()=>{edPost=null;drawEditor()};$('#bList').querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>delPost(b.dataset.del))}
+function drawEditor(){const d=today();const slug='post-'+d.replace(/-/g,'')+'-'+String(Date.now()).slice(-4);$('#bEditor').innerHTML=`<div class="card"><b style="font-size:16px">새 글</b>
+<div class="two" style="margin-top:14px"><div class="fld"><label>제목</label><input id="pTitle" placeholder="질문형 제목이 좋습니다. 예: 병원 홈페이지에 꼭 있어야 하는 페이지는?"></div><div class="fld"><label>분류</label><select id="pCat">${CATS.map(c=>`<option>${c}</option>`).join('')}</select></div></div>
+<div class="fld"><label>요약 (목록·검색에 보이는 두 문장)</label><textarea id="pDesc" rows="2"></textarea></div>
+<div class="two"><div class="fld"><label>날짜</label><input id="pDate" value="${d}"></div><div class="fld"><label>주소 (영문, 바꾸지 않아도 됩니다)</label><input id="pSlug" value="${slug}"></div></div>
+<div class="two"><div class="fld"><label>표지 이미지</label><input id="pFile" type="file" accept="image/*"><small>없으면 병원 🏥 그림이 들어갑니다. 2MB 이하 권장</small></div><div class="fld"><label>표지 이미지 주소 (파일 대신)</label><input id="pPhoto" placeholder="https://…"></div></div>
+<div class="fld"><label>본문</label><div class="ed-tb"><button data-c="formatBlock" data-a="H2">소제목</button><button data-c="formatBlock" data-a="P">본문</button><button data-c="bold"><b>굵게</b></button><button data-c="insertUnorderedList">목록</button><button data-c="table">표 넣기</button><button data-c="quote">강조 문장</button></div><div class="editor" id="pBody" contenteditable="true"><p>여기에 본문을 쓰세요. 소제목은 2~4개, 표나 강조 문장을 하나쯤 넣으면 읽기 좋습니다.</p></div></div>
+<div class="two"><div class="fld"><label>자주 묻는 질문 1</label><input id="pQ1" placeholder="질문"><textarea id="pA1" rows="2" placeholder="답변" style="margin-top:6px"></textarea></div><div class="fld"><label>자주 묻는 질문 2</label><input id="pQ2" placeholder="질문"><textarea id="pA2" rows="2" placeholder="답변" style="margin-top:6px"></textarea></div></div>
+<div class="row"><button class="btn gh" id="pPrev">미리보기</button><button class="btn co" id="pPub">발행</button><span id="pMsg" style="color:var(--mut);font-size:13px"></span></div></div><div class="pv" id="pPv" style="display:none;margin-top:12px"><iframe id="pPvF"></iframe></div>`;
+  document.querySelectorAll('.ed-tb button').forEach(b=>b.onclick=e=>{e.preventDefault();$('#pBody').focus();const c=b.dataset.c;if(c==='table')document.execCommand('insertHTML',false,'<div class="tbl"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>예시</td><td>내용을 적으세요</td></tr><tr><td>예시</td><td>내용을 적으세요</td></tr></tbody></table></div><p></p>');else if(c==='quote')document.execCommand('insertHTML',false,'<blockquote>핵심 문장을 적으세요.</blockquote><p></p>');else document.execCommand(c,false,b.dataset.a||null)});
+  $('#pPrev').onclick=async()=>{try{const p=collectPost();const html=await buildPostHtml(p,true);$('#pPv').style.display='block';$('#pPvF').srcdoc=html.replace(/(href|src)="\.\.\/\.\.\//g,'$1="'+location.origin+location.pathname.replace(/admin\.html$/,'')).replace(/(href|src)="\.\.\//g,'$1="'+location.origin+location.pathname.replace(/admin\.html$/,'')+'blog/')}catch(e){say(e.message,true)}};
+  $('#pPub').onclick=publishPost;$('#bEditor').scrollIntoView({behavior:'smooth'})}
+function collectPost(){const g=id=>$('#'+id).value.trim();const title=g('pTitle'),desc=g('pDesc');if(!title)throw new Error('제목을 입력해 주세요.');if(!desc)throw new Error('요약을 입력해 주세요.');
+  const slug=g('pSlug').replace(/[^a-z0-9-]/gi,'-').toLowerCase();if(!slug)throw new Error('주소는 영문·숫자·하이픈만 쓸 수 있습니다.');
+  let body=$('#pBody').innerHTML.replace(/<div>/g,'<p>').replace(/<\/div>/g,'</p>').replace(/ style="[^"]*"/g,'').replace(/<br>\s*<\/p>/g,'</p>');
+  const faq=[[g('pQ1'),g('pA1')],[g('pQ2'),g('pA2')]].filter(x=>x[0]&&x[1]).map(x=>({q:x[0],a:x[1]}));
+  return {slug,cat:g('pCat'),title,desc,date:g('pDate')||today(),grad:GRADS[S.posts.length%GRADS.length],body,faq,photo:g('pPhoto')||'',file:$('#pFile').files[0]||null}}
+const rootPhoto=p=>String(p||'').replace(/^(\.\.\/)+/,'');
+function coverTag(photo,pre){const r=rootPhoto(photo)||'assets/medi/emoji-hospital-lg.png';const emo=/emoji-/.test(r);const src=/^https?:/.test(r)?r:pre+r;return `<img class="cover${emo?' emo':''}" src="${esc(src)}" alt="" loading="lazy"${/^https?:/.test(r)?' referrerpolicy="no-referrer"':''}>`}
+let TPL=null;
+async function buildPostHtml(p,preview){if(!TPL){const t=await (await fetch('blog/posts/_tpl.html?t='+Date.now())).text();TPL=t}
+  const others=S.posts.filter(x=>x.slug!==p.slug).slice(0,2);const url=SITE+'/blog/posts/'+p.slug+'.html';
+  const faqHtml=p.faq.length?'<h2>자주 묻는 질문</h2>'+p.faq.map(f=>`<h3>Q. ${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join(''):'';
+  const rel=others.map(o=>`<a class="rcard" href="${esc(o.slug)}.html"><div class="thumb" style="background:${o.grad}"><span class="pat"></span>${coverTag(o.photo,'../../')}</div>\n<div class="b"><span class="cat">${esc(o.cat)}</span><h4>${esc(o.title)}</h4></div></a>`).join('');
+  const ld={'@context':'https://schema.org','@graph':[{'@type':'BlogPosting','@id':url+'#article','headline':p.title,'description':p.desc,'datePublished':p.date,'dateModified':p.date,'inLanguage':'ko','mainEntityOfPage':url,'author':{'@type':'Organization','name':'메세지AI 메디 편집팀'},'publisher':{'@id':'https://messeze.com/#organization'},'isPartOf':{'@id':SITE+'/#website'}},
+    {'@type':'FAQPage','@id':url+'#faq','mainEntity':p.faq.map(f=>({'@type':'Question','name':f.q,'acceptedAnswer':{'@type':'Answer','text':f.a}}))},
+    {'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'홈','item':SITE+'/'},{'@type':'ListItem','position':2,'name':'블로그','item':SITE+'/blog/index.html'},{'@type':'ListItem','position':3,'name':p.title,'item':url}]}]};
+  return TPL.replace(/\{\{TITLE\}\}/g,esc(p.title)).replace(/\{\{DESC\}\}/g,esc(p.desc)).replace(/\{\{SLUG\}\}/g,p.slug).replace(/\{\{CAT\}\}/g,esc(p.cat)).replace(/\{\{DATE\}\}/g,p.date).replace(/\{\{GRAD\}\}/g,p.grad)
+    .replace('{{COVER}}',coverTag(p.photo,'../../')).replace('{{BODY}}',p.body).replace('{{FAQ}}',faqHtml).replace('{{ABOUT}}',ABOUT).replace('{{REL}}',rel).replace('{{LD}}','<script type="application/ld+json">'+JSON.stringify(ld)+'<\/script>').replace('{{NOINDEX}}',preview?'<meta name="robots" content="noindex">':'')}
+async function publishPost(){const b=$('#pPub');b.disabled=true;const m=$('#pMsg');try{const p=collectPost();if(S.posts.some(x=>x.slug===p.slug))throw new Error('같은 주소의 글이 이미 있습니다. 주소를 바꿔 주세요.');
+    if(p.file){m.textContent='표지 업로드 중…';const ext=(p.file.name.split('.').pop()||'jpg').toLowerCase().replace('jpeg','jpg');const b64=await new Promise((ok,no)=>{const fr=new FileReader();fr.onload=()=>ok(String(fr.result).split(',')[1]);fr.onerror=no;fr.readAsDataURL(p.file)});const path='assets/medi/blog/'+p.slug+'.'+ext;await ghPutRaw(path,b64,'블로그 표지: '+p.slug);p.photo=path}
+    m.textContent='글 페이지 만드는 중…';const html=await buildPostHtml(p,false);await ghPut('blog/posts/'+p.slug+'.html',html,'블로그 글: '+p.title);
+    m.textContent='목록 갱신 중…';const entry={slug:p.slug,cat:p.cat,title:p.title,desc:p.desc,date:p.date,grad:p.grad,body:'',photo:rootPhoto(p.photo),faq:p.faq};S.posts.unshift(entry);await syncBlogIndex('블로그 목록 갱신: '+p.title);
+    m.textContent='';say('발행했습니다. 1~2분 뒤 사이트에 보입니다.');vBlog()}catch(e){m.textContent='';say(e.message,true)}b.disabled=false}
+async function syncBlogIndex(msg){await ghPut('data/posts.json',JSON.stringify(S.posts,null,2),msg);
+  const idx=await ghGet('blog/index.html');const arr=S.posts.map(p=>({slug:p.slug,cat:p.cat,title:p.title,desc:p.desc,date:p.date,grad:p.grad,cover:coverTag(p.photo,'../')}));
+  const t=idx.text.replace(/const POSTS=\[[\s\S]*?\];/,'const POSTS='+JSON.stringify(arr)+';');await ghPutRaw('blog/index.html',b64enc(t),msg,idx.sha);
+  const sm=await ghGet('sitemap.xml');let x=sm.text.replace(/\s*<url><loc>[^<]*\/blog\/posts\/[^<]*<\/loc>.*?<\/url>/g,'');x=x.replace('</urlset>',S.posts.map(p=>`  <url><loc>${SITE}/blog/posts/${p.slug}.html</loc><lastmod>${p.date}</lastmod><priority>0.6</priority></url>\n`).join('')+'</urlset>');await ghPutRaw('sitemap.xml',b64enc(x),msg,sm.sha);updateSide()}
+async function delPost(slug){const p=S.posts.find(x=>x.slug===slug);if(!p||!confirm('"'+p.title+'" 글을 삭제할까요?'))return;try{await ghDel('blog/posts/'+slug+'.html','블로그 글 삭제: '+p.title);S.posts=S.posts.filter(x=>x.slug!==slug);await syncBlogIndex('블로그 목록 갱신(삭제): '+p.title);say('삭제했습니다.');vBlog()}catch(e){say(e.message,true)}}
+
+/* ---------- start ---------- */
+if(tok()){boot()}
+</script>
+</body>
+</html>
