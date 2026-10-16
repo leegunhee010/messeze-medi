@@ -1,0 +1,38 @@
+name: 상담 접수 동기화
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: sync-inquiries
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 본사 접수함 가져오기
+        env:
+          MESSEZE_ADMIN_ID: ${{ secrets.MESSEZE_ADMIN_ID }}
+          MESSEZE_ADMIN_PW: ${{ secrets.MESSEZE_ADMIN_PW }}
+        run: node scripts/sync-inquiries.js
+      - name: 변경분 커밋
+        if: always()
+        run: |
+          git config user.name "medi-sync"
+          git config user.email "medi-sync@users.noreply.github.com"
+          if ! git diff --quiet -- data/inquiries.json; then
+            git add data/inquiries.json
+            git commit -m "상담 접수 동기화 $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo "변경 없음"
+          fi

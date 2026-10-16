@@ -1145,10 +1145,8 @@ function goSection(id){ var t=document.getElementById(id); if(t){ t.scrollIntoVi
     var payload={name:g('dfName'),company:'[메디] '+g('dfCompany'),phone:g('dfPhone'),site:g('dfUrl')};
     var btn=f.querySelector('button'); btn.disabled=true;
     try{
-      var r=await fetch('https://messeze.com/api/compat',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
-      var p=await r.json();
-      if(p&&p.ok){ f.innerHTML='<div class="done"><b>신청이 접수됐습니다.</b><p>영업일 기준 1일 내 진단 리포트와 함께 연락드리겠습니다.</p></div>'; return; }
-      alert('접수에 실패했습니다. 잠시 후 다시 시도하거나 1600-9487로 연락해 주세요.');
+      await fetch('https://messeze.com/api/compat',{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
+      f.innerHTML='<div class="done"><b>신청이 접수됐습니다.</b><p>영업일 기준 1일 내 진단 리포트와 함께 연락드리겠습니다.</p></div>'; return;
     }catch(err){ alert('접수에 실패했습니다. 잠시 후 다시 시도하거나 1600-9487로 연락해 주세요.'); }
     btn.disabled=false;
   });
