@@ -19,7 +19,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}input,se
 .fld input:focus,.fld textarea:focus,.fld select:focus{outline:0;border-color:var(--co);box-shadow:0 0 0 3px rgba(49,130,246,.15)}
 .fld small{display:block;margin-top:5px;color:var(--mut);font-size:12px}
 .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:10px;padding:10px 16px;font-weight:700}
-.btn.co{background:var(--co);border-color:var(--co)}.btn.gh{background:#fff;color:var(--ink)}.btn.sm{padding:7px 11px;font-size:13px;border-radius:8px}.btn.red{background:#fff;color:var(--red);border-color:#F7C5C9}
+.btn.co{background:var(--co);border-color:var(--co)}.btn.gh{background:#fff;color:var(--ink)}.btn.sm{padding:7px 11px;font-size:13px;border-radius:8px;white-space:nowrap}.btn.red{background:#fff;color:var(--red);border-color:#F7C5C9}
 .btn:disabled{opacity:.5;cursor:default}
 .app{display:none;min-height:100vh}.app.on{display:grid;grid-template-columns:220px 1fr}
 .side{background:#fff;border-right:1px solid var(--line);padding:22px 16px;position:sticky;top:0;height:100vh}
@@ -51,6 +51,26 @@ td select,td input{border:1px solid #D9DFE7;border-radius:8px;padding:6px 8px;wi
 .pv{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;height:70vh}.pv iframe{width:100%;height:100%;border:0}
 .post-list .it{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #F2F4F6}.post-list .it b{display:block}.post-list .it small{color:var(--mut)}
 @media(max-width:900px){.app.on{grid-template-columns:1fr}.side{position:static;height:auto}.side .foot{position:static;margin-top:16px}.stats{grid-template-columns:1fr 1fr}.cp-wrap{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}.tile span{display:block;font-size:12px;color:var(--mut)}.tile b{display:flex;align-items:center;gap:7px;margin-top:4px;font-size:15px}
+.dot{width:8px;height:8px;border-radius:50%;background:#D9DFE7;display:inline-block;flex:none}.dot.ok{background:var(--green)}.dot.no{background:var(--red)}
+.card h3{margin:0 0 4px;font-size:16px}.card .desc{margin:0 0 16px;color:var(--mut);font-size:13px}.lbl{display:block;font-size:12.5px;font-weight:700;color:var(--body);margin-bottom:8px}
+.seo-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.sw{position:relative;width:52px;height:30px;border-radius:999px;background:#D9DFE7;transition:.2s;flex:none;border:0;padding:0}.sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}.sw.on{background:var(--green)}.sw.on::after{left:25px}
+.sw.sm{width:42px;height:24px}.sw.sm::after{width:18px;height:18px}.sw.sm.on::after{left:21px}
+.sw-row{display:flex;gap:14px;align-items:center;cursor:pointer}.sw-row b{display:block;font-size:14.5px}.sw-row small{display:block;color:var(--mut);font-size:12.5px}
+.drop{border:2px dashed #D9DFE7;border-radius:14px;background:var(--bg);position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;text-align:center}.drop.over{border-color:var(--co);background:#EAF2FF}.drop img{max-width:100%;max-height:100%;display:block;object-fit:contain}.drop .hint{position:absolute;left:0;right:0;bottom:0;background:rgba(25,31,40,.72);color:#fff;font-size:12px;padding:7px 10px;line-height:1.4}.drop input{display:none}.drop:hover .hint{background:var(--co)}
+.drop.og{aspect-ratio:1200/630;width:100%}.drop.fav{width:140px;height:140px;flex:none}.drop.fav .hint{font-size:11px}
+.kakao{border:1px solid var(--line);border-radius:12px;overflow:hidden;max-width:340px;background:#fff;box-shadow:0 6px 18px -12px rgba(0,0,0,.3)}.kakao img{width:100%;aspect-ratio:1200/630;object-fit:cover;display:block;background:#eee}.kakao .kb{padding:10px 12px}.kakao .kb b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.kakao .kb p{margin:2px 0 0;font-size:12.5px;color:var(--body);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.45}.kakao .kb small{display:block;margin-top:4px;color:var(--mut);font-size:11.5px}
+.tabmock{display:inline-flex;align-items:center;gap:8px;background:#DEE1E6;border-radius:10px 10px 0 0;padding:8px 14px;font-size:12.5px;color:var(--ink);max-width:260px}.tabmock span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tabmock img{width:16px;height:16px;flex:none}.tabmock i{font-style:normal;color:var(--mut);margin-left:4px}
+.favs{display:flex;gap:18px;align-items:flex-end;margin-top:14px}.favs div{text-align:center;font-size:11px;color:var(--mut)}.favs img{display:block;margin:0 auto 5px;border:1px solid var(--line);background:#fff;object-fit:contain}
+.serp{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}.serp .u{font-size:12px;color:#202124;display:flex;align-items:center;gap:8px;line-height:1.3}.serp .u img{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);padding:4px;background:#fff;flex:none}.serp .t{color:#1a0dab;font-size:19px;margin-top:6px;line-height:1.3}.serp .d{color:#4d5156;font-size:13.5px;margin-top:3px;line-height:1.5}
+.len{font-size:11.5px;color:var(--mut);font-weight:500}.len.bad{color:var(--red)}.badge{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:2px 7px;background:#E8F7EE;color:var(--green);white-space:nowrap}.badge.no{background:#FFF1F1;color:var(--red)}
+.pg-tbl td{font-size:13px}.pg-tbl tr[data-p]:hover td{background:#FAFBFC}
+.edit-pane{border-top:1px solid var(--line);margin-top:16px;padding-top:18px;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+.mono{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:var(--bg);border-radius:10px;padding:12px 14px;white-space:pre-wrap;color:var(--body)}
+.help{font-size:12px;color:var(--co);font-weight:600;margin-left:6px}.prog{margin:12px 0 0;color:var(--co-dk);font-size:13px;min-height:18px}
+@media(max-width:1000px){.tiles{grid-template-columns:1fr 1fr}.seo-grid,.three,.edit-pane{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -124,7 +144,7 @@ $('#gBtn').onclick=enter;['#gId','#gPw'].forEach(q=>$(q).addEventListener('keydo
 $('#logout').onclick=e=>{e.preventDefault();localStorage.removeItem(TOK_LS);location.reload()};
 
 /* ---------- state ---------- */
-let S={regions:{closed:[]},posts:[],copy:{},inq:null,seo:{robots:'block',googleVerify:'',naverVerify:'',gaId:'',ogImage:''}};
+let S={regions:{closed:[]},posts:[],copy:{},inq:null,seo:{robots:'block',googleVerify:'',naverVerify:'',gaId:'',ogImage:'',favicon:'',touchIcon:''}};
 async function boot(){$('#gate').style.display='none';$('#app').classList.add('on');
   try{S.regions=await ghJson('data/regions.json',{closed:[]});S.posts=await ghJson('data/posts.json',[]);S.copy=await ghJson('data/medi-copy.json',{});S.seo=Object.assign(S.seo,await ghJson('data/medi-seo.json',{}))}catch(e){say(e.message,true)}
   updateSide();route()}
@@ -238,46 +258,105 @@ async function delPost(slug){const p=S.posts.find(x=>x.slug===slug);if(!p||!conf
 
 /* ---------- SEO ---------- */
 const SEO_PAGES=()=>[['index.html','메인'],['pricing.html','요금'],['faq.html','FAQ'],['blog/index.html','블로그 목록'],['services/website-build.html','서비스: 홈페이지 제작'],['services/place.html','서비스: 플레이스 정비'],['services/visibility.html','서비스: AI 노출 진단'],['services/own-blog.html','서비스: 홈페이지 콘텐츠'],['services/contents.html','서비스: AI 인용 콘텐츠'],['services/report.html','서비스: 월간 리포트']].concat(S.posts.map(p=>['blog/posts/'+p.slug+'.html','글: '+p.title]));
+const ASSET_PAGES=()=>SEO_PAGES().concat([['blog/posts/_tpl.html','블로그 템플릿']]);
 const unesc=s=>String(s||'').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
 const rxEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const relPre=p=>'../'.repeat((p.match(/\//g)||[]).length);
+const pageUrl=p=>SITE+'/'+(p==='index.html'?'':p);
 function metaRe(attr,name){return new RegExp('[ \\t]*<meta '+attr+'="'+rxEsc(name)+'" content="[^"]*"\\s*/?>\\n?')}
 function metaGet(h,attr,name){const m=h.match(new RegExp('<meta '+attr+'="'+rxEsc(name)+'" content="([^"]*)"'));return m?unesc(m[1]):''}
 function setMeta(h,attr,name,val){const re=metaRe(attr,name);const tag='<meta '+attr+'="'+name+'" content="'+esc(val||'')+'">\n';if(re.test(h))return val?h.replace(re,tag):h.replace(re,'');return val?h.replace('</head>',tag+'</head>'):h}
 function parseSeo(h){const t=h.match(/<title>([^<]*)<\/title>/);return {title:unesc(t?t[1]:''),desc:metaGet(h,'name','description'),kw:metaGet(h,'name','keywords'),og:metaGet(h,'property','og:image'),noindex:/noindex/i.test(metaGet(h,'name','robots'))}}
 function applyPageSeo(h,v){h=h.replace(/<title>[^<]*<\/title>/,'<title>'+esc(v.title)+'</title>');
   h=setMeta(h,'name','description',v.desc);h=setMeta(h,'property','og:title',v.title);h=setMeta(h,'name','twitter:title',v.title);h=setMeta(h,'property','og:description',v.desc);h=setMeta(h,'name','twitter:description',v.desc);
-  h=setMeta(h,'name','keywords',v.kw);if(v.og)h=setMeta(h,'property','og:image',v.og);h=setMeta(h,'name','robots',v.noindex?'noindex, nofollow':'');return h}
-function applySiteSeo(h,c){h=setMeta(h,'name','google-site-verification',c.googleVerify);h=setMeta(h,'name','naver-site-verification',c.naverVerify);
+  h=setMeta(h,'name','keywords',v.kw);if(v.og){h=setMeta(h,'property','og:image',v.og);h=setMeta(h,'name','twitter:image',v.og)}h=setMeta(h,'name','robots',v.noindex?'noindex, nofollow':'');return h}
+function applySiteSeo(h,c,path){h=setMeta(h,'name','google-site-verification',c.googleVerify);h=setMeta(h,'name','naver-site-verification',c.naverVerify);
   h=h.replace(/[ \t]*<!-- mdm-ga -->[\s\S]*?<!-- \/mdm-ga -->\n?/,'');
   if(c.gaId)h=h.replace('</head>','<!-- mdm-ga --><script async src="https://www.googletagmanager.com/gtag/js?id='+esc(c.gaId)+'"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag(\'js\',new Date());gtag(\'config\',\''+esc(c.gaId)+'\');<\/script><!-- /mdm-ga -->\n</head>');
-  if(c.ogImage)h=setMeta(h,'property','og:image',c.ogImage);return h}
+  if(c.ogImage){h=setMeta(h,'property','og:image',c.ogImage);h=setMeta(h,'name','twitter:image',c.ogImage)}
+  if(c.favicon&&path){const pre=relPre(path),ico=/\.ico(\?|$)/.test(c.favicon);const tag='<link rel="icon" type="'+(ico?'image/x-icon':'image/png')+'" href="'+pre+c.favicon+'">';let first=true;h=h.replace(/[ \t]*<link rel="icon"[^>]*>\n?/g,m=>{if(first){first=false;return tag+'\n'}return ''});if(first)h=h.replace('</head>',tag+'\n</head>')}
+  if(c.touchIcon&&path){const tag='<link rel="apple-touch-icon" href="'+relPre(path)+c.touchIcon+'">';h=/<link rel="apple-touch-icon"[^>]*>/.test(h)?h.replace(/<link rel="apple-touch-icon"[^>]*>/,tag):h.replace('</head>',tag+'\n</head>')}
+  return h}
 const robotsTxt=c=>c.robots==='allow'?('User-agent: *\nAllow: /\nDisallow: /admin.html\nDisallow: /blog/posts/_tpl.html\n\nSitemap: '+SITE+'/sitemap.xml\n'):'# 오픈 전 비공개\nUser-agent: *\nDisallow: /\n';
-let seoPage='index.html';
-function vSeo(){const c=S.seo;const v=$('#view');v.innerHTML='<h2>SEO 설정</h2><p class="sub">검색엔진과 AI가 읽는 제목·설명을 페이지마다 정하고, 사이트 공통 설정을 관리합니다. 저장하면 페이지 HTML에 직접 기록됩니다.</p>'
-+'<div class="card"><b style="font-size:16px">사이트 공통</b>'
-+'<div class="two" style="margin-top:14px"><div class="fld"><label>검색엔진 노출</label><select id="sRobots"><option value="block"'+(c.robots!=='allow'?' selected':'')+'>차단 (오픈 전)</option><option value="allow"'+(c.robots==='allow'?' selected':'')+'>허용 (오픈)</option></select><small>robots.txt를 바꿉니다. 허용하면 구글·네이버가 사이트를 수집하기 시작합니다.</small></div><div class="fld"><label>기본 OG 이미지 주소</label><input id="sOg" value="'+esc(c.ogImage||'')+'" placeholder="https://… (카톡·페북 공유 미리보기 그림)"><small>비우면 각 페이지 설정을 유지합니다. 입력하면 모든 페이지에 적용됩니다.</small></div></div>'
-+'<div class="two"><div class="fld"><label>구글 서치콘솔 인증 코드</label><input id="sG" value="'+esc(c.googleVerify||'')+'" placeholder="content=&quot;…&quot; 안의 값만"></div><div class="fld"><label>네이버 서치어드바이저 인증 코드</label><input id="sN" value="'+esc(c.naverVerify||'')+'" placeholder="content=&quot;…&quot; 안의 값만"></div></div>'
-+'<div class="two"><div class="fld"><label>GA4 측정 ID</label><input id="sGa" value="'+esc(c.gaId||'')+'" placeholder="G-XXXXXXXXXX"></div><div class="fld"><label>&nbsp;</label><button class="btn co" id="sSave" style="width:100%;justify-content:center">사이트 공통 저장 (전 페이지 반영)</button></div></div>'
-+'<p id="sMsg" style="margin:0;color:var(--mut);font-size:13px;min-height:18px"></p></div>'
-+'<div class="card"><b style="font-size:16px">페이지별 제목·설명</b>'
-+'<div class="fld" style="margin-top:14px"><label>페이지</label><select id="pgSel">'+SEO_PAGES().map(x=>'<option value="'+esc(x[0])+'"'+(x[0]===seoPage?' selected':'')+'>'+esc(x[1])+'</option>').join('')+'</select></div>'
-+'<div id="pgForm" style="color:var(--mut)">불러오는 중…</div></div>';
-  $('#sSave').onclick=saveSiteSeo;$('#pgSel').onchange=e=>{seoPage=e.target.value;loadPageSeo()};loadPageSeo()}
-async function loadPageSeo(){const f=$('#pgForm');f.textContent='불러오는 중…';try{const cur=await ghGet(seoPage);if(!cur)throw new Error('페이지를 찾을 수 없습니다.');const v=parseSeo(cur.text);
-  f.innerHTML='<div class="fld"><label>제목 (title) <small style="display:inline" id="tLen"></small></label><input id="pTi" value="'+esc(v.title)+'"><small>검색 결과 제목. 30~60자, 핵심 키워드는 앞쪽에</small></div>'
-+'<div class="fld"><label>설명 (description) <small style="display:inline" id="dLen"></small></label><textarea id="pDe" rows="3">'+esc(v.desc)+'</textarea><small>검색 결과 밑에 보이는 문장. 80~160자</small></div>'
-+'<div class="two"><div class="fld"><label>키워드 (쉼표로 구분)</label><input id="pKw" value="'+esc(v.kw)+'"></div><div class="fld"><label>이 페이지 OG 이미지 주소</label><input id="pOg" value="'+esc(v.og)+'" placeholder="https://…"></div></div>'
-+'<div class="fld"><label style="display:flex;gap:8px;align-items:center;font-weight:600"><input type="checkbox" id="pNo"'+(v.noindex?' checked':'')+' style="width:auto">이 페이지는 검색 결과에서 제외 (noindex)</label></div>'
-+'<div class="card" style="background:var(--bg);border:0;padding:16px 18px"><small style="color:var(--mut)">검색 결과 미리보기</small><div style="color:#1a0dab;font-size:18px;margin-top:6px" id="pvT"></div><div style="color:#006621;font-size:13px" id="pvU"></div><div style="color:#4d5156;font-size:13.5px;margin-top:2px" id="pvD"></div></div>'
-+'<div class="row"><button class="btn co" id="pgSave">이 페이지 저장</button></div>';
-  const upd=()=>{const t=$('#pTi').value,d=$('#pDe').value;$('#tLen').textContent=t.length+'자';$('#tLen').style.color=t.length>60?'var(--red)':'var(--mut)';$('#dLen').textContent=d.length+'자';$('#dLen').style.color=d.length>160?'var(--red)':'var(--mut)';$('#pvT').textContent=t||'(제목 없음)';$('#pvU').textContent=SITE+'/'+(seoPage==='index.html'?'':seoPage);$('#pvD').textContent=d||'(설명 없음)'};
-  ['#pTi','#pDe'].forEach(q=>$(q).addEventListener('input',upd));upd();$('#pgSave').onclick=savePageSeo}catch(e){f.innerHTML='<span style="color:var(--red)">'+esc(e.message)+'</span>'}}
-async function savePageSeo(){const b=$('#pgSave');b.disabled=true;try{const v={title:$('#pTi').value.trim(),desc:$('#pDe').value.trim(),kw:$('#pKw').value.trim(),og:$('#pOg').value.trim(),noindex:$('#pNo').checked};if(!v.title)throw new Error('제목을 입력해 주세요.');
-  const cur=await ghGet(seoPage);const h=applyPageSeo(cur.text,v);await ghPutRaw(seoPage,b64enc(h),'SEO: '+seoPage,cur.sha);say('저장했습니다. 1~2분 뒤 반영됩니다.')}catch(e){say(e.message,true)}b.disabled=false}
-async function saveSiteSeo(){const b=$('#sSave'),m=$('#sMsg');b.disabled=true;const c={robots:$('#sRobots').value,googleVerify:$('#sG').value.trim(),naverVerify:$('#sN').value.trim(),gaId:$('#sGa').value.trim(),ogImage:$('#sOg').value.trim()};
-  try{await ghPut('data/medi-seo.json',JSON.stringify(c,null,2),'SEO 공통 설정');await ghPut('robots.txt',robotsTxt(c),'robots: '+(c.robots==='allow'?'검색 허용':'검색 차단'));
-    const pages=SEO_PAGES();let n=0;for(const [path] of pages){m.textContent='페이지 반영 중… '+(++n)+'/'+pages.length+' '+path;const cur=await ghGet(path);if(!cur)continue;const h=applySiteSeo(cur.text,c);if(h!==cur.text)await ghPutRaw(path,b64enc(h),'SEO 공통: '+path,cur.sha)}
-    S.seo=c;m.textContent='';say('사이트 공통 설정을 저장했습니다. 1~2분 뒤 반영됩니다.')}catch(e){m.textContent='';say(e.message,true)}b.disabled=false}
+const pick=v=>{v=String(v||'').trim();const m=v.match(/content=["']([^"']+)/);return m?m[1].trim():v};
+const pickGa=v=>{const m=String(v||'').match(/G-[A-Z0-9]{6,}/i);return m?m[0].toUpperCase():String(v||'').trim()};
+async function ghSha(p){const r=await gh('GET',p);if(r.status===404)return null;if(!r.ok)throw new Error('GitHub 읽기 실패 ('+r.status+')');return (await r.json()).sha}
+async function ghPutBin(p,b64,msg){return ghPutRaw(p,b64,msg,await ghSha(p))}
+function readImg(file){return new Promise((ok,no)=>{const u=URL.createObjectURL(file);const im=new Image();im.onload=()=>ok(im);im.onerror=()=>no(new Error('이미지를 읽을 수 없습니다.'));im.src=u})}
+function fitCanvas(im,w,h,mode,bg){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');if(bg){x.fillStyle=bg;x.fillRect(0,0,w,h)}const s=mode==='cover'?Math.max(w/im.width,h/im.height):Math.min(w/im.width,h/im.height);const dw=im.width*s,dh=im.height*s;x.drawImage(im,(w-dw)/2,(h-dh)/2,dw,dh);return c}
+const canvasB64=(c,type,q)=>c.toDataURL(type,q).split(',')[1];
+const fileB64=f=>new Promise((ok,no)=>{const fr=new FileReader();fr.onload=()=>ok(String(fr.result).split(',')[1]);fr.onerror=no;fr.readAsDataURL(f)});
+const fmtKB=n=>n>1024*1024?(n/1048576).toFixed(1)+'MB':Math.round(n/1024)+'KB';
+async function applyAllPages(c,label,msgEl){const pages=ASSET_PAGES();let n=0;for(const [path] of pages){if(msgEl)msgEl.textContent=label+' 반영 중… '+(++n)+'/'+pages.length;const cur=await ghGet(path);if(!cur)continue;const h=applySiteSeo(cur.text,c,path);if(h!==cur.text)await ghPutRaw(path,b64enc(h),label+': '+path,cur.sha)}if(msgEl)msgEl.textContent=''}
+async function saveSeoJson(c){S.seo=c;await ghPut('data/medi-seo.json',JSON.stringify(c,null,2),'SEO 설정')}
+let seoPage=null,seoMeta={},ogPick=null,favPick=null;
+function tile(label,ok,txt){return '<div class="tile"><span>'+label+'</span><b><i class="dot '+(ok?'ok':'no')+'"></i>'+esc(txt)+'</b></div>'}
+function vSeo(){const c=S.seo;const v=$('#view');const open=c.robots==='allow';const ogUrl=(c.ogImage||SITE+'/assets/og.png').replace(SITE+'/','');const favUrl=c.favicon||'assets/favicon.png';
+  v.innerHTML='<h2>SEO 설정</h2><p class="sub">검색엔진과 AI가 사이트를 어떻게 읽을지 정합니다. 저장한 내용은 모든 페이지 HTML에 직접 기록되고 1~2분 뒤 반영됩니다.</p>'
++'<div class="tiles">'+tile('검색 노출',open,open?'공개 중':'비공개 (오픈 전)')+tile('구글 서치콘솔',!!c.googleVerify,c.googleVerify?'인증 코드 등록됨':'미등록')+tile('네이버 서치어드바이저',!!c.naverVerify,c.naverVerify?'인증 코드 등록됨':'미등록')+tile('GA4 분석',!!c.gaId,c.gaId||'미연결')+'</div>'
+/* 검색 노출 */
++'<div class="card"><div class="seo-grid"><div><h3>검색 노출</h3><p class="desc">켜면 구글·네이버·AI 검색이 사이트를 수집하기 시작합니다. 오픈 전에는 꺼 두세요.</p>'
++'<label class="sw-row"><button type="button" class="sw'+(open?' on':'')+'" id="swRobots" aria-pressed="'+open+'"></button><span><b id="swTxt">'+(open?'검색엔진에 공개 중':'검색엔진 비공개')+'</b><small>robots.txt와 사이트맵이 자동으로 맞춰집니다.</small></span></label>'
++'<div class="row" style="margin-top:16px"><button class="btn co" id="sRobotsSave">저장</button><a class="help" href="'+SITE+'/sitemap.xml" target="_blank">사이트맵 보기 ↗</a><a class="help" href="'+SITE+'/robots.txt" target="_blank">현재 robots.txt ↗</a></div></div>'
++'<div><small style="color:var(--mut);font-weight:700;font-size:12px">저장될 robots.txt</small><pre class="mono" id="robotsPv" style="margin:6px 0 0">'+esc(robotsTxt(c))+'</pre></div></div></div>'
+/* 공유 이미지 · 파비콘 */
++'<div class="card"><h3>공유 이미지 · 파비콘</h3><p class="desc">카톡·페이스북·문자로 링크를 보냈을 때 보이는 그림과 브라우저 탭 아이콘입니다. 올리면 모든 페이지에 한 번에 적용됩니다.</p>'
++'<div class="seo-grid"><div><small class="lbl">공유 이미지 (OG) · 권장 1200×630</small>'
++'<label class="drop og" id="ogDrop"><img id="ogImg" src="'+esc(ogUrl)+'" alt="" onerror="this.style.display=\'none\'"><span class="hint">클릭하거나 이미지를 끌어다 놓으세요 · JPG/PNG · 자동으로 1200×630에 맞춥니다</span><input type="file" id="ogFile" accept="image/*"></label>'
++'<div class="row" style="margin-top:10px"><button class="btn co" id="ogSave" disabled>업로드하고 전 페이지 반영</button><span id="ogInfo" style="font-size:12.5px;color:var(--mut)"></span></div>'
++'<small class="lbl" style="margin-top:18px">카카오톡에서 이렇게 보입니다</small><div class="kakao"><img id="kkImg" src="'+esc(ogUrl)+'" alt="" onerror="this.style.visibility=\'hidden\'"><div class="kb"><b id="kkT">메세지AI 메디</b><p id="kkD">병원 AI 검색 노출 · 홈페이지 최적화</p><small>medi.messeze.com</small></div></div></div>'
++'<div><small class="lbl">파비콘 · 정사각형 PNG 권장 (ICO도 가능)</small>'
++'<div class="row" style="align-items:flex-start;gap:18px"><label class="drop fav" id="favDrop"><img id="favImg" src="'+esc(favUrl)+'" alt="" style="width:64px;height:64px" onerror="this.style.display=\'none\'"><span class="hint">클릭 · 끌어다 놓기</span><input type="file" id="favFile" accept="image/png,image/jpeg,image/x-icon,image/vnd.microsoft.icon,image/svg+xml,.ico"></label>'
++'<div><div class="tabmock"><img id="tabIco" src="'+esc(favUrl)+'" alt=""><span>메세지AI 메디ㅣ병원 AI 검색 노출</span><i>×</i></div><div class="favs"><div><img id="f16" src="'+esc(favUrl)+'" width="16" height="16" alt="">16px</div><div><img id="f32" src="'+esc(favUrl)+'" width="32" height="32" alt="">32px</div><div><img id="f180" src="'+esc(favUrl)+'" width="48" height="48" alt="" style="border-radius:10px">아이폰 홈</div></div></div></div>'
++'<div class="row" style="margin-top:10px"><button class="btn co" id="favSave" disabled>업로드하고 전 페이지 반영</button><span id="favInfo" style="font-size:12.5px;color:var(--mut)"></span></div></div></div>'
++'<p id="aMsg" class="prog"></p></div>'
+/* 검색엔진 연결 */
++'<div class="card"><h3>검색엔진 · 분석 연결</h3><p class="desc">각 서비스에서 받은 인증 코드를 붙여넣으세요. &lt;meta …&gt; 태그 전체를 붙여넣어도 값만 골라냅니다.</p>'
++'<div class="three"><div class="fld"><label>구글 서치콘솔 <a class="help" href="https://search.google.com/search-console" target="_blank">열기 ↗</a></label><input id="sG" value="'+esc(c.googleVerify||'')+'" placeholder="google-site-verification 값"><small>소유 확인 → HTML 태그 방식</small></div>'
++'<div class="fld"><label>네이버 서치어드바이저 <a class="help" href="https://searchadvisor.naver.com" target="_blank">열기 ↗</a></label><input id="sN" value="'+esc(c.naverVerify||'')+'" placeholder="naver-site-verification 값"><small>웹마스터 도구 → 사이트 등록 → HTML 태그</small></div>'
++'<div class="fld"><label>GA4 측정 ID <a class="help" href="https://analytics.google.com" target="_blank">열기 ↗</a></label><input id="sGa" value="'+esc(c.gaId||'')+'" placeholder="G-XXXXXXXXXX"><small>관리 → 데이터 스트림 → 측정 ID</small></div></div>'
++'<div class="row"><button class="btn co" id="sConnSave">저장하고 전 페이지 반영</button><span id="cMsg" class="prog" style="margin:0"></span></div></div>'
+/* 페이지별 */
++'<div class="card"><h3>페이지별 제목·설명</h3><p class="desc">검색 결과에 보이는 제목(title)과 설명(description)입니다. 제목 30~60자, 설명 80~160자가 적당합니다.</p>'
++'<table class="pg-tbl"><thead><tr><th style="width:170px">페이지</th><th>제목</th><th>설명</th><th style="width:70px">상태</th><th style="width:60px"></th></tr></thead><tbody id="pgRows"><tr><td colspan="5" style="color:var(--mut)">불러오는 중…</td></tr></tbody></table>'
++'<div id="pgEdit"></div></div>';
+  /* robots */
+  const sw=$('#swRobots');sw.onclick=()=>{sw.classList.toggle('on');const on=sw.classList.contains('on');sw.setAttribute('aria-pressed',on);$('#swTxt').textContent=on?'검색엔진에 공개 중':'검색엔진 비공개';$('#robotsPv').textContent=robotsTxt({robots:on?'allow':'block'})};
+  $('#sRobotsSave').onclick=async e=>{const b=e.target;b.disabled=true;try{const c2=Object.assign({},S.seo,{robots:sw.classList.contains('on')?'allow':'block'});await saveSeoJson(c2);await ghPut('robots.txt',robotsTxt(c2),'robots: '+(c2.robots==='allow'?'검색 허용':'검색 차단'));say(c2.robots==='allow'?'검색엔진에 공개했습니다.':'검색엔진 비공개로 바꿨습니다.');vSeo();return}catch(x){say(x.message,true)}b.disabled=false};
+  /* OG */
+  bindDrop('#ogDrop','#ogFile',async f=>{try{const im=await readImg(f);const cv=fitCanvas(im,1200,630,'cover','#fff');ogPick={b64:canvasB64(cv,'image/jpeg',.9),w:im.width,h:im.height};const url=cv.toDataURL('image/jpeg',.9);$('#ogImg').style.display='';$('#ogImg').src=url;$('#kkImg').style.visibility='';$('#kkImg').src=url;$('#ogInfo').textContent=f.name+' · 원본 '+im.width+'×'+im.height+(im.width<1200||im.height<630?' (작아서 흐릴 수 있어요)':'')+' → 1200×630';$('#ogSave').disabled=false}catch(x){say(x.message,true)}});
+  $('#ogSave').onclick=async e=>{const b=e.target;if(!ogPick)return;b.disabled=true;const m=$('#aMsg');try{m.textContent='이미지 업로드 중…';await ghPutBin('assets/og.jpg',ogPick.b64,'OG 이미지 교체');const c2=Object.assign({},S.seo,{ogImage:SITE+'/assets/og.jpg?v='+Date.now().toString(36)});await saveSeoJson(c2);await applyAllPages(c2,'공유 이미지',m);say('공유 이미지를 바꿨습니다. 카톡은 캐시 때문에 몇 시간 뒤 바뀔 수 있어요.');ogPick=null;vSeo();return}catch(x){m.textContent='';say(x.message,true)}b.disabled=false};
+  /* favicon */
+  bindDrop('#favDrop','#favFile',async f=>{try{const ico=/\.ico$/i.test(f.name);let png=null,touch=null,url;if(ico){favPick={ico:await fileB64(f)};url=URL.createObjectURL(f);try{const im=await readImg(f);favPick.touch=canvasB64(fitCanvas(im,180,180,'contain','#fff'),'image/png')}catch(_){}}
+    else{const im=await readImg(f);const c64=fitCanvas(im,64,64,'contain');png=canvasB64(c64,'image/png');touch=canvasB64(fitCanvas(im,180,180,'contain','#fff'),'image/png');favPick={png,touch};url=c64.toDataURL('image/png');if(Math.abs(im.width-im.height)>2)$('#favInfo').textContent='정사각형이 아니라 여백을 채워 맞춥니다. ';}
+    ['#favImg','#tabIco','#f16','#f32','#f180'].forEach(q=>{$(q).style.display='';$(q).src=url});$('#favInfo').textContent+=f.name+' · '+fmtKB(f.size);$('#favSave').disabled=false}catch(x){say(x.message,true)}});
+  $('#favSave').onclick=async e=>{const b=e.target;if(!favPick)return;b.disabled=true;const m=$('#aMsg');try{const ver=Date.now().toString(36);let fav;m.textContent='아이콘 업로드 중…';
+    if(favPick.ico){await ghPutBin('assets/favicon.ico',favPick.ico,'파비콘 교체');fav='assets/favicon.ico?v='+ver}else{await ghPutBin('assets/favicon.png',favPick.png,'파비콘 교체');fav='assets/favicon.png?v='+ver}
+    let touch=S.seo.touchIcon||'';if(favPick.touch){await ghPutBin('assets/apple-touch-icon.png',favPick.touch,'앱 아이콘 교체');touch='assets/apple-touch-icon.png?v='+ver}
+    const c2=Object.assign({},S.seo,{favicon:fav,touchIcon:touch});await saveSeoJson(c2);await applyAllPages(c2,'파비콘',m);say('파비콘을 바꿨습니다. 브라우저 캐시 때문에 새로고침이 필요할 수 있어요.');favPick=null;vSeo();return}catch(x){m.textContent='';say(x.message,true)}b.disabled=false};
+  /* connections */
+  $('#sG').addEventListener('change',e=>e.target.value=pick(e.target.value));$('#sN').addEventListener('change',e=>e.target.value=pick(e.target.value));$('#sGa').addEventListener('change',e=>e.target.value=pickGa(e.target.value));
+  $('#sConnSave').onclick=async e=>{const b=e.target;b.disabled=true;const m=$('#cMsg');try{const ga=pickGa($('#sGa').value);if(ga&&!/^G-[A-Z0-9]{6,}$/.test(ga))throw new Error('GA4 측정 ID는 G-로 시작하는 코드입니다. (예: G-ABC123XYZ)');const c2=Object.assign({},S.seo,{googleVerify:pick($('#sG').value),naverVerify:pick($('#sN').value),gaId:ga});await saveSeoJson(c2);await applyAllPages(c2,'검색엔진 연결',m);say('연결 정보를 저장했습니다. 서치콘솔에서 "확인"을 눌러 마무리하세요.');vSeo();return}catch(x){m.textContent='';say(x.message,true)}b.disabled=false};
+  loadPageTable()}
+function bindDrop(dropQ,fileQ,onFile){const d=$(dropQ),f=$(fileQ);f.onchange=()=>{if(f.files[0])onFile(f.files[0]);f.value=''};['dragenter','dragover'].forEach(ev=>d.addEventListener(ev,e=>{e.preventDefault();d.classList.add('over')}));['dragleave','drop'].forEach(ev=>d.addEventListener(ev,e=>{e.preventDefault();d.classList.remove('over')}));d.addEventListener('drop',e=>{const x=e.dataTransfer.files[0];if(x)onFile(x)})}
+async function loadPageTable(){const pages=SEO_PAGES();const rows=await Promise.all(pages.map(async([p,name])=>{try{const cur=await ghGet(p);if(!cur)return null;const v=parseSeo(cur.text);seoMeta[p]={v,sha:cur.sha};return [p,name,v]}catch(e){return null}}));
+  const tb=$('#pgRows');if(!tb)return;tb.innerHTML=rows.filter(Boolean).map(([p,name,v])=>{const tl=v.title.length,dl=v.desc.length;return '<tr data-p="'+esc(p)+'"><td><b>'+esc(name)+'</b><div class="len" style="word-break:break-all">/'+esc(p==='index.html'?'':p)+'</div></td><td>'+esc(v.title)+'<div class="len'+(tl<30||tl>60?' bad':'')+'">'+tl+'자</div></td><td>'+(v.desc?esc(v.desc):'<span style="color:var(--red)">설명 없음</span>')+'<div class="len'+(dl<80||dl>160?' bad':'')+'">'+dl+'자</div></td><td>'+(v.noindex?'<span class="badge no">검색 제외</span>':'<span class="badge">노출</span>')+'</td><td><button class="btn gh sm" data-edit="'+esc(p)+'">편집</button></td></tr>'}).join('');
+  tb.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openPageEdit(b.dataset.edit))}
+function openPageEdit(p){seoPage=p;const name=(SEO_PAGES().find(x=>x[0]===p)||[])[1]||p;const v=seoMeta[p].v;const f=$('#pgEdit');const og=(v.og||S.seo.ogImage||SITE+'/assets/og.png').replace(SITE+'/','');
+  f.innerHTML='<div class="edit-pane"><div><div class="row" style="justify-content:space-between;margin-bottom:12px"><b style="font-size:15px">'+esc(name)+' 편집</b><a class="help" href="'+esc(pageUrl(p))+'" target="_blank">페이지 열기 ↗</a></div>'
++'<div class="fld"><label>제목 (title) <span class="len" id="tLen"></span></label><input id="pTi" value="'+esc(v.title)+'"><small>핵심 키워드를 앞에, 브랜드는 뒤에. 예) 병원 홈페이지 제작ㅣ메세지AI 메디</small></div>'
++'<div class="fld"><label>설명 (description) <span class="len" id="dLen"></span></label><textarea id="pDe" rows="3">'+esc(v.desc)+'</textarea><small>검색 결과 제목 밑에 나오는 문장. 무엇을·누구에게·어떻게가 한 번에 읽히게</small></div>'
++'<div class="two"><div class="fld"><label>키워드 (쉼표로 구분)</label><input id="pKw" value="'+esc(v.kw)+'"></div><div class="fld"><label>이 페이지만 다른 공유 이미지 (선택)</label><input id="pOg" value="'+esc(v.og)+'" placeholder="비우면 사이트 공통 이미지"></div></div>'
++'<label class="sw-row" style="margin:4px 0 16px"><button type="button" class="sw sm'+(v.noindex?' on':'')+'" id="pNo"></button><span><b>검색 결과에서 제외 (noindex)</b><small>본사 사이트와 겹치는 페이지처럼 검색에 안 나와야 할 때만 켭니다.</small></span></label>'
++'<div class="row"><button class="btn co" id="pgSave">이 페이지 저장</button><button class="btn gh" id="pgClose">닫기</button></div></div>'
++'<div><small class="lbl">구글 검색 결과</small><div class="serp"><div class="u"><img src="'+esc(S.seo.favicon||'assets/favicon.png')+'" alt="" onerror="this.style.visibility=\'hidden\'"><span>medi.messeze.com<br><span style="color:var(--mut)" id="pvU"></span></span></div><div class="t" id="pvT"></div><div class="d" id="pvD"></div></div>'
++'<small class="lbl" style="margin-top:16px">카카오톡 공유</small><div class="kakao"><img id="pvK" src="'+esc(og)+'" alt="" onerror="this.style.visibility=\'hidden\'"><div class="kb"><b id="pvKT"></b><p id="pvKD"></p><small>medi.messeze.com</small></div></div></div></div>';
+  const no=$('#pNo');no.onclick=()=>no.classList.toggle('on');
+  const upd=()=>{const t=$('#pTi').value,d=$('#pDe').value;const L=(q,n,a,b)=>{const el=$(q);el.textContent=n+'자';el.className='len'+(n<a||n>b?' bad':'')};L('#tLen',t.length,30,60);L('#dLen',d.length,80,160);$('#pvT').textContent=t||'(제목 없음)';$('#pvU').textContent=pageUrl(p);$('#pvD').textContent=d||'(설명 없음)';$('#pvKT').textContent=t;$('#pvKD').textContent=d;const o=$('#pOg').value.trim();$('#pvK').src=(o||S.seo.ogImage||SITE+'/assets/og.png').replace(SITE+'/','')};
+  ['#pTi','#pDe','#pOg'].forEach(q=>$(q).addEventListener('input',upd));upd();f.scrollIntoView({behavior:'smooth',block:'start'});
+  $('#pgClose').onclick=()=>{f.innerHTML='';seoPage=null};
+  $('#pgSave').onclick=async e=>{const b=e.target;b.disabled=true;try{const nv={title:$('#pTi').value.trim(),desc:$('#pDe').value.trim(),kw:$('#pKw').value.trim(),og:$('#pOg').value.trim(),noindex:no.classList.contains('on')};if(!nv.title)throw new Error('제목을 입력해 주세요.');
+    const cur=await ghGet(p);const h=applyPageSeo(cur.text,nv);await ghPutRaw(p,b64enc(h),'SEO: '+p,cur.sha);say('저장했습니다. 1~2분 뒤 반영됩니다.');f.innerHTML='';await loadPageTable()}catch(x){say(x.message,true)}b.disabled=false}}
 
 /* ---------- start ---------- */
 if(tok()){boot()}
