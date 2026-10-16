@@ -109,9 +109,10 @@ async function ghDel(path,msg){const cur=await ghGet(path);if(!cur)return;const 
 async function ghJson(path,fallback){const c=await ghGet(path);if(!c)return fallback;try{return JSON.parse(c.text)}catch(e){return fallback}}
 
 /* ---------- gate ---------- */
-const ENC={"salt": "XpHIF0zQ5jUQmwg921uAig==", "iv": "xd8hMb8UMPqXYCYq", "ct": "dYn664KQX7eEXih9YvJQEozYBSu5gwjCDYCS3zBEJ2kc2aW4vMDP5FUziHYxJd3fLfrsrtalY5o="}; // {salt,iv,ct} base64 — 아이디+비밀번호로만 풀리는 GitHub 토큰
+const ENC={"salt": "nHyOBIBMx/s54oSV+52XfQ==", "iv": "7bWUPSXTXnaIYA74", "ct": "Gv/I6YPrnf4oNvizvCyfT4dBX8UdcF39fDB7rg/qNrqkJRbCJA2i/DvLfyMATL3zuZ594FlbhpQ="}; // {salt,iv,ct} base64 — 아이디+비밀번호로만 풀리는 GitHub 토큰
 const te=new TextEncoder(), b2a=b=>Uint8Array.from(atob(b),c=>c.charCodeAt(0));
 async function deriveKey(id,pw,salt){const base=await crypto.subtle.importKey('raw',te.encode(id.trim().toLowerCase()+' '+pw),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:200000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt'])}
+async function mdmEncrypt(id,pw,tok){const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));const base=await crypto.subtle.importKey('raw',te.encode(id.trim().toLowerCase()+' '+pw),'PBKDF2',false,['deriveKey']);const k=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:200000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['encrypt']);const ct=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},k,te.encode(tok)));const a2b=u=>btoa(String.fromCharCode.apply(null,u));return {salt:a2b(salt),iv:a2b(iv),ct:a2b(ct)}}
 async function unlock(id,pw){const k=await deriveKey(id,pw,b2a(ENC.salt));const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b2a(ENC.iv)},k,b2a(ENC.ct));return new TextDecoder().decode(pt)}
 async function enter(){const id=$('#gId').value,pw=$('#gPw').value;if(!id||!pw){$('#gMsg').textContent='아이디와 비밀번호를 입력해 주세요.';return}
   $('#gBtn').disabled=true;$('#gMsg').textContent='';
