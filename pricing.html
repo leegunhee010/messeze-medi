@@ -374,9 +374,6 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.3;word-break:kee
 @media(max-width:640px){.md-tk-emo{width:90px;height:90px}.md-tk-after p{font-size:21px}}
 @media (prefers-reduced-motion:reduce){.md-tk-stage.broken>.md-tk-panel:not(.md-tk-shard){visibility:visible;opacity:.15}.md-tk-shard{display:none}}
 </style>
-<script>
-(function(){fetch('data/seo.json').then(r=>r.json()).then(seo=>{const page=seo.pages['서비스'];if(!page)return;document.title=page.title;let desc=document.querySelector('meta[name="description"]');if(!desc){desc=document.createElement('meta');desc.name='description';document.head.appendChild(desc);}desc.content=page.description;let og=document.querySelector('meta[property="og:image"]');if(!og){og=document.createElement('meta');og.setAttribute('property','og:image');document.head.appendChild(og);}og.content=seo.ogImage;if(page.noindex){let noindex=document.querySelector('meta[name="robots"]');if(!noindex){noindex=document.createElement('meta');noindex.name='robots';document.head.appendChild(noindex);}noindex.content='noindex,nofollow';}}).catch(e=>{});})();
-</script>
 <!-- auto-meta:start -->
 <link rel="canonical" href="https://medi.messeze.com/pricing.html">
 <meta property="og:type" content="website">

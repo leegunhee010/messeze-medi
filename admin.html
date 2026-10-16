@@ -75,6 +75,7 @@ td select,td input{border:1px solid #D9DFE7;border-radius:8px;padding:6px 8px;wi
       <a href="#inq" data-v="inq">상담 접수 <em id="nInq">–</em></a>
       <a href="#copy" data-v="copy">문구 편집</a>
       <a href="#blog" data-v="blog">블로그 <em id="nBlog">0</em></a>
+      <a href="#seo" data-v="seo">SEO 설정</a>
     </nav>
     <div class="foot">leegunhee010/messeze-medi<a href="index.html" target="_blank">사이트 열기 ↗</a><a href="#" id="logout">로그아웃</a></div>
   </aside>
@@ -123,18 +124,18 @@ $('#gBtn').onclick=enter;['#gId','#gPw'].forEach(q=>$(q).addEventListener('keydo
 $('#logout').onclick=e=>{e.preventDefault();localStorage.removeItem(TOK_LS);location.reload()};
 
 /* ---------- state ---------- */
-let S={regions:{closed:[]},posts:[],copy:{},inq:null};
+let S={regions:{closed:[]},posts:[],copy:{},inq:null,seo:{robots:'block',googleVerify:'',naverVerify:'',gaId:'',ogImage:''}};
 async function boot(){$('#gate').style.display='none';$('#app').classList.add('on');
-  try{S.regions=await ghJson('data/regions.json',{closed:[]});S.posts=await ghJson('data/posts.json',[]);S.copy=await ghJson('data/medi-copy.json',{})}catch(e){say(e.message,true)}
+  try{S.regions=await ghJson('data/regions.json',{closed:[]});S.posts=await ghJson('data/posts.json',[]);S.copy=await ghJson('data/medi-copy.json',{});S.seo=Object.assign(S.seo,await ghJson('data/medi-seo.json',{}))}catch(e){say(e.message,true)}
   updateSide();route()}
 function updateSide(){$('#nRegion').textContent=S.regions.closed.length;$('#nBlog').textContent=S.posts.length;$('#nInq').textContent=S.inq?S.inq.length:'–'}
-function route(){const v=(location.hash||'#dash').slice(1);document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));({dash:vDash,region:vRegion,inq:vInq,copy:vCopy,blog:vBlog}[v]||vDash)()}
+function route(){const v=(location.hash||'#dash').slice(1);document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));({dash:vDash,region:vRegion,inq:vInq,copy:vCopy,blog:vBlog,seo:vSeo}[v]||vDash)()}
 addEventListener('hashchange',route);
 
 /* ---------- dashboard ---------- */
 function vDash(){$('#view').innerHTML=`<h2>대시보드</h2><p class="sub">메세지AI 메디 사이트 운영 현황</p>
 <div class="stats"><div class="stat"><b>${S.regions.closed.length}</b><span>마감 지역</span></div><div class="stat"><b id="dInq">–</b><span>메디 상담 접수</span></div><div class="stat"><b>${S.posts.length}</b><span>블로그 글</span></div><div class="stat"><b>${Object.keys(S.copy).length}</b><span>수정한 문구</span></div></div>
-<div class="card" style="margin-top:16px"><b>이렇게 쓰세요</b><ul style="margin:8px 0 0 18px;padding:0;color:var(--body);line-height:1.8"><li><b>지역 마감</b>: 계약한 병원의 시·군·구를 마감으로 바꾸면 사이트 지역 확인에서 "마감"으로 표시됩니다.</li><li><b>상담 접수</b>: 사이트 상담폼으로 들어온 병원 문의를 보고 상태·메모를 남깁니다.</li><li><b>문구 편집</b>: 미리보기 화면의 글자를 눌러 바로 고치고 저장합니다.</li><li><b>블로그</b>: 제목·본문·표지를 넣고 발행하면 글 페이지와 목록이 함께 만들어집니다.</li></ul><p style="margin:12px 0 0;color:var(--mut);font-size:13px">저장은 GitHub에 바로 기록되고, 공개 사이트에는 1~2분 뒤 반영됩니다.</p></div>`;
+<div class="card" style="margin-top:16px"><b>이렇게 쓰세요</b><ul style="margin:8px 0 0 18px;padding:0;color:var(--body);line-height:1.8"><li><b>지역 마감</b>: 계약한 병원의 시·군·구를 마감으로 바꾸면 사이트 지역 확인에서 "마감"으로 표시됩니다.</li><li><b>상담 접수</b>: 사이트 상담폼으로 들어온 병원 문의를 보고 상태·메모를 남깁니다.</li><li><b>문구 편집</b>: 미리보기 화면의 글자를 눌러 바로 고치고 저장합니다.</li><li><b>블로그</b>: 제목·본문·표지를 넣고 발행하면 글 페이지와 목록이 함께 만들어집니다.</li><li><b>SEO 설정</b>: 검색 노출 켜기/끄기, 인증 코드, 페이지별 제목·설명을 관리합니다.</li></ul><p style="margin:12px 0 0;color:var(--mut);font-size:13px">저장은 GitHub에 바로 기록되고, 공개 사이트에는 1~2분 뒤 반영됩니다.</p></div>`;
   loadInq().then(()=>{const d=$('#dInq');if(d)d.textContent=S.inq?S.inq.length:'키 필요'}).catch(()=>{})}
 
 /* ---------- regions ---------- */
@@ -233,6 +234,50 @@ async function syncBlogIndex(msg){await ghPut('data/posts.json',JSON.stringify(S
   const t=idx.text.replace(/const POSTS=\[[\s\S]*?\];/,'const POSTS='+JSON.stringify(arr)+';');await ghPutRaw('blog/index.html',b64enc(t),msg,idx.sha);
   const sm=await ghGet('sitemap.xml');let x=sm.text.replace(/\s*<url><loc>[^<]*\/blog\/posts\/[^<]*<\/loc>.*?<\/url>/g,'');x=x.replace('</urlset>',S.posts.map(p=>`  <url><loc>${SITE}/blog/posts/${p.slug}.html</loc><lastmod>${p.date}</lastmod><priority>0.6</priority></url>\n`).join('')+'</urlset>');await ghPutRaw('sitemap.xml',b64enc(x),msg,sm.sha);updateSide()}
 async function delPost(slug){const p=S.posts.find(x=>x.slug===slug);if(!p||!confirm('"'+p.title+'" 글을 삭제할까요?'))return;try{await ghDel('blog/posts/'+slug+'.html','블로그 글 삭제: '+p.title);S.posts=S.posts.filter(x=>x.slug!==slug);await syncBlogIndex('블로그 목록 갱신(삭제): '+p.title);say('삭제했습니다.');vBlog()}catch(e){say(e.message,true)}}
+
+
+/* ---------- SEO ---------- */
+const SEO_PAGES=()=>[['index.html','메인'],['pricing.html','요금'],['faq.html','FAQ'],['blog/index.html','블로그 목록'],['services/website-build.html','서비스: 홈페이지 제작'],['services/place.html','서비스: 플레이스 정비'],['services/visibility.html','서비스: AI 노출 진단'],['services/own-blog.html','서비스: 홈페이지 콘텐츠'],['services/contents.html','서비스: AI 인용 콘텐츠'],['services/report.html','서비스: 월간 리포트']].concat(S.posts.map(p=>['blog/posts/'+p.slug+'.html','글: '+p.title]));
+const unesc=s=>String(s||'').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+const rxEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+function metaRe(attr,name){return new RegExp('[ \\t]*<meta '+attr+'="'+rxEsc(name)+'" content="[^"]*"\\s*/?>\\n?')}
+function metaGet(h,attr,name){const m=h.match(new RegExp('<meta '+attr+'="'+rxEsc(name)+'" content="([^"]*)"'));return m?unesc(m[1]):''}
+function setMeta(h,attr,name,val){const re=metaRe(attr,name);const tag='<meta '+attr+'="'+name+'" content="'+esc(val||'')+'">\n';if(re.test(h))return val?h.replace(re,tag):h.replace(re,'');return val?h.replace('</head>',tag+'</head>'):h}
+function parseSeo(h){const t=h.match(/<title>([^<]*)<\/title>/);return {title:unesc(t?t[1]:''),desc:metaGet(h,'name','description'),kw:metaGet(h,'name','keywords'),og:metaGet(h,'property','og:image'),noindex:/noindex/i.test(metaGet(h,'name','robots'))}}
+function applyPageSeo(h,v){h=h.replace(/<title>[^<]*<\/title>/,'<title>'+esc(v.title)+'</title>');
+  h=setMeta(h,'name','description',v.desc);h=setMeta(h,'property','og:title',v.title);h=setMeta(h,'name','twitter:title',v.title);h=setMeta(h,'property','og:description',v.desc);h=setMeta(h,'name','twitter:description',v.desc);
+  h=setMeta(h,'name','keywords',v.kw);if(v.og)h=setMeta(h,'property','og:image',v.og);h=setMeta(h,'name','robots',v.noindex?'noindex, nofollow':'');return h}
+function applySiteSeo(h,c){h=setMeta(h,'name','google-site-verification',c.googleVerify);h=setMeta(h,'name','naver-site-verification',c.naverVerify);
+  h=h.replace(/[ \t]*<!-- mdm-ga -->[\s\S]*?<!-- \/mdm-ga -->\n?/,'');
+  if(c.gaId)h=h.replace('</head>','<!-- mdm-ga --><script async src="https://www.googletagmanager.com/gtag/js?id='+esc(c.gaId)+'"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag(\'js\',new Date());gtag(\'config\',\''+esc(c.gaId)+'\');<\/script><!-- /mdm-ga -->\n</head>');
+  if(c.ogImage)h=setMeta(h,'property','og:image',c.ogImage);return h}
+const robotsTxt=c=>c.robots==='allow'?('User-agent: *\nAllow: /\nDisallow: /admin.html\nDisallow: /blog/posts/_tpl.html\n\nSitemap: '+SITE+'/sitemap.xml\n'):'# 오픈 전 비공개\nUser-agent: *\nDisallow: /\n';
+let seoPage='index.html';
+function vSeo(){const c=S.seo;const v=$('#view');v.innerHTML='<h2>SEO 설정</h2><p class="sub">검색엔진과 AI가 읽는 제목·설명을 페이지마다 정하고, 사이트 공통 설정을 관리합니다. 저장하면 페이지 HTML에 직접 기록됩니다.</p>'
++'<div class="card"><b style="font-size:16px">사이트 공통</b>'
++'<div class="two" style="margin-top:14px"><div class="fld"><label>검색엔진 노출</label><select id="sRobots"><option value="block"'+(c.robots!=='allow'?' selected':'')+'>차단 (오픈 전)</option><option value="allow"'+(c.robots==='allow'?' selected':'')+'>허용 (오픈)</option></select><small>robots.txt를 바꿉니다. 허용하면 구글·네이버가 사이트를 수집하기 시작합니다.</small></div><div class="fld"><label>기본 OG 이미지 주소</label><input id="sOg" value="'+esc(c.ogImage||'')+'" placeholder="https://… (카톡·페북 공유 미리보기 그림)"><small>비우면 각 페이지 설정을 유지합니다. 입력하면 모든 페이지에 적용됩니다.</small></div></div>'
++'<div class="two"><div class="fld"><label>구글 서치콘솔 인증 코드</label><input id="sG" value="'+esc(c.googleVerify||'')+'" placeholder="content=&quot;…&quot; 안의 값만"></div><div class="fld"><label>네이버 서치어드바이저 인증 코드</label><input id="sN" value="'+esc(c.naverVerify||'')+'" placeholder="content=&quot;…&quot; 안의 값만"></div></div>'
++'<div class="two"><div class="fld"><label>GA4 측정 ID</label><input id="sGa" value="'+esc(c.gaId||'')+'" placeholder="G-XXXXXXXXXX"></div><div class="fld"><label>&nbsp;</label><button class="btn co" id="sSave" style="width:100%;justify-content:center">사이트 공통 저장 (전 페이지 반영)</button></div></div>'
++'<p id="sMsg" style="margin:0;color:var(--mut);font-size:13px;min-height:18px"></p></div>'
++'<div class="card"><b style="font-size:16px">페이지별 제목·설명</b>'
++'<div class="fld" style="margin-top:14px"><label>페이지</label><select id="pgSel">'+SEO_PAGES().map(x=>'<option value="'+esc(x[0])+'"'+(x[0]===seoPage?' selected':'')+'>'+esc(x[1])+'</option>').join('')+'</select></div>'
++'<div id="pgForm" style="color:var(--mut)">불러오는 중…</div></div>';
+  $('#sSave').onclick=saveSiteSeo;$('#pgSel').onchange=e=>{seoPage=e.target.value;loadPageSeo()};loadPageSeo()}
+async function loadPageSeo(){const f=$('#pgForm');f.textContent='불러오는 중…';try{const cur=await ghGet(seoPage);if(!cur)throw new Error('페이지를 찾을 수 없습니다.');const v=parseSeo(cur.text);
+  f.innerHTML='<div class="fld"><label>제목 (title) <small style="display:inline" id="tLen"></small></label><input id="pTi" value="'+esc(v.title)+'"><small>검색 결과 제목. 30~60자, 핵심 키워드는 앞쪽에</small></div>'
++'<div class="fld"><label>설명 (description) <small style="display:inline" id="dLen"></small></label><textarea id="pDe" rows="3">'+esc(v.desc)+'</textarea><small>검색 결과 밑에 보이는 문장. 80~160자</small></div>'
++'<div class="two"><div class="fld"><label>키워드 (쉼표로 구분)</label><input id="pKw" value="'+esc(v.kw)+'"></div><div class="fld"><label>이 페이지 OG 이미지 주소</label><input id="pOg" value="'+esc(v.og)+'" placeholder="https://…"></div></div>'
++'<div class="fld"><label style="display:flex;gap:8px;align-items:center;font-weight:600"><input type="checkbox" id="pNo"'+(v.noindex?' checked':'')+' style="width:auto">이 페이지는 검색 결과에서 제외 (noindex)</label></div>'
++'<div class="card" style="background:var(--bg);border:0;padding:16px 18px"><small style="color:var(--mut)">검색 결과 미리보기</small><div style="color:#1a0dab;font-size:18px;margin-top:6px" id="pvT"></div><div style="color:#006621;font-size:13px" id="pvU"></div><div style="color:#4d5156;font-size:13.5px;margin-top:2px" id="pvD"></div></div>'
++'<div class="row"><button class="btn co" id="pgSave">이 페이지 저장</button></div>';
+  const upd=()=>{const t=$('#pTi').value,d=$('#pDe').value;$('#tLen').textContent=t.length+'자';$('#tLen').style.color=t.length>60?'var(--red)':'var(--mut)';$('#dLen').textContent=d.length+'자';$('#dLen').style.color=d.length>160?'var(--red)':'var(--mut)';$('#pvT').textContent=t||'(제목 없음)';$('#pvU').textContent=SITE+'/'+(seoPage==='index.html'?'':seoPage);$('#pvD').textContent=d||'(설명 없음)'};
+  ['#pTi','#pDe'].forEach(q=>$(q).addEventListener('input',upd));upd();$('#pgSave').onclick=savePageSeo}catch(e){f.innerHTML='<span style="color:var(--red)">'+esc(e.message)+'</span>'}}
+async function savePageSeo(){const b=$('#pgSave');b.disabled=true;try{const v={title:$('#pTi').value.trim(),desc:$('#pDe').value.trim(),kw:$('#pKw').value.trim(),og:$('#pOg').value.trim(),noindex:$('#pNo').checked};if(!v.title)throw new Error('제목을 입력해 주세요.');
+  const cur=await ghGet(seoPage);const h=applyPageSeo(cur.text,v);await ghPutRaw(seoPage,b64enc(h),'SEO: '+seoPage,cur.sha);say('저장했습니다. 1~2분 뒤 반영됩니다.')}catch(e){say(e.message,true)}b.disabled=false}
+async function saveSiteSeo(){const b=$('#sSave'),m=$('#sMsg');b.disabled=true;const c={robots:$('#sRobots').value,googleVerify:$('#sG').value.trim(),naverVerify:$('#sN').value.trim(),gaId:$('#sGa').value.trim(),ogImage:$('#sOg').value.trim()};
+  try{await ghPut('data/medi-seo.json',JSON.stringify(c,null,2),'SEO 공통 설정');await ghPut('robots.txt',robotsTxt(c),'robots: '+(c.robots==='allow'?'검색 허용':'검색 차단'));
+    const pages=SEO_PAGES();let n=0;for(const [path] of pages){m.textContent='페이지 반영 중… '+(++n)+'/'+pages.length+' '+path;const cur=await ghGet(path);if(!cur)continue;const h=applySiteSeo(cur.text,c);if(h!==cur.text)await ghPutRaw(path,b64enc(h),'SEO 공통: '+path,cur.sha)}
+    S.seo=c;m.textContent='';say('사이트 공통 설정을 저장했습니다. 1~2분 뒤 반영됩니다.')}catch(e){m.textContent='';say(e.message,true)}b.disabled=false}
 
 /* ---------- start ---------- */
 if(tok()){boot()}

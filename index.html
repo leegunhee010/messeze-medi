@@ -14,9 +14,6 @@
 <link rel="stylesheet" href="assets/story/toss.css?v=1788508623">
 <link rel="stylesheet" href="assets/story/toss2.css?v=20260929">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-<script>
-(function(){fetch('data/seo.json').then(r=>r.json()).then(seo=>{const page=seo.pages['메인'];if(!page)return;document.title=page.title;let desc=document.querySelector('meta[name="description"]');if(!desc){desc=document.createElement('meta');desc.name='description';document.head.appendChild(desc);}desc.content=page.description;let og=document.querySelector('meta[property="og:image"]');if(!og){og=document.createElement('meta');og.setAttribute('property','og:image');document.head.appendChild(og);}og.content=seo.ogImage;if(page.noindex){let noindex=document.querySelector('meta[name="robots"]');if(!noindex){noindex=document.createElement('meta');noindex.name='robots';document.head.appendChild(noindex);}noindex.content='noindex,nofollow';}}).catch(e=>{});})();
-</script>
 <!-- auto-meta:start -->
 <link rel="canonical" href="https://medi.messeze.com/">
 <meta property="og:type" content="website">
