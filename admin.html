@@ -58,10 +58,10 @@ td select,td input{border:1px solid #D9DFE7;border-radius:8px;padding:6px 8px;wi
 <div class="gate" id="gate">
   <div class="gate-box">
     <h1>메세지AI 메디 관리자</h1>
-    <p>GitHub 토큰으로 로그인합니다. 저장하면 사이트에 1~2분 뒤 반영됩니다.</p>
-    <div class="fld"><label>GitHub 토큰</label><input id="gTok" type="password" placeholder="ghp_… (repo 권한)" autocomplete="off"><small>레포 <b>leegunhee010/messeze-medi</b>에 쓰기 권한이 있는 토큰</small></div>
-    <div class="fld"><label>접수 키 (선택)</label><input id="gKey" type="password" placeholder="messeze.com 관리자 키" autocomplete="off"><small>상담 접수 목록을 보려면 필요합니다. 나중에 입력해도 됩니다.</small></div>
-    <button class="btn co" id="gBtn" style="width:100%;justify-content:center">들어가기</button>
+    <p>저장하면 사이트에 1~2분 뒤 반영됩니다.</p>
+    <div class="fld"><label>아이디</label><input id="gId" type="text" autocomplete="username"></div>
+    <div class="fld"><label>비밀번호</label><input id="gPw" type="password" autocomplete="current-password"></div>
+    <button class="btn co" id="gBtn" style="width:100%;justify-content:center">로그인</button>
     <p id="gMsg" style="margin:12px 0 0;color:var(--red);min-height:18px"></p>
   </div>
 </div>
@@ -109,11 +109,16 @@ async function ghDel(path,msg){const cur=await ghGet(path);if(!cur)return;const 
 async function ghJson(path,fallback){const c=await ghGet(path);if(!c)return fallback;try{return JSON.parse(c.text)}catch(e){return fallback}}
 
 /* ---------- gate ---------- */
-async function enter(){const t=$('#gTok').value.trim(),k=$('#gKey').value.trim();if(!t){$('#gMsg').textContent='토큰을 입력해 주세요.';return}
-  $('#gBtn').disabled=true;localStorage.setItem(TOK_LS,t);if(k)localStorage.setItem(KEY_LS,k);
-  try{const r=await gh('GET','data/regions.json');if(r.status===401||r.status===403)throw new Error('토큰이 올바르지 않거나 권한이 없습니다.');if(!r.ok&&r.status!==404)throw new Error('GitHub 연결 실패 ('+r.status+')');
-    boot()}catch(e){$('#gMsg').textContent=e.message;localStorage.removeItem(TOK_LS)}$('#gBtn').disabled=false}
-$('#gBtn').onclick=enter;$('#gKey').addEventListener('keydown',e=>{if(e.key==='Enter')enter()});$('#gTok').addEventListener('keydown',e=>{if(e.key==='Enter')enter()});
+const ENC={"salt": "XpHIF0zQ5jUQmwg921uAig==", "iv": "xd8hMb8UMPqXYCYq", "ct": "dYn664KQX7eEXih9YvJQEozYBSu5gwjCDYCS3zBEJ2kc2aW4vMDP5FUziHYxJd3fLfrsrtalY5o="}; // {salt,iv,ct} base64 — 아이디+비밀번호로만 풀리는 GitHub 토큰
+const te=new TextEncoder(), b2a=b=>Uint8Array.from(atob(b),c=>c.charCodeAt(0));
+async function deriveKey(id,pw,salt){const base=await crypto.subtle.importKey('raw',te.encode(id.trim().toLowerCase()+' '+pw),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:200000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt'])}
+async function unlock(id,pw){const k=await deriveKey(id,pw,b2a(ENC.salt));const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b2a(ENC.iv)},k,b2a(ENC.ct));return new TextDecoder().decode(pt)}
+async function enter(){const id=$('#gId').value,pw=$('#gPw').value;if(!id||!pw){$('#gMsg').textContent='아이디와 비밀번호를 입력해 주세요.';return}
+  $('#gBtn').disabled=true;$('#gMsg').textContent='';
+  try{const t=await unlock(id,pw);localStorage.setItem(TOK_LS,t);const r=await gh('GET','data/regions.json');if(r.status===401||r.status===403)throw new Error('토큰 권한 오류. 관리자에게 문의하세요.');boot()}
+  catch(e){localStorage.removeItem(TOK_LS);$('#gMsg').textContent=/OperationError|decrypt/i.test(String(e))||e.name==='OperationError'?'아이디 또는 비밀번호가 올바르지 않습니다.':e.message}
+  $('#gBtn').disabled=false}
+$('#gBtn').onclick=enter;['#gId','#gPw'].forEach(q=>$(q).addEventListener('keydown',e=>{if(e.key==='Enter')enter()}));
 $('#logout').onclick=e=>{e.preventDefault();localStorage.removeItem(TOK_LS);location.reload()};
 
 /* ---------- state ---------- */
