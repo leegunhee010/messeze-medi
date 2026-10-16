@@ -195,9 +195,7 @@ function drawEditor(){const d=today();const slug='post-'+d.replace(/-/g,'')+'-'+
 <div class="two"><div class="fld"><label>자주 묻는 질문 1</label><input id="pQ1" placeholder="질문"><textarea id="pA1" rows="2" placeholder="답변" style="margin-top:6px"></textarea></div><div class="fld"><label>자주 묻는 질문 2</label><input id="pQ2" placeholder="질문"><textarea id="pA2" rows="2" placeholder="답변" style="margin-top:6px"></textarea></div></div>
 <div class="row"><button class="btn gh" id="pPrev">미리보기</button><button class="btn co" id="pPub">발행</button><span id="pMsg" style="color:var(--mut);font-size:13px"></span></div></div><div class="pv" id="pPv" style="display:none;margin-top:12px"><iframe id="pPvF"></iframe></div>`;
   let htmlMode=false;
-  const pretty=h=>h.replace(/<\/(p|h2|h3|ul|ol|li|table|thead|tbody|tr|blockquote|div)>/g,'</$1>
-').replace(/<(ul|ol|table|thead|tbody|tr)>/g,'<$1>
-').trim();
+  const pretty=h=>h.replace(/<\/(p|h2|h3|ul|ol|li|table|thead|tbody|tr|blockquote|div)>/g,'</$1>\n').replace(/<(ul|ol|table|thead|tbody|tr)>/g,'<$1>\n').trim();
   function setHtmlMode(on){htmlMode=on;const ed=$('#pBody'),ta=$('#pBodyHtml');if(on){ta.value=pretty(ed.innerHTML);ed.style.display='none';ta.style.display='block';ta.style.minHeight='320px'}else{ed.innerHTML=ta.value;ta.style.display='none';ed.style.display='block'}$('#pHtmlHint').style.display=on?'block':'none';$('#pHtmlBtn').textContent=on?'편집기로 돌아가기':'</> HTML 직접 입력';document.querySelectorAll('.ed-tb button:not(#pHtmlBtn)').forEach(x=>x.disabled=on)}
   window.mdmSetHtmlMode=setHtmlMode;
   document.querySelectorAll('.ed-tb button').forEach(b=>b.onclick=e=>{e.preventDefault();const c=b.dataset.c;if(c==='html'){setHtmlMode(!htmlMode);return}$('#pBody').focus();if(c==='table')document.execCommand('insertHTML',false,'<div class="tbl"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>예시</td><td>내용을 적으세요</td></tr><tr><td>예시</td><td>내용을 적으세요</td></tr></tbody></table></div><p></p>');else if(c==='quote')document.execCommand('insertHTML',false,'<blockquote>핵심 문장을 적으세요.</blockquote><p></p>');else document.execCommand(c,false,b.dataset.a||null)});
