@@ -75,8 +75,18 @@ function fail(msg, local) {
     out.push(item);
   }
   out.sort((a, b) => (b.ts || '').localeCompare(a.ts || '') || Number(b.row) - Number(a.row));
-  const next = { updated: new Date().toISOString(), rows: out };
-  const changed = JSON.stringify(next.rows) !== JSON.stringify(local.rows) || local.error;
+  // 4) 문의 알림 메일 설정 상태 (비밀번호는 서버가 내보내지 않는다)
+  let mail = local.mail || null;
+  try {
+    const mr = await fetch(BASE + '/api/admin/mail', { headers: H });
+    const mj = await mr.json().catch(() => null);
+    if (mj && mj.status === true && mj.data) {
+      const d = mj.data;
+      mail = { enabled: !!d.enabled, notifyEmail: d.notifyEmail || '', smtpHost: d.smtpHost || '', smtpUser: d.smtpUser || '', hasPassword: !!d.hasPassword, protocol: d.protocol || 'smtp' };
+    }
+  } catch (e) { /* 메일 설정 조회 실패는 동기화를 막지 않는다 */ }
+  const next = { updated: new Date().toISOString(), mail, rows: out };
+  const changed = JSON.stringify(next.rows) !== JSON.stringify(local.rows) || JSON.stringify(next.mail) !== JSON.stringify(local.mail || null) || local.error;
   if (changed || !local.updated) writeLocal(next);
   else { local.updated = next.updated; writeLocal(local); }
   console.log('서버 ' + serverRows.length + '건 · 로컬 ' + out.length + '건 · 서버로 올린 수정 ' + pushed + '건');
