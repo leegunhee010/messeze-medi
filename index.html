@@ -1215,7 +1215,7 @@ function mend(){clearTimeout(st1);sh.forEach(function(c){c.remove()});sh=[];if(s
 function render(){
   msgs.forEach(function(m,i){m.classList.toggle('on',i<step)});
   if(af)af.classList.toggle('on',step>msgs.length);
-  if(step>msgs.length){if(!readyAt)readyAt=Date.now()+1500;shatter()}else{readyAt=0;mend()}
+  if(step>msgs.length){if(!readyAt)readyAt=Date.now()+2200;shatter()}else{readyAt=0;mend()}
   clearTimeout(tt);ty.classList.remove('on');
   var nx=msgs[step];
   if(nx&&step>0){tt=setTimeout(function(){ty.classList.toggle('r',nx.classList.contains('r'));nx.parentNode.insertBefore(ty,nx);ty.classList.add('on')},500)}
@@ -1224,7 +1224,7 @@ var body=sec.querySelector('.md-tk-body');
 function fix(){body.style.minHeight='';var sv=msgs.map(function(m){return m.classList.contains('on')});msgs.forEach(function(m){m.classList.add('on');m.style.animation='none'});ty.classList.add('on');body.appendChild(ty);var h=body.offsetHeight;ty.classList.remove('on');msgs.forEach(function(m,i){m.classList.toggle('on',sv[i]);m.style.animation=''});body.style.minHeight=h+'px'}
 fix();addEventListener('resize',fix);
 var autoT=0;function stopAuto(){clearInterval(autoT);autoT=0}
-window.mdTalk={el:sec,total:total,busy:function(){return step>=total&&Date.now()<readyAt},get step(){return step},get playing(){return !!autoT},next:function(){if(step<total){step++;render();return true}return false},prev:function(){stopAuto();if(step>0){step--;render();return true}return false},all:function(){stopAuto();step=total;render()},auto:function(){if(autoT||step>=total)return;autoT=setInterval(function(){if(!window.mdTalk.next())stopAuto()},720)},stopAuto:stopAuto};
+window.mdTalk={el:sec,total:total,busy:function(){return step>=total&&Date.now()<readyAt},get step(){return step},get playing(){return !!autoT},next:function(){if(step<total){step++;render();return true}return false},prev:function(){stopAuto();if(step>0){step--;render();return true}return false},all:function(){stopAuto();step=total;render()},auto:function(){if(autoT||step>=total)return;autoT=setInterval(function(){if(!window.mdTalk.next())stopAuto()},1300)},stopAuto:stopAuto};
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){window.mdTalk.all();return}
 // 데스크톱은 휠 단계(아래 스냅 스크립트), 모바일은 섹션을 고정해 두고 스크롤 진행에 따라 한 단계씩
 var desk=window.matchMedia('(min-width:1024px) and (pointer:fine)');
