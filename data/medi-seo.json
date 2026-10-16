@@ -1,8 +1,8 @@
 {
   "robots": "block",
-  "googleVerify": "TEST_GOOGLE_123",
-  "naverVerify": "TEST_NAVER_456",
-  "gaId": "G-TEST00000",
+  "googleVerify": "",
+  "naverVerify": "",
+  "gaId": "",
   "ogImage": "",
   "favicon": "",
   "touchIcon": ""
