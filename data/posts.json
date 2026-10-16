@@ -1,5 +1,21 @@
 [
   {
+    "slug": "test-admin-publish",
+    "cat": "병원 검색 노출",
+    "title": "관리자 발행 테스트 글입니다",
+    "desc": "발행 테스트 요약.",
+    "date": "2026-10-16",
+    "grad": "linear-gradient(135deg,#101F3F,#2B5CFF)",
+    "body": "",
+    "photo": "",
+    "faq": [
+      {
+        "q": "질문",
+        "a": "답변"
+      }
+    ]
+  },
+  {
     "slug": "hospital-blog-area-shrink",
     "cat": "병원 검색 노출",
     "title": "병원 블로그만으로 네이버 상위 노출이 어려워진 이유는?",
