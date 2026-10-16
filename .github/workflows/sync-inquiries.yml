@@ -28,8 +28,8 @@ jobs:
         run: |
           git config user.name "medi-sync"
           git config user.email "medi-sync@users.noreply.github.com"
-          if ! git diff --quiet -- data/inquiries.json; then
-            git add data/inquiries.json
+          git add data/inquiries.json
+          if ! git diff --cached --quiet; then
             git commit -m "상담 접수 동기화 $(date -u +'%Y-%m-%d %H:%M UTC')"
             git pull --rebase origin main
             git push origin HEAD:main
