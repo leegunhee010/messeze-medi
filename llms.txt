@@ -16,7 +16,15 @@
 
 ## 페이지
 - [메인](https://medi.messeze.com/): 사례, 서비스 구성, 요금, 지역별 진행 가능 여부
+- [요금](https://medi.messeze.com/pricing.html): AI 인식·AI 인용·AI 신뢰·맞춤 패키지 구성과 가격
 - [병원 FAQ](https://medi.messeze.com/faq.html): 병원 원장님들이 자주 묻는 질문
+- [병원 홈페이지 제작](https://medi.messeze.com/services/website-build.html): 환자 질문 20개로 짓는 AEO 홈페이지 (AI 인식 패키지)
+- [병원 플레이스 정비](https://medi.messeze.com/services/place.html): 지도 5곳·의료 디렉토리 3곳 정보 통일 (AI 인식 패키지)
+- [홈페이지 콘텐츠](https://medi.messeze.com/services/own-blog.html): 병원 홈페이지 진료 칼럼 월 20건 (AI 인용 패키지)
+- [AI 인용 콘텐츠](https://medi.messeze.com/services/contents.html): 네이버 블로그·티스토리·구글 블로그스팟 각 월 10건 (AI 인용 패키지)
+- [월간 노출 리포트](https://medi.messeze.com/services/report.html): 발행 내역·AI 노출 변화·보완 과제·다음 달 계획
+- [블로그](https://medi.messeze.com/blog/index.html): 병원 검색 노출과 AI 답변에 관한 칼럼
+- [전체 본문](https://medi.messeze.com/llms-full.txt): 위 페이지들의 본문과 FAQ 전문
 
 ## 연락처
 - 대표번호 1600-9487 · sales@firstmkt.co.kr
