@@ -101,7 +101,7 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.035em;line-height:1.22;word-break:k
 .mega-col a span{font-size:12.2px;color:var(--mut);display:block;margin-top:1px}
 .mega-col a:hover{background:var(--sky-2)}
 .mega-col a:hover b{color:var(--cobalt)}
-@media(max-width:900px){.nav-burger{display:block}.nav-in{gap:14px}.nav-cta{padding:9px 13px;font-size:13px}.brand img{height:22px!important}.mega{max-height:calc(100vh - 72px);overflow:auto}.mega-in{grid-template-columns:1fr;gap:18px}.mega-brand{min-height:auto;padding:18px 20px}}
+@media(max-width:980px){.nav-burger{display:block}.nav-in{gap:14px}.nav-cta{padding:9px 13px;font-size:13px}.brand img{height:22px!important}.mega{max-height:calc(100vh - 72px);overflow:auto}.mega-in{grid-template-columns:1fr;gap:18px}.mega-brand{min-height:auto;padding:18px 20px}}
 
 /* ============ HERO ============ */
 .hero{position:relative;padding:54px 0 90px;overflow:hidden;background:
