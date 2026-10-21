@@ -343,3 +343,4 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.035em;line-height:1.28;word-break:k
 /* kko-navfix: 모바일 헤더 CTA 줄바꿈 수정 (메인 home.css와 동일 규칙) */
 .nav-cta{white-space:nowrap;flex-shrink:0}
 @media(max-width:900px){.nav-in{gap:14px}.nav-cta{padding:9px 13px;font-size:13px}.brand img{height:22px!important}}
+.svcta-in>.btn{margin-top:28px}
