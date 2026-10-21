@@ -218,7 +218,7 @@ function bindConn(){const b=$('#cBtn');if(!b)return;b.onclick=async()=>{const id
   try{m.textContent='계정 저장 중…';await setSecret('MESSEZE_ADMIN_ID',id);await setSecret('MESSEZE_ADMIN_PW',pw);m.textContent='첫 동기화 실행 중…';await runSync(t=>m.textContent=t);inqShowConn=false;say('연결됐습니다. 접수함을 가져왔습니다.');vInq()}catch(e){say(e.message,true);inqShowConn=true;vInq()}}}
 
 /* ---------- copy ---------- */
-const COPY_PAGES={'index.html':'메인','pricing.html':'요금','faq.html':'FAQ','services/website-build.html':'홈페이지 제작','services/place.html':'플레이스 정비','services/visibility.html':'AI 노출 진단','services/own-blog.html':'홈페이지 콘텐츠','services/contents.html':'AI 인용 콘텐츠','services/report.html':'월간 리포트'};
+const COPY_PAGES={'index.html':'메인','pricing.html':'요금','faq.html':'FAQ','services/website-build.html':'홈페이지 제작','services/place.html':'플레이스 정비','services/own-blog.html':'홈페이지 콘텐츠','services/contents.html':'AI 인용 콘텐츠','services/report.html':'월간 리포트'};
 const copyPrefix=p=>p.startsWith('services/')?'svc.'+p.slice(9,-5)+'.':({'index.html':'home.','pricing.html':'price.','faq.html':'faqpage.'})[p];
 let cpPage='index.html',cpChanged={};
 function vCopy(){const v=$('#view');v.innerHTML=`<h2>문구 편집</h2><p class="sub">미리보기에서 글자를 눌러 바로 고치세요. 파란 테두리가 있는 글자만 수정됩니다.</p>
@@ -290,7 +290,7 @@ async function delPost(slug){const p=S.posts.find(x=>x.slug===slug);if(!p||!conf
 
 
 /* ---------- SEO ---------- */
-const SEO_PAGES=()=>[['index.html','메인'],['pricing.html','요금'],['faq.html','FAQ'],['blog/index.html','블로그 목록'],['services/website-build.html','서비스: 홈페이지 제작'],['services/place.html','서비스: 플레이스 정비'],['services/visibility.html','서비스: AI 노출 진단'],['services/own-blog.html','서비스: 홈페이지 콘텐츠'],['services/contents.html','서비스: AI 인용 콘텐츠'],['services/report.html','서비스: 월간 리포트']].concat(S.posts.map(p=>['blog/posts/'+p.slug+'.html','글: '+p.title]));
+const SEO_PAGES=()=>[['index.html','메인'],['pricing.html','요금'],['faq.html','FAQ'],['blog/index.html','블로그 목록'],['services/website-build.html','서비스: 홈페이지 제작'],['services/place.html','서비스: 플레이스 정비'],['services/own-blog.html','서비스: 홈페이지 콘텐츠'],['services/contents.html','서비스: AI 인용 콘텐츠'],['services/report.html','서비스: 월간 리포트']].concat(S.posts.map(p=>['blog/posts/'+p.slug+'.html','글: '+p.title]));
 const ASSET_PAGES=()=>SEO_PAGES().concat([['blog/posts/_tpl.html','블로그 템플릿']]);
 const unesc=s=>String(s||'').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
 const rxEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
