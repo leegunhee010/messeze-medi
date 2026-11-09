@@ -657,6 +657,8 @@ main #research .md-step b{grid-column:2;grid-row:2;font-size:16px;line-height:1.
 </style>
 <style id="mdm-mcta">body{word-break:keep-all;overflow-wrap:break-word}@media(max-width:640px){.nav .nav-cta{display:none!important}}@media(max-width:820px){.wrap.phead,.article.wrap,.wrap.thead,.wrap.tbody,.wrap.crumb,.wrap.gmain{padding-left:20px!important;padding-right:20px!important}.tabs{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;white-space:nowrap}.tabs::-webkit-scrollbar,.faq-side::-webkit-scrollbar{display:none}.faq-side{scrollbar-width:none}}</style>
 <style id="hero-resp">.ts-hero-photo{background-image:url(assets/medi/hero-doctor-1920.webp)!important}@media(max-width:820px){.ts-hero-photo{background-image:url(assets/medi/hero-doctor-1280.webp)!important}}</style>
+<!-- mdm-ads --><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-18561193720');(function(){var d=0,ev=['scroll','touchstart','mousemove','keydown'];function go(){if(d)return;d=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-18561193720';document.head.appendChild(s)}window.mdmAdsLoad=go;ev.forEach(function(e){addEventListener(e,go,{once:true,passive:true})});addEventListener('load',function(){setTimeout(go,4000)})})();</script><!-- /mdm-ads -->
+<!-- mdm-ga --><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HMM3HLK4V3');(function(){var d=0,ev=['scroll','touchstart','mousemove','keydown'];function go(){if(d)return;d=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-HMM3HLK4V3';document.head.appendChild(s)}ev.forEach(function(e){addEventListener(e,go,{once:true,passive:true})});addEventListener('load',function(){setTimeout(go,4000)})})();</script><!-- /mdm-ga -->
 </head>
 <body id="top">
 <header class="nav" id="nav">
@@ -1180,6 +1182,7 @@ function goSection(id){ var t=document.getElementById(id); if(t){ t.scrollIntoVi
     var btn=f.querySelector('button'); btn.disabled=true;
     try{
       await fetch('https://messeze.com/api/compat',{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
+      try{window.mdmAdsLoad&&mdmAdsLoad();gtag('event','conversion',{send_to:'AW-18561193720/nQtbCND0lrQdEPit1ZJF'});gtag('event','generate_lead',{form:'diag'});}catch(_){}
       f.innerHTML='<div class="done"><b>신청이 접수됐습니다.</b><p>영업일 기준 1일 내 진단 리포트와 함께 연락드리겠습니다.</p></div>'; return;
     }catch(err){ alert('접수에 실패했습니다. 잠시 후 다시 시도하거나 1600-9487로 연락해 주세요.'); }
     btn.disabled=false;
